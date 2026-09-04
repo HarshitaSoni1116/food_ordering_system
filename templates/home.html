@@ -1,16 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Foodie | Delicious Food Delivered
+{% endblock %}
 
-    <title>Foodie</title>
-</head>
+{% block extra_css %}
 
-<body>
+<link rel="stylesheet"
+      href="{% static 'css/home.css' %}">
 
-    <h1>Welcome to Foodie 🍔</h1>
-    <p>Food ordering system is starting!</p>
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- LEFT -->
+            <div class="col-lg-7">
+
+                <div class="hero-content">
+
+                    <div class="hero-badge">
+                        <i class="bi bi-stars"></i>
+                        Delicious food, delivered fast
+                    </div>
+
+                    <h1 class="hero-title">
+
+                        Your cravings,
+                        <br>
+
+                        our
+                        <span>delivery.</span>
+
+                    </h1>
+
+                    <p class="hero-description">
+
+                        Discover the best restaurants around you,
+                        order your favorite meals and enjoy
+                        delicious food at your doorstep.
+
+                    </p>
+
+
+                    <!-- SEARCH -->
+
+                    <form class="hero-search">
+
+                        <i class="bi bi-search hero-search-icon"></i>
+
+                        <input
+                            type="text"
+                            placeholder="Search for food or restaurants..."
+                        >
+
+                        <button type="submit">
+
+                            Search
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- STATS -->
+
+                    <div class="hero-stats">
+
+                        <div class="hero-stat">
+
+                            <strong>500+</strong>
+
+                            <span>
+                                Restaurants
+                            </span>
+
+                        </div>
+
+
+                        <div class="hero-stat">
+
+                            <strong>10K+</strong>
+
+                            <span>
+                                Happy Customers
+                            </span>
+
+                        </div>
+
+
+                        <div class="hero-stat">
+
+                            <strong>30 min</strong>
+
+                            <span>
+                                Average Delivery
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT -->
+
+            <div class="col-lg-5">
+
+                <div class="hero-image-wrapper">
+
+                    <div class="hero-image-circle">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80"
+                            alt="Delicious pizza"
+                        >
+
+                    </div>
+
+
+                    <!-- FLOATING CARD 1 -->
+
+                    <div class="hero-floating-card card-one">
+
+                        <i class="bi bi-star-fill"></i>
+
+                        <div>
+
+                            <strong>4.9</strong>
+
+                            <small class="d-block text-muted">
+                                Customer Rating
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FLOATING CARD 2 -->
+
+                    <div class="hero-floating-card card-two">
+
+                        <i class="bi bi-lightning-fill"></i>
+
+                        <div>
+
+                            <strong>Fast Delivery</strong>
+
+                            <small class="d-block text-muted">
+                                At your doorstep
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,238 @@
+/* =========================================
+   FOODIE - GLOBAL STYLES
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    background: #fff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.foodie-navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    padding: 14px 0;
+}
+
+.foodie-logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: #ff5a36 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 25px;
+}
+
+.navbar-nav {
+    gap: 8px;
+}
+
+.nav-link {
+    color: #555 !important;
+    font-weight: 500;
+    padding: 8px 14px !important;
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ff5a36 !important;
+}
+
+
+/* =========================================
+   NAVBAR BUTTONS
+========================================= */
+
+.icon-btn {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    color: #333;
+    position: relative;
+    cursor: pointer;
+}
+
+.icon-btn:hover {
+    color: #ff5a36;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+
+    width: 18px;
+    height: 18px;
+
+    background: #ff5a36;
+    color: white;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foodie-login-btn {
+    background: #ff5a36;
+    color: white;
+    border-radius: 8px;
+    padding: 9px 18px;
+    font-weight: 600;
+}
+
+.foodie-login-btn:hover {
+    background: #e94b29;
+    color: white;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.foodie-footer {
+    background: #181818;
+    color: #aaa;
+    padding: 70px 0 25px;
+    margin-top: 70px;
+}
+
+.footer-logo {
+    color: #ff5a36;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.footer-description {
+    margin-top: 18px;
+    max-width: 340px;
+    line-height: 1.8;
+}
+
+.foodie-footer h5 {
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.foodie-footer a:not(.footer-logo):not(.partner-btn) {
+    display: block;
+    color: #aaa;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.foodie-footer a:hover {
+    color: #ff5a36;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid #444;
+    border-radius: 50%;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    color: #aaa !important;
+}
+
+.social-links a:hover {
+    border-color: #ff5a36;
+    color: #ff5a36 !important;
+}
+
+.partner-btn {
+    display: inline-block !important;
+    background: #ff5a36;
+    color: white !important;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.partner-btn:hover {
+    background: #e94b29;
+}
+
+.foodie-footer hr {
+    border-color: #333;
+    margin: 45px 0 25px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 991px) {
+
+    .navbar-nav {
+        margin-top: 15px;
+    }
+
+    .foodie-navbar .d-flex {
+        margin-top: 15px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .foodie-footer {
+        padding-top: 50px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}

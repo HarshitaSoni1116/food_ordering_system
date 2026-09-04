@@ -1,0 +1,1 @@
+console.log("Foodie frontend loaded successfully!");
