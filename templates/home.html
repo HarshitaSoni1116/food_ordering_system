@@ -9,6 +9,12 @@ Foodie | Delicious Food Delivered
 <link rel="stylesheet"
       href="{% static 'css/home.css' %}">
 
+<link rel="stylesheet"
+      href="{% static 'css/categories.css' %}">
+
+<link rel="stylesheet"
+      href="{% static 'css/restaurants.css' %}">
+
 {% endblock %}
 
 {% block content %}
@@ -327,6 +333,520 @@ Foodie | Delicious Food Delivered
                 </a>
 
             </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================
+     POPULAR RESTAURANTS
+===================================== -->
+
+<section class="restaurants-section">
+
+    <div class="container">
+
+        <!-- Heading -->
+
+        <div class="section-heading">
+
+            <h2>
+                Popular Restaurants
+            </h2>
+
+            <p>
+                Discover the most loved restaurants near you
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Restaurant 1 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                            alt="The Food House"
+                        >
+
+                        <span class="restaurant-badge">
+                            Popular
+                        </span>
+
+                        <button
+                            class="restaurant-favorite"
+                            type="button"
+                            aria-label="Add to favorites"
+                        >
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="restaurant-content">
+
+                        <h4>
+                            The Food House
+                        </h4>
+
+                        <p class="restaurant-cuisine">
+                            Indian • North Indian • Chinese
+                        </p>
+
+
+                        <div class="restaurant-info">
+
+                            <span class="restaurant-rating">
+                                <i class="bi bi-star-fill"></i>
+                                4.8
+                            </span>
+
+                            <span>
+                                25-35 min
+                            </span>
+
+                            <span class="restaurant-delivery">
+                                <i class="bi bi-bicycle"></i>
+                                Free delivery
+                            </span>
+
+                        </div>
+
+
+                        <div class="restaurant-footer">
+
+                            <span class="restaurant-price">
+                                ₹₹ • ₹300 for two
+                            </span>
+
+                            <a href="#" class="view-menu">
+                                View Menu
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Restaurant 2 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+                            alt="Spice Garden"
+                        >
+
+                        <span class="restaurant-badge">
+                            Top Rated
+                        </span>
+
+                        <button
+                            class="restaurant-favorite"
+                            type="button"
+                            aria-label="Add to favorites"
+                        >
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="restaurant-content">
+
+                        <h4>
+                            Spice Garden
+                        </h4>
+
+                        <p class="restaurant-cuisine">
+                            Indian • Biryani • Mughlai
+                        </p>
+
+
+                        <div class="restaurant-info">
+
+                            <span class="restaurant-rating">
+                                <i class="bi bi-star-fill"></i>
+                                4.9
+                            </span>
+
+                            <span>
+                                20-30 min
+                            </span>
+
+                            <span class="restaurant-delivery">
+                                <i class="bi bi-bicycle"></i>
+                                Free delivery
+                            </span>
+
+                        </div>
+
+
+                        <div class="restaurant-footer">
+
+                            <span class="restaurant-price">
+                                ₹₹ • ₹350 for two
+                            </span>
+
+                            <a href="#" class="view-menu">
+                                View Menu
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Restaurant 3 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1579684947550-22e945225d9a?auto=format&fit=crop&w=800&q=80"
+                            alt="Pizza Paradise"
+                        >
+
+                        <span class="restaurant-badge">
+                            Bestseller
+                        </span>
+
+                        <button
+                            class="restaurant-favorite"
+                            type="button"
+                            aria-label="Add to favorites"
+                        >
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="restaurant-content">
+
+                        <h4>
+                            Pizza Paradise
+                        </h4>
+
+                        <p class="restaurant-cuisine">
+                            Pizza • Italian • Fast Food
+                        </p>
+
+
+                        <div class="restaurant-info">
+
+                            <span class="restaurant-rating">
+                                <i class="bi bi-star-fill"></i>
+                                4.7
+                            </span>
+
+                            <span>
+                                25-40 min
+                            </span>
+
+                            <span class="restaurant-delivery">
+                                <i class="bi bi-bicycle"></i>
+                                Free delivery
+                            </span>
+
+                        </div>
+
+
+                        <div class="restaurant-footer">
+
+                            <span class="restaurant-price">
+                                ₹₹ • ₹400 for two
+                            </span>
+
+                            <a href="#" class="view-menu">
+                                View Menu
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Restaurant 4 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80"
+                            alt="Urban Tadka"
+                        >
+
+                        <span class="restaurant-badge">
+                            Trending
+                        </span>
+
+                        <button
+                            class="restaurant-favorite"
+                            type="button"
+                            aria-label="Add to favorites"
+                        >
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="restaurant-content">
+
+                        <h4>
+                            Urban Tadka
+                        </h4>
+
+                        <p class="restaurant-cuisine">
+                            North Indian • Punjabi • Thali
+                        </p>
+
+
+                        <div class="restaurant-info">
+
+                            <span class="restaurant-rating">
+                                <i class="bi bi-star-fill"></i>
+                                4.6
+                            </span>
+
+                            <span>
+                                30-40 min
+                            </span>
+
+                            <span class="restaurant-delivery">
+                                <i class="bi bi-bicycle"></i>
+                                Free delivery
+                            </span>
+
+                        </div>
+
+
+                        <div class="restaurant-footer">
+
+                            <span class="restaurant-price">
+                                ₹₹ • ₹300 for two
+                            </span>
+
+                            <a href="#" class="view-menu">
+                                View Menu
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Restaurant 5 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80"
+                            alt="The Cafe Corner"
+                        >
+
+                        <span class="restaurant-badge">
+                            New
+                        </span>
+
+                        <button
+                            class="restaurant-favorite"
+                            type="button"
+                            aria-label="Add to favorites"
+                        >
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="restaurant-content">
+
+                        <h4>
+                            The Cafe Corner
+                        </h4>
+
+                        <p class="restaurant-cuisine">
+                            Cafe • Snacks • Beverages
+                        </p>
+
+
+                        <div class="restaurant-info">
+
+                            <span class="restaurant-rating">
+                                <i class="bi bi-star-fill"></i>
+                                4.5
+                            </span>
+
+                            <span>
+                                15-25 min
+                            </span>
+
+                            <span class="restaurant-delivery">
+                                <i class="bi bi-bicycle"></i>
+                                Free delivery
+                            </span>
+
+                        </div>
+
+
+                        <div class="restaurant-footer">
+
+                            <span class="restaurant-price">
+                                ₹ • ₹250 for two
+                            </span>
+
+                            <a href="#" class="view-menu">
+                                View Menu
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Restaurant 6 -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="restaurant-card">
+
+                    <div class="restaurant-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                            alt="Grill Nation"
+                        >
+
+                        <span class="restaurant-badge">
+                            Recommended
+                        </span>
+
+                        <button
+                            class="restaurant-favorite"
+                            type="button"
+                            aria-label="Add to favorites"
+                        >
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="restaurant-content">
+
+                        <h4>
+                            Grill Nation
+                        </h4>
+
+                        <p class="restaurant-cuisine">
+                            Grill • BBQ • Fast Food
+                        </p>
+
+
+                        <div class="restaurant-info">
+
+                            <span class="restaurant-rating">
+                                <i class="bi bi-star-fill"></i>
+                                4.8
+                            </span>
+
+                            <span>
+                                25-35 min
+                            </span>
+
+                            <span class="restaurant-delivery">
+                                <i class="bi bi-bicycle"></i>
+                                Free delivery
+                            </span>
+
+                        </div>
+
+
+                        <div class="restaurant-footer">
+
+                            <span class="restaurant-price">
+                                ₹₹ • ₹450 for two
+                            </span>
+
+                            <a href="#" class="view-menu">
+                                View Menu
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- View All -->
+
+        <div class="view-all-wrapper">
+
+            <a href="#" class="view-all-btn">
+
+                View All Restaurants
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
 
         </div>
 
