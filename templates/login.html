@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Foodie | Login
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+      href="{% static 'css/auth.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="auth-section">
+
+    <div class="container">
+
+        <div class="auth-wrapper">
+
+            <div class="auth-card">
+
+                <!-- Logo -->
+
+                <div class="auth-logo">
+
+                    <div class="auth-logo-icon">
+                        <i class="bi bi-egg-fried"></i>
+                    </div>
+
+                    <h2>
+                        Foodie
+                    </h2>
+
+                </div>
+
+
+                <h1>
+                    Welcome Back! 👋
+                </h1>
+
+                <p class="auth-subtitle">
+                    Login to continue ordering delicious food.
+                </p>
+
+
+                <!-- Login Form -->
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <div class="password-label">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <a href="{% url 'forgot_password' %}">
+                                 Forgot Password?
+                            </a>
+
+                        </div>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="bi bi-lock"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword('password', this)"
+                            >
+                                <i class="bi bi-eye"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Remember -->
+
+                    <div class="remember-row">
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                name="remember"
+                            >
+
+                            Remember me
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- Login -->
+
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+
+                        Login
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+
+                <!-- Signup -->
+
+                <p class="auth-switch">
+
+                    Don't have an account?
+
+                    <a href="{% url 'signup' %}">
+                        Create Account
+                    </a>
+
+                </p>
+
+
+                <div class="auth-divider">
+                    <span>OR</span>
+                </div>
+
+
+                <!-- Admin -->
+
+                <a
+                    href="{% url 'admin_login' %}"
+                    class="admin-login-link"
+                >
+
+                    <i class="bi bi-shield-lock"></i>
+
+                    Login as Admin
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+
+function togglePassword(inputId, button) {
+
+    const input = document.getElementById(inputId);
+    const icon = button.querySelector("i");
+
+    if (input.type === "password") {
+
+        input.type = "text";
+
+        icon.classList.remove("bi-eye");
+        icon.classList.add("bi-eye-slash");
+
+    } else {
+
+        input.type = "password";
+
+        icon.classList.remove("bi-eye-slash");
+        icon.classList.add("bi-eye");
+
+    }
+
+}
+
+</script>
+
+{% endblock %}

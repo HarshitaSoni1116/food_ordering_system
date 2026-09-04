@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Foodie | Special Offers
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+      href="{% static 'css/offers-page.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="offers-page-hero">
+
+    <div class="container text-center">
+
+        <span class="page-badge">
+            <i class="bi bi-gift"></i>
+            Exclusive Deals
+        </span>
+
+        <h1>
+            Grab Amazing Offers
+        </h1>
+
+        <p>
+            Save more while enjoying your favorite food.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="offers-page-section">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <!-- Offer 1 -->
+
+            <div class="col-md-6">
+
+                <div class="big-offer-card orange">
+
+                    <span class="offer-small">
+                        FIRST ORDER
+                    </span>
+
+                    <h2>
+                        20% OFF
+                    </h2>
+
+                    <p>
+                        Get 20% off on your first order.
+                        Maximum discount ₹150.
+                    </p>
+
+                    <div class="coupon-code">
+                        FOODIE20
+                    </div>
+
+                    <button>
+                        Copy Coupon
+                        <i class="bi bi-copy"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Offer 2 -->
+
+            <div class="col-md-6">
+
+                <div class="big-offer-card dark">
+
+                    <span class="offer-small">
+                        FREE DELIVERY
+                    </span>
+
+                    <h2>
+                        ₹0 Delivery
+                    </h2>
+
+                    <p>
+                        Free delivery on orders above ₹299.
+                    </p>
+
+                    <div class="coupon-code">
+                        FREEDELIVERY
+                    </div>
+
+                    <button>
+                        Copy Coupon
+                        <i class="bi bi-copy"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Offer 3 -->
+
+            <div class="col-md-6">
+
+                <div class="big-offer-card green">
+
+                    <span class="offer-small">
+                        WEEKEND DEAL
+                    </span>
+
+                    <h2>
+                        ₹100 OFF
+                    </h2>
+
+                    <p>
+                        Save ₹100 on orders above ₹599.
+                    </p>
+
+                    <div class="coupon-code">
+                        WEEKEND100
+                    </div>
+
+                    <button>
+                        Copy Coupon
+                        <i class="bi bi-copy"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Offer 4 -->
+
+            <div class="col-md-6">
+
+                <div class="big-offer-card purple">
+
+                    <span class="offer-small">
+                        SPECIAL DEAL
+                    </span>
+
+                    <h2>
+                        ₹200 OFF
+                    </h2>
+
+                    <p>
+                        Get ₹200 off on selected restaurants.
+                    </p>
+
+                    <div class="coupon-code">
+                        FOOD200
+                    </div>
+
+                    <button>
+                        Copy Coupon
+                        <i class="bi bi-copy"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

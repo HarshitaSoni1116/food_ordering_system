@@ -1,0 +1,137 @@
+/* =====================================
+   ABOUT PAGE
+===================================== */
+
+.about-hero {
+    padding: 90px 0;
+    background: #fff7f3;
+}
+
+.about-hero h1 {
+    margin: 18px 0;
+    font-size: 48px;
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.about-hero h1 span {
+    color: #ff5a36;
+}
+
+.about-hero p {
+    max-width: 560px;
+    color: #777;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.about-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    background: #ff5a36;
+    color: #fff;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.about-btn:hover {
+    background: #e64320;
+    color: #fff;
+}
+
+.about-image {
+    height: 450px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mission-section {
+    padding: 80px 0;
+}
+
+.mission-card {
+    height: 100%;
+    padding: 35px 25px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.07);
+}
+
+.mission-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #fff7f3;
+    color: #ff5a36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.mission-card h3 {
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.mission-card p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.about-stats {
+    padding: 60px 0;
+    background: #222;
+    color: #fff;
+}
+
+.about-stats strong {
+    display: block;
+    color: #ff5a36;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.about-stats span {
+    display: block;
+    margin-top: 5px;
+    color: #bbb;
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+
+    .about-hero {
+        padding: 60px 0;
+    }
+
+    .about-hero h1 {
+        font-size: 36px;
+    }
+
+    .about-image {
+        height: 320px;
+    }
+
+    .mission-section {
+        padding: 60px 0;
+    }
+}

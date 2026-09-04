@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Foodie | About Us
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+      href="{% static 'css/about-page.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =====================================
+     ABOUT HERO
+===================================== -->
+
+<section class="about-hero">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <span class="page-badge">
+                    <i class="bi bi-heart-fill"></i>
+                    About Foodie
+                </span>
+
+                <h1>
+                    Making Food
+                    <span>Moments</span>
+                    Better.
+                </h1>
+
+                <p>
+                    Foodie is built to make ordering delicious food
+                    simple, convenient and enjoyable. We connect
+                    hungry customers with amazing local restaurants.
+                </p>
+
+                <a href="{% url 'restaurants' %}"
+                   class="about-btn">
+                    Explore Restaurants
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="about-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
+                        alt="Delicious food"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     OUR MISSION
+===================================== -->
+
+<section class="mission-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>
+                Our Mission
+            </h2>
+
+            <p>
+                Bringing people and great food together.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="mission-card">
+
+                    <div class="mission-icon">
+                        <i class="bi bi-shop"></i>
+                    </div>
+
+                    <h3>
+                        Support Local Restaurants
+                    </h3>
+
+                    <p>
+                        We help restaurants reach more customers
+                        and grow their business.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="mission-card">
+
+                    <div class="mission-icon">
+                        <i class="bi bi-emoji-smile"></i>
+                    </div>
+
+                    <h3>
+                        Happy Customers
+                    </h3>
+
+                    <p>
+                        We focus on creating a smooth and enjoyable
+                        food ordering experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="mission-card">
+
+                    <div class="mission-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+
+                    <h3>
+                        Fast Delivery
+                    </h3>
+
+                    <p>
+                        Great food should reach you fresh,
+                        quickly and reliably.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     STATS
+===================================== -->
+
+<section class="about-stats">
+
+    <div class="container">
+
+        <div class="row text-center g-4">
+
+            <div class="col-6 col-md-3">
+
+                <strong>
+                    500+
+                </strong>
+
+                <span>
+                    Restaurants
+                </span>
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <strong>
+                    10K+
+                </strong>
+
+                <span>
+                    Happy Customers
+                </span>
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <strong>
+                    50K+
+                </strong>
+
+                <span>
+                    Orders Delivered
+                </span>
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <strong>
+                    4.9/5
+                </strong>
+
+                <span>
+                    Customer Rating
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
