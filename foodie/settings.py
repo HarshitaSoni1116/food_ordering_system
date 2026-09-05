@@ -38,7 +38,10 @@ ALLOWED_HOSTS = [
 if os.getenv("RENDER_EXTERNAL_HOSTNAME"):
     ALLOWED_HOSTS.append(os.getenv("RENDER_EXTERNAL_HOSTNAME"))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["foodie-88k6.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -143,3 +146,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://foodie-88k6.onrender.com",
+]
