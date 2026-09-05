@@ -1,0 +1,393 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Admin Dashboard | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/admin-dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-dashboard">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+
+        <div class="admin-brand">
+            <div class="admin-logo">
+                <i class="bi bi-shield-check"></i>
+            </div>
+            <div>
+                <h4>Foodie</h4>
+                <span>Admin Panel</span>
+            </div>
+        </div>
+
+        <nav class="admin-nav">
+
+            <a href="#" class="admin-nav-link active">
+                <i class="bi bi-grid-1x2-fill"></i>
+                Dashboard
+            </a>
+
+            <a href="#" class="admin-nav-link">
+                <i class="bi bi-people-fill"></i>
+                Users
+                <span>1,248</span>
+            </a>
+
+            <a href="#" class="admin-nav-link">
+                <i class="bi bi-shop"></i>
+                Restaurants
+                <span>86</span>
+            </a>
+
+            <a href="#" class="admin-nav-link">
+                <i class="bi bi-basket-fill"></i>
+                Orders
+            </a>
+
+            <a href="#" class="admin-nav-link">
+                <i class="bi bi-grid"></i>
+                Food Items
+            </a>
+
+            <a href="#" class="admin-nav-link">
+                <i class="bi bi-tag-fill"></i>
+                Offers
+            </a>
+
+            <a href="#" class="admin-nav-link">
+                <i class="bi bi-bar-chart-fill"></i>
+                Analytics
+            </a>
+
+            <a href="#" class="admin-nav-link">
+                <i class="bi bi-star-fill"></i>
+                Reviews
+            </a>
+
+        </nav>
+
+        <div class="admin-bottom">
+
+            <a href="#" class="admin-nav-link">
+                <i class="bi bi-gear-fill"></i>
+                Settings
+            </a>
+
+            <a href="{% url 'home' %}" class="admin-nav-link">
+                <i class="bi bi-box-arrow-left"></i>
+                Back to Foodie
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="admin-main">
+
+        <!-- Header -->
+        <header class="admin-header">
+
+            <div class="admin-heading">
+                <button class="admin-menu-btn" id="adminMenuBtn">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div>
+                    <h1>Admin Dashboard</h1>
+                    <p>Monitor and manage your Foodie platform.</p>
+                </div>
+            </div>
+
+            <div class="admin-header-right">
+
+                <button class="admin-notification">
+                    <i class="bi bi-bell"></i>
+                    <span></span>
+                </button>
+
+                <div class="admin-avatar">AD</div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Stats -->
+        <section class="admin-stats">
+
+            <div class="admin-stat">
+                <div class="admin-stat-icon orange">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+                <div>
+                    <span>Total Users</span>
+                    <h3>12,840</h3>
+                    <small>↑ 14.8% this month</small>
+                </div>
+            </div>
+
+            <div class="admin-stat">
+                <div class="admin-stat-icon green">
+                    <i class="bi bi-shop"></i>
+                </div>
+                <div>
+                    <span>Restaurants</span>
+                    <h3>486</h3>
+                    <small>↑ 8.4% this month</small>
+                </div>
+            </div>
+
+            <div class="admin-stat">
+                <div class="admin-stat-icon blue">
+                    <i class="bi bi-bag-check-fill"></i>
+                </div>
+                <div>
+                    <span>Total Orders</span>
+                    <h3>48,290</h3>
+                    <small>↑ 18.2% this month</small>
+                </div>
+            </div>
+
+            <div class="admin-stat">
+                <div class="admin-stat-icon purple">
+                    <i class="bi bi-currency-rupee"></i>
+                </div>
+                <div>
+                    <span>Total Revenue</span>
+                    <h3>₹24.8L</h3>
+                    <small>↑ 21.6% this month</small>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Main Grid -->
+        <section class="admin-grid">
+
+            <!-- Recent Orders -->
+            <div class="admin-card orders-admin-card">
+
+                <div class="admin-card-header">
+                    <div>
+                        <h2>Recent Orders</h2>
+                        <p>Latest platform orders</p>
+                    </div>
+
+                    <button class="admin-view-btn">View All</button>
+                </div>
+
+                <div class="admin-table-wrap">
+
+                    <table class="admin-table">
+
+                        <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Customer</th>
+                                <th>Restaurant</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><strong>#FD20291</strong></td>
+                                <td>Rahul Sharma</td>
+                                <td>Pizza Paradise</td>
+                                <td>₹748</td>
+                                <td><b class="status preparing">Preparing</b></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>#FD20290</strong></td>
+                                <td>Priya Singh</td>
+                                <td>Spice Garden</td>
+                                <td>₹529</td>
+                                <td><b class="status delivered">Delivered</b></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>#FD20289</strong></td>
+                                <td>Aman Gupta</td>
+                                <td>The Food House</td>
+                                <td>₹899</td>
+                                <td><b class="status delivered">Delivered</b></td>
+                            </tr>
+
+                            <tr>
+                                <td><strong>#FD20288</strong></td>
+                                <td>Ananya Patel</td>
+                                <td>Urban Tadka</td>
+                                <td>₹449</td>
+                                <td><b class="status cancelled">Cancelled</b></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- Platform Overview -->
+            <div class="admin-card">
+
+                <div class="admin-card-header">
+                    <div>
+                        <h2>Platform Overview</h2>
+                        <p>Current system status</p>
+                    </div>
+                </div>
+
+                <div class="overview-list">
+
+                    <div class="overview-item">
+                        <div>
+                            <i class="bi bi-shop"></i>
+                            <span>Active Restaurants</span>
+                        </div>
+                        <strong>421</strong>
+                    </div>
+
+                    <div class="overview-item">
+                        <div>
+                            <i class="bi bi-person-check"></i>
+                            <span>Active Users</span>
+                        </div>
+                        <strong>9,842</strong>
+                    </div>
+
+                    <div class="overview-item">
+                        <div>
+                            <i class="bi bi-bag"></i>
+                            <span>Orders Today</span>
+                        </div>
+                        <strong>428</strong>
+                    </div>
+
+                    <div class="overview-item">
+                        <div>
+                            <i class="bi bi-star"></i>
+                            <span>Average Rating</span>
+                        </div>
+                        <strong>4.7 ⭐</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Restaurants -->
+            <div class="admin-card">
+
+                <div class="admin-card-header">
+                    <div>
+                        <h2>Top Restaurants</h2>
+                        <p>Highest performing restaurants</p>
+                    </div>
+
+                    <button class="admin-view-btn">View All</button>
+                </div>
+
+                <div class="restaurant-list">
+
+                    <div class="admin-restaurant">
+                        <div class="restaurant-rank">1</div>
+                        <div class="restaurant-mini">
+                            <div>PP</div>
+                        </div>
+                        <div class="restaurant-name">
+                            <strong>Pizza Paradise</strong>
+                            <span>Jabalpur</span>
+                        </div>
+                        <strong>₹84,520</strong>
+                    </div>
+
+                    <div class="admin-restaurant">
+                        <div class="restaurant-rank">2</div>
+                        <div class="restaurant-mini">
+                            <div>SG</div>
+                        </div>
+                        <div class="restaurant-name">
+                            <strong>Spice Garden</strong>
+                            <span>Jabalpur</span>
+                        </div>
+                        <strong>₹71,840</strong>
+                    </div>
+
+                    <div class="admin-restaurant">
+                        <div class="restaurant-rank">3</div>
+                        <div class="restaurant-mini">
+                            <div>TF</div>
+                        </div>
+                        <div class="restaurant-name">
+                            <strong>The Food House</strong>
+                            <span>Jabalpur</span>
+                        </div>
+                        <strong>₹65,290</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quick Actions -->
+            <div class="admin-card">
+
+                <div class="admin-card-header">
+                    <div>
+                        <h2>Quick Actions</h2>
+                        <p>Manage platform</p>
+                    </div>
+                </div>
+
+                <div class="admin-actions">
+
+                    <button>
+                        <i class="bi bi-person-plus"></i>
+                        Add User
+                    </button>
+
+                    <button>
+                        <i class="bi bi-shop-window"></i>
+                        Add Restaurant
+                    </button>
+
+                    <button>
+                        <i class="bi bi-tag"></i>
+                        Create Offer
+                    </button>
+
+                    <button>
+                        <i class="bi bi-file-earmark-bar-graph"></i>
+                        Generate Report
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/admin-dashboard.js' %}"></script>
+{% endblock %}

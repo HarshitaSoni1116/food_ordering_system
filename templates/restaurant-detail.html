@@ -1,0 +1,688 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/restaurant-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================
+     RESTAURANT HERO
+========================= -->
+
+<section class="restaurant-detail-hero">
+
+    <div class="restaurant-hero-overlay"></div>
+
+    <div class="container restaurant-hero-content">
+
+        <a href="{% url 'restaurants' %}" class="back-link">
+            <i class="bi bi-arrow-left"></i>
+            Back to Restaurants
+        </a>
+
+        <div class="restaurant-main-info">
+
+            <div class="restaurant-logo">
+                <i class="bi bi-shop"></i>
+            </div>
+
+            <div>
+                <span class="restaurant-status">
+                    <span></span> Open Now
+                </span>
+
+                <h1>The Food House</h1>
+
+                <p class="restaurant-cuisine">
+                    North Indian • Chinese • Fast Food
+                </p>
+
+                <div class="restaurant-meta">
+
+                    <span>
+                        <i class="bi bi-star-fill"></i>
+                        4.8
+                    </span>
+
+                    <span>
+                        <i class="bi bi-clock"></i>
+                        25–35 min
+                    </span>
+
+                    <span>
+                        <i class="bi bi-bicycle"></i>
+                        Free Delivery
+                    </span>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RESTAURANT INFORMATION
+========================= -->
+
+<section class="restaurant-info-section">
+
+    <div class="container">
+
+        <div class="restaurant-info-grid">
+
+            <div class="restaurant-about">
+
+                <h2>About The Food House</h2>
+
+                <p>
+                    Welcome to The Food House! We serve delicious Indian,
+                    Chinese and fast food made with fresh ingredients and
+                    lots of love.
+                </p>
+
+                <div class="info-items">
+
+                    <div class="info-item">
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <div>
+                            <strong>Location</strong>
+                            <span>Jabalpur, Madhya Pradesh</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-clock-fill"></i>
+
+                        <div>
+                            <strong>Opening Hours</strong>
+                            <span>10:00 AM – 11:00 PM</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-currency-rupee"></i>
+
+                        <div>
+                            <strong>Average Cost</strong>
+                            <span>₹250 for two</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="restaurant-highlight">
+
+                <div class="highlight-card">
+
+                    <i class="bi bi-star-fill"></i>
+
+                    <strong>4.8</strong>
+
+                    <span>Excellent Rating</span>
+
+                </div>
+
+                <div class="highlight-card">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <strong>1,200+</strong>
+
+                    <span>Happy Customers</span>
+
+                </div>
+
+                <div class="highlight-card">
+
+                    <i class="bi bi-bicycle"></i>
+
+                    <strong>30 min</strong>
+
+                    <span>Average Delivery</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MENU SECTION
+========================= -->
+
+<section class="restaurant-menu-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">OUR MENU</span>
+
+                <h2>What are you craving?</h2>
+
+                <p>
+                    Choose from our delicious selection.
+                </p>
+            </div>
+
+            <div class="food-search">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="text"
+                    placeholder="Search food..."
+                    id="foodSearch"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOD CATEGORIES -->
+
+        <div class="food-categories">
+
+            <button class="category-btn active">
+                All
+            </button>
+
+            <button class="category-btn">
+                Starters
+            </button>
+
+            <button class="category-btn">
+                Main Course
+            </button>
+
+            <button class="category-btn">
+                Pizza
+            </button>
+
+            <button class="category-btn">
+                Burgers
+            </button>
+
+            <button class="category-btn">
+                Chinese
+            </button>
+
+            <button class="category-btn">
+                Desserts
+            </button>
+
+            <button class="category-btn">
+                Drinks
+            </button>
+
+        </div>
+
+
+        <!-- FOOD GRID -->
+
+        <div class="food-grid">
+
+            <!-- FOOD 1 -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"
+                        alt="Paneer Tikka"
+                    >
+
+                    <span class="veg-badge">
+                        <i class="bi bi-circle-fill"></i>
+                        Veg
+                    </span>
+
+                    <button class="food-favorite">
+                        <i class="bi bi-heart"></i>
+                    </button>
+
+                </div>
+
+                <div class="food-content">
+
+                    <h3>Paneer Tikka</h3>
+
+                    <p>
+                        Soft paneer marinated with aromatic spices
+                        and grilled to perfection.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹220</strong>
+
+                        <button class="add-food-btn">
+                            <i class="bi bi-plus-lg"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOD 2 -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80"
+                        alt="Margherita Pizza"
+                    >
+
+                    <span class="veg-badge">
+                        <i class="bi bi-circle-fill"></i>
+                        Veg
+                    </span>
+
+                    <button class="food-favorite">
+                        <i class="bi bi-heart"></i>
+                    </button>
+
+                </div>
+
+                <div class="food-content">
+
+                    <h3>Margherita Pizza</h3>
+
+                    <p>
+                        Classic pizza topped with fresh mozzarella,
+                        tomato and basil.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹299</strong>
+
+                        <button class="add-food-btn">
+                            <i class="bi bi-plus-lg"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOD 3 -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+                        alt="Classic Burger"
+                    >
+
+                    <span class="nonveg-badge">
+                        <i class="bi bi-circle-fill"></i>
+                        Non-Veg
+                    </span>
+
+                    <button class="food-favorite">
+                        <i class="bi bi-heart"></i>
+                    </button>
+
+                </div>
+
+                <div class="food-content">
+
+                    <h3>Classic Chicken Burger</h3>
+
+                    <p>
+                        Crispy chicken patty with fresh vegetables
+                        and creamy sauce.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹249</strong>
+
+                        <button class="add-food-btn">
+                            <i class="bi bi-plus-lg"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOD 4 -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=80"
+                        alt="Fried Rice"
+                    >
+
+                    <span class="veg-badge">
+                        <i class="bi bi-circle-fill"></i>
+                        Veg
+                    </span>
+
+                    <button class="food-favorite">
+                        <i class="bi bi-heart"></i>
+                    </button>
+
+                </div>
+
+                <div class="food-content">
+
+                    <h3>Veg Fried Rice</h3>
+
+                    <p>
+                        Fragrant rice tossed with fresh vegetables
+                        and Chinese sauces.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹199</strong>
+
+                        <button class="add-food-btn">
+                            <i class="bi bi-plus-lg"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOD 5 -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=700&q=80"
+                        alt="Pasta"
+                    >
+
+                    <span class="veg-badge">
+                        <i class="bi bi-circle-fill"></i>
+                        Veg
+                    </span>
+
+                    <button class="food-favorite">
+                        <i class="bi bi-heart"></i>
+                    </button>
+
+                </div>
+
+                <div class="food-content">
+
+                    <h3>Creamy White Pasta</h3>
+
+                    <p>
+                        Creamy pasta prepared with herbs,
+                        cheese and fresh vegetables.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹229</strong>
+
+                        <button class="add-food-btn">
+                            <i class="bi bi-plus-lg"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOD 6 -->
+
+            <div class="food-card">
+
+                <div class="food-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80"
+                        alt="Chocolate Cake"
+                    >
+
+                    <span class="veg-badge">
+                        <i class="bi bi-circle-fill"></i>
+                        Veg
+                    </span>
+
+                    <button class="food-favorite">
+                        <i class="bi bi-heart"></i>
+                    </button>
+
+                </div>
+
+                <div class="food-content">
+
+                    <h3>Chocolate Cake</h3>
+
+                    <p>
+                        Rich and moist chocolate cake topped
+                        with creamy chocolate frosting.
+                    </p>
+
+                    <div class="food-bottom">
+
+                        <strong>₹149</strong>
+
+                        <button class="add-food-btn">
+                            <i class="bi bi-plus-lg"></i>
+                            Add
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RESTAURANT CTA
+========================= -->
+
+<section class="restaurant-cta">
+
+    <div class="container">
+
+        <div class="restaurant-cta-content">
+
+            <div>
+
+                <span>Hungry already?</span>
+
+                <h2>
+                    Order your favorites now!
+                </h2>
+
+                <p>
+                    Fresh food, fast delivery and amazing taste.
+                </p>
+
+            </div>
+
+            <a href="{% url 'restaurants' %}" class="cta-btn">
+                Explore More Restaurants
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =========================
+       CATEGORY FILTER
+    ========================= */
+
+    const categoryButtons =
+        document.querySelectorAll(".category-btn");
+
+    categoryButtons.forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            categoryButtons.forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+            this.classList.add("active");
+
+        });
+
+    });
+
+
+    /* =========================
+       FOOD SEARCH
+    ========================= */
+
+    const searchInput =
+        document.getElementById("foodSearch");
+
+    const foodCards =
+        document.querySelectorAll(".food-card");
+
+    searchInput.addEventListener("input", function () {
+
+        const searchValue =
+            this.value.toLowerCase().trim();
+
+        foodCards.forEach(card => {
+
+            const foodName =
+                card.querySelector("h3")
+                    .textContent
+                    .toLowerCase();
+
+            if (foodName.includes(searchValue)) {
+
+                card.style.display = "";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+
+    /* =========================
+       FAVORITE BUTTON
+    ========================= */
+
+    const favoriteButtons =
+        document.querySelectorAll(".food-favorite");
+
+    favoriteButtons.forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            const icon = this.querySelector("i");
+
+            icon.classList.toggle("bi-heart");
+            icon.classList.toggle("bi-heart-fill");
+
+        });
+
+    });
+
+
+    /* =========================
+       ADD TO CART
+    ========================= */
+
+    const addButtons =
+        document.querySelectorAll(".add-food-btn");
+
+    addButtons.forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            const originalText = this.innerHTML;
+
+            this.innerHTML =
+                '<i class="bi bi-check-lg"></i> Added';
+
+            this.classList.add("added");
+
+            setTimeout(() => {
+
+                this.innerHTML = originalText;
+
+                this.classList.remove("added");
+
+            }, 1500);
+
+        });
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

@@ -118,15 +118,17 @@
 
                     </button>
 
+                
                     <!-- Cart -->
-                    <button class="icon-btn cart-btn"
-                            title="Cart">
+                        <a href="{% url 'cart' %}"
+                            class="icon-btn cart-btn"
+                            title="Cart"
+                            aria-label="Shopping Cart">
+                             <i class="bi bi-bag"></i>
 
-                        <i class="bi bi-bag"></i>
+                             <span class="cart-count">0</span>
 
-                        <span class="cart-count">0</span>
-
-                    </button>
+                        </a>
 
                     <!-- Login -->
                     <a href="{% url 'login' %}" class="btn btn-primary">
@@ -281,6 +283,22 @@
     <script src="{% static 'js/main.js' %}"></script>
 
     {% block extra_js %}{% endblock %}
+
+    <!-- Global Loader -->
+        <div class="foodie-loader" id="foodieLoader">
+             <div class="loader-content">
+                  <div class="loader-spinner"></div>
+                     <p>Loading Foodie...</p>
+                 </div>
+            </div>
+
+    <!-- Toast Container -->
+        <div id="toastContainer"></div>
+
+<!-- Scroll To Top -->
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up"></i>
+</button>
 
 </body>
 </html>

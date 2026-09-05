@@ -1,0 +1,515 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Profile | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="profile-page">
+
+    <div class="container">
+
+        <!-- Profile Header -->
+
+        <div class="profile-header">
+
+            <div class="profile-cover"></div>
+
+            <div class="profile-header-content">
+
+                <div class="profile-avatar">
+                    HS
+                </div>
+
+                <div class="profile-main-info">
+
+                    <h1>Harshita Soni</h1>
+
+                    <p>
+                        <i class="bi bi-envelope"></i>
+                        harshita@example.com
+                    </p>
+
+                    <span>
+                        <i class="bi bi-calendar3"></i>
+                        Member since 2026
+                    </span>
+
+                </div>
+
+                <button class="edit-profile-btn"
+                        id="editProfileBtn">
+
+                    <i class="bi bi-pencil"></i>
+                    Edit Profile
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="row g-4 mt-1">
+
+            <!-- ================= LEFT ================= -->
+
+            <div class="col-lg-8">
+
+                <!-- Personal Information -->
+
+                <div class="profile-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <h3>Personal Information</h3>
+
+                            <p>
+                                Manage your personal details.
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-person-vcard"></i>
+
+                    </div>
+
+
+                    <div class="profile-info-grid">
+
+                        <div class="info-item">
+
+                            <span>Full Name</span>
+
+                            <strong>Harshita Soni</strong>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span>Phone Number</span>
+
+                            <strong>+91 98765 43210</strong>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span>Email Address</span>
+
+                            <strong>harshita@example.com</strong>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span>Date of Birth</span>
+
+                            <strong>Not added</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Saved Address -->
+
+                <div class="profile-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <h3>Saved Addresses</h3>
+
+                            <p>
+                                Manage your delivery addresses.
+                            </p>
+
+                        </div>
+
+                        <button class="add-address-btn">
+
+                            <i class="bi bi-plus-lg"></i>
+                            Add Address
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="address-list">
+
+                        <div class="saved-address">
+
+                            <div class="address-top">
+
+                                <div class="address-label">
+
+                                    <i class="bi bi-house-fill"></i>
+
+                                    <strong>Home</strong>
+
+                                </div>
+
+                                <span class="default-badge">
+                                    Default
+                                </span>
+
+                            </div>
+
+
+                            <p>
+                                Harshita Soni<br>
+                                123 Main Street, Near City Center,
+                                Jabalpur, Madhya Pradesh - 482001
+                            </p>
+
+
+                            <div class="address-actions">
+
+                                <button>
+                                    <i class="bi bi-pencil"></i>
+                                    Edit
+                                </button>
+
+                                <button>
+                                    <i class="bi bi-trash3"></i>
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="saved-address">
+
+                            <div class="address-top">
+
+                                <div class="address-label">
+
+                                    <i class="bi bi-briefcase-fill"></i>
+
+                                    <strong>Work</strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <p>
+                                Harshita Soni<br>
+                                45 Business Park, Civil Lines,
+                                Jabalpur, Madhya Pradesh - 482001
+                            </p>
+
+
+                            <div class="address-actions">
+
+                                <button>
+                                    <i class="bi bi-pencil"></i>
+                                    Edit
+                                </button>
+
+                                <button>
+                                    <i class="bi bi-trash3"></i>
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Account Settings -->
+
+                <div class="profile-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <h3>Account Settings</h3>
+
+                            <p>
+                                Manage your Foodie account.
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-gear"></i>
+
+                    </div>
+
+
+                    <div class="settings-list">
+
+                        <div class="setting-item">
+
+                            <div class="setting-icon">
+                                <i class="bi bi-bell"></i>
+                            </div>
+
+                            <div class="setting-info">
+
+                                <strong>Notifications</strong>
+
+                                <span>
+                                    Receive updates about your orders.
+                                </span>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-item">
+
+                            <div class="setting-icon">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+
+                            <div class="setting-info">
+
+                                <strong>Password & Security</strong>
+
+                                <span>
+                                    Change your password and security settings.
+                                </span>
+
+                            </div>
+
+                            <button class="setting-arrow">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RIGHT ================= -->
+
+            <div class="col-lg-4">
+
+                <!-- Profile Stats -->
+
+                <div class="profile-stats">
+
+                    <h3>Your Foodie Journey</h3>
+
+                    <div class="stat-grid">
+
+                        <div class="profile-stat">
+
+                            <i class="bi bi-bag-check"></i>
+
+                            <strong>12</strong>
+
+                            <span>Orders</span>
+
+                        </div>
+
+
+                        <div class="profile-stat">
+
+                            <i class="bi bi-heart"></i>
+
+                            <strong>8</strong>
+
+                            <span>Favorites</span>
+
+                        </div>
+
+
+                        <div class="profile-stat">
+
+                            <i class="bi bi-star"></i>
+
+                            <strong>4.9</strong>
+
+                            <span>Rating</span>
+
+                        </div>
+
+
+                        <div class="profile-stat">
+
+                            <i class="bi bi-gift"></i>
+
+                            <strong>₹350</strong>
+
+                            <span>Saved</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quick Links -->
+
+                <div class="quick-links">
+
+                    <h3>Quick Links</h3>
+
+                    <a href="{% url 'my_orders' %}">
+                        <span>
+                            <i class="bi bi-bag"></i>
+                            My Orders
+                        </span>
+
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+
+                    <a href="#">
+                        <span>
+                            <i class="bi bi-heart"></i>
+                            Favorites
+                        </span>
+
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+
+                    <a href="{% url 'cart' %}">
+                        <span>
+                            <i class="bi bi-cart3"></i>
+                            My Cart
+                        </span>
+
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+
+                    <a href="#">
+                        <span>
+                            <i class="bi bi-question-circle"></i>
+                            Help & Support
+                        </span>
+
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+
+                </div>
+
+
+                <!-- Logout -->
+
+                <button class="logout-btn"
+                        id="logoutBtn">
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Edit Profile Modal -->
+
+<div class="profile-modal"
+     id="profileModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close"
+                id="modalClose">
+
+            <i class="bi bi-x-lg"></i>
+
+        </button>
+
+        <h3>Edit Profile</h3>
+
+        <p>
+            Update your personal information.
+        </p>
+
+
+        <div class="modal-form">
+
+            <label>Full Name</label>
+
+            <input
+                type="text"
+                value="Harshita Soni"
+                id="editName"
+            >
+
+
+            <label>Phone Number</label>
+
+            <input
+                type="tel"
+                value="+91 98765 43210"
+                id="editPhone"
+            >
+
+
+            <label>Email Address</label>
+
+            <input
+                type="email"
+                value="harshita@example.com"
+                id="editEmail"
+            >
+
+
+            <button id="saveProfileBtn">
+                Save Changes
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="{% static 'js/profile.js' %}"></script>
+
+{% endblock %}

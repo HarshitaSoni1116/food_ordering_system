@@ -1,0 +1,492 @@
+/* =========================================
+   FOODIE - ADMIN DASHBOARD
+========================================= */
+
+.admin-dashboard {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    background: #f7f8fa;
+}
+
+.admin-sidebar {
+    width: 255px;
+    background: #fff;
+    border-right: 1px solid #e8e8e8;
+    padding: 25px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 10px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-logo {
+    width: 45px;
+    height: 45px;
+    background: #ff5a36;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.admin-brand h4 {
+    margin: 0;
+    font-weight: 800;
+}
+
+.admin-brand span {
+    color: #999;
+    font-size: 11px;
+}
+
+.admin-nav {
+    margin-top: 22px;
+}
+
+.admin-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 13px;
+    margin-bottom: 6px;
+    color: #666;
+    text-decoration: none;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.admin-nav-link:hover,
+.admin-nav-link.active {
+    background: #fff1ed;
+    color: #ff5a36;
+}
+
+.admin-nav-link i {
+    font-size: 17px;
+}
+
+.admin-nav-link span {
+    margin-left: auto;
+    font-size: 10px;
+    color: #999;
+}
+
+.admin-bottom {
+    margin-top: auto;
+}
+
+.admin-main {
+    flex: 1;
+    padding: 30px;
+    min-width: 0;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.admin-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-heading h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.admin-heading p {
+    margin: 4px 0 0;
+    color: #999;
+    font-size: 13px;
+}
+
+.admin-menu-btn {
+    display: none;
+    border: 0;
+    background: white;
+    font-size: 24px;
+}
+
+.admin-header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-notification {
+    width: 42px;
+    height: 42px;
+    border: 0;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    font-size: 18px;
+}
+
+.admin-notification span {
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    right: 9px;
+    top: 8px;
+    background: #ff5a36;
+    border-radius: 50%;
+}
+
+.admin-avatar {
+    width: 43px;
+    height: 43px;
+    background: #ff5a36;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+/* STATS */
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.admin-stat {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.admin-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.admin-stat-icon.orange {
+    background: #fff0eb;
+    color: #ff5a36;
+}
+
+.admin-stat-icon.green {
+    background: #eaf9f0;
+    color: #1e9c56;
+}
+
+.admin-stat-icon.blue {
+    background: #eaf3ff;
+    color: #327edb;
+}
+
+.admin-stat-icon.purple {
+    background: #f1ebff;
+    color: #8056d5;
+}
+
+.admin-stat span {
+    color: #999;
+    font-size: 11px;
+}
+
+.admin-stat h3 {
+    margin: 3px 0;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.admin-stat small {
+    color: #1e9c56;
+    font-size: 9px;
+}
+
+/* GRID */
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.admin-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.orders-admin-card {
+    min-width: 0;
+}
+
+.admin-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+.admin-card-header h2 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.admin-card-header p {
+    margin: 4px 0 0;
+    color: #999;
+    font-size: 11px;
+}
+
+.admin-view-btn {
+    border: 0;
+    background: #fff1ed;
+    color: #ff5a36;
+    padding: 7px 11px;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* TABLE */
+
+.admin-table-wrap {
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+.admin-table th {
+    text-align: left;
+    color: #999;
+    font-size: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-table td {
+    padding: 13px 10px;
+    border-bottom: 1px solid #f3f3f3;
+    font-size: 11px;
+}
+
+.status {
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 9px;
+}
+
+.status.preparing {
+    background: #fff4df;
+    color: #c88700;
+}
+
+.status.delivered {
+    background: #e9f9ef;
+    color: #209453;
+}
+
+.status.cancelled {
+    background: #ffeded;
+    color: #d84848;
+}
+
+/* OVERVIEW */
+
+.overview-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.overview-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.overview-item:last-child {
+    border: 0;
+}
+
+.overview-item div {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    color: #666;
+}
+
+.overview-item i {
+    color: #ff5a36;
+    font-size: 16px;
+}
+
+/* RESTAURANTS */
+
+.restaurant-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.admin-restaurant {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.restaurant-rank {
+    width: 22px;
+    text-align: center;
+    font-weight: 800;
+    color: #999;
+}
+
+.restaurant-mini {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: #fff0eb;
+    color: #ff5a36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.restaurant-name {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant-name strong {
+    font-size: 11px;
+}
+
+.restaurant-name span {
+    color: #999;
+    font-size: 9px;
+}
+
+/* ACTIONS */
+
+.admin-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.admin-actions button {
+    border: 1px solid #eee;
+    background: white;
+    border-radius: 10px;
+    padding: 15px 10px;
+    color: #666;
+    font-size: 11px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.admin-actions button:hover {
+    border-color: #ff5a36;
+    color: #ff5a36;
+}
+
+.admin-actions i {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 19px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .admin-sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -275px;
+        z-index: 1000;
+        transition: .3s;
+    }
+
+    .admin-sidebar.show {
+        left: 0;
+    }
+
+    .admin-menu-btn {
+        display: block;
+    }
+
+    .admin-main {
+        padding: 20px 15px;
+    }
+
+    .admin-heading h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-heading p {
+        display: none;
+    }
+
+    .admin-header-right {
+        gap: 7px;
+    }
+
+    .admin-actions {
+        grid-template-columns: 1fr;
+    }
+}

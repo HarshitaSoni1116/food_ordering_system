@@ -1,0 +1,497 @@
+/* =========================================
+   FOODIE — ORDER CONFIRMATION
+========================================= */
+
+.confirmation-page {
+    min-height: 80vh;
+    padding: 70px 0 90px;
+    background: #fffaf7;
+}
+
+
+/* Success Header */
+
+.confirmation-success {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.success-circle {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #e9f8ef;
+    color: #20a464;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    animation: popIn 0.5s ease;
+}
+
+.success-label {
+    display: inline-block;
+    padding: 7px 15px;
+    border-radius: 30px;
+    background: #e9f8ef;
+    color: #20a464;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 13px;
+}
+
+.confirmation-success h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.confirmation-success > p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.order-number {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 17px;
+    border-radius: 9px;
+    background: #ffffff;
+    border: 1px solid #eee3dd;
+    font-size: 13px;
+}
+
+.order-number span {
+    color: #888;
+}
+
+.order-number strong {
+    color: #ff5a36;
+}
+
+
+/* Cards */
+
+.confirmation-card,
+.order-card {
+    background: #ffffff;
+    border: 1px solid #f0e8e3;
+    border-radius: 18px;
+    padding: 27px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.card-title,
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.card-title h3,
+.order-card-header h3 {
+    font-size: 20px;
+    font-weight: 750;
+    margin: 0 0 3px;
+}
+
+.card-title p,
+.order-card-header span {
+    color: #888;
+    font-size: 13px;
+    margin: 0;
+}
+
+.card-title > i,
+.order-card-header > i {
+    color: #ff5a36;
+    font-size: 23px;
+}
+
+
+/* Tracking */
+
+.tracking {
+    padding: 3px 5px;
+}
+
+.tracking-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.tracking-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #f2eeeb;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tracking-item.completed .tracking-icon {
+    background: #fff0eb;
+    color: #ff5a36;
+}
+
+.tracking-item div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.tracking-item strong {
+    font-size: 14px;
+}
+
+.tracking-item span {
+    font-size: 12px;
+    color: #999;
+    margin-top: 2px;
+}
+
+.tracking-line {
+    height: 25px;
+    width: 2px;
+    background: #e9e1dc;
+    margin-left: 20px;
+}
+
+
+/* Address */
+
+.address-box {
+    display: flex;
+    gap: 14px;
+    padding: 17px;
+    background: #fffaf7;
+    border: 1px solid #f0e5df;
+    border-radius: 13px;
+}
+
+.address-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #fff0eb;
+    color: #ff5a36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.address-box strong {
+    font-size: 14px;
+}
+
+.address-box p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+.address-box span {
+    color: #777;
+    font-size: 12px;
+}
+
+
+/* Help */
+
+.help-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: #ffffff;
+    border: 1px solid #f0e8e3;
+    border-radius: 15px;
+    padding: 18px;
+}
+
+.help-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 10px;
+    background: #fff0eb;
+    color: #ff5a36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.help-card > div:nth-child(2) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.help-card strong {
+    font-size: 13px;
+}
+
+.help-card span {
+    font-size: 11px;
+    color: #888;
+}
+
+.help-card button {
+    border: none;
+    background: #fff0eb;
+    color: #ff5a36;
+    padding: 9px 13px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* Order Items */
+
+.order-card-header {
+    margin-bottom: 20px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 16px;
+}
+
+.food-image {
+    width: 54px;
+    height: 54px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.food-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.food-info strong {
+    font-size: 13px;
+}
+
+.food-info span {
+    color: #999;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.order-item > strong {
+    font-size: 13px;
+}
+
+
+/* Summary */
+
+.order-card hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 19px 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 11px;
+    color: #777;
+    font-size: 13px;
+}
+
+.summary-row strong {
+    color: #333;
+}
+
+.summary-row .discount {
+    color: #20a464;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-row span {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.total-row strong {
+    color: #ff5a36;
+    font-size: 23px;
+}
+
+
+/* Payment */
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    background: #f8f7f6;
+    border-radius: 10px;
+    padding: 13px;
+    margin-top: 22px;
+}
+
+.payment-method > i {
+    color: #ff5a36;
+    font-size: 21px;
+}
+
+.payment-method div {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-method strong {
+    font-size: 12px;
+}
+
+.payment-method span {
+    color: #999;
+    font-size: 10px;
+}
+
+
+/* ETA */
+
+.eta-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: #ffffff;
+    border: 1px solid #f0e8e3;
+    border-radius: 15px;
+    padding: 17px;
+    margin-bottom: 15px;
+}
+
+.eta-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #fff0eb;
+    color: #ff5a36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eta-card div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.eta-card span {
+    color: #888;
+    font-size: 11px;
+}
+
+.eta-card strong {
+    font-size: 14px;
+}
+
+
+/* Back Home */
+
+.back-home-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    background: #ff5a36;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.back-home-btn:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(255, 90, 54, 0.2);
+}
+
+
+/* Animation */
+
+@keyframes popIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* Responsive */
+
+@media (max-width: 991px) {
+
+    .confirmation-success h1 {
+        font-size: 34px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .confirmation-page {
+        padding: 45px 0 60px;
+    }
+
+    .confirmation-success h1 {
+        font-size: 28px;
+    }
+
+    .confirmation-card,
+    .order-card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .help-card {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .help-card button {
+        width: 100%;
+    }
+
+}

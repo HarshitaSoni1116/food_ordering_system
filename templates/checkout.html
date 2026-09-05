@@ -1,0 +1,509 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Checkout | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="checkout-page">
+
+    <div class="container">
+
+        <!-- Page Header -->
+        <div class="checkout-header">
+
+            <span class="checkout-badge">
+                <i class="bi bi-shield-check"></i>
+                Secure Checkout
+            </span>
+
+            <h1>Complete Your Order</h1>
+
+            <p>
+                Just a few details and your delicious food
+                will be on its way.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- ================= LEFT SIDE ================= -->
+
+            <div class="col-lg-7">
+
+                <!-- Delivery Address -->
+
+                <div class="checkout-card">
+
+                    <div class="card-heading">
+
+                        <div class="heading-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+
+                        <div>
+                            <h3>Delivery Address</h3>
+                            <p>Where should we deliver your order?</p>
+                        </div>
+
+                    </div>
+
+
+                    <form id="checkoutForm">
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <label for="fullName">
+                                    Full Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="fullName"
+                                    class="form-control"
+                                    placeholder="Enter your name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label for="phone">
+                                    Phone Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    class="form-control"
+                                    placeholder="Enter phone number"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label for="address">
+                                    Full Address
+                                </label>
+
+                                <textarea
+                                    id="address"
+                                    class="form-control"
+                                    rows="3"
+                                    placeholder="House no., street, area..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label for="city">
+                                    City
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="city"
+                                    class="form-control"
+                                    placeholder="Enter city"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label for="pincode">
+                                    Pincode
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="pincode"
+                                    class="form-control"
+                                    placeholder="Enter pincode"
+                                    maxlength="6"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Delivery Instructions -->
+
+                <div class="checkout-card">
+
+                    <div class="card-heading">
+
+                        <div class="heading-icon">
+                            <i class="bi bi-chat-left-text"></i>
+                        </div>
+
+                        <div>
+                            <h3>Delivery Instructions</h3>
+                            <p>Anything our delivery partner should know?</p>
+                        </div>
+
+                    </div>
+
+
+                    <textarea
+                        id="instructions"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Example: Please call when you arrive..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Payment -->
+
+                <div class="checkout-card">
+
+                    <div class="card-heading">
+
+                        <div class="heading-icon">
+                            <i class="bi bi-credit-card"></i>
+                        </div>
+
+                        <div>
+                            <h3>Payment Method</h3>
+                            <p>Select your preferred payment option.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="payment-options">
+
+                        <label class="payment-option active">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="cod"
+                                checked
+                            >
+
+                            <div class="payment-icon">
+                                <i class="bi bi-cash-stack"></i>
+                            </div>
+
+                            <div class="payment-info">
+
+                                <strong>Cash on Delivery</strong>
+
+                                <span>
+                                    Pay when your order arrives
+                                </span>
+
+                            </div>
+
+                            <i class="bi bi-check-circle-fill check-icon"></i>
+
+                        </label>
+
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="online"
+                            >
+
+                            <div class="payment-icon">
+                                <i class="bi bi-wallet2"></i>
+                            </div>
+
+                            <div class="payment-info">
+
+                                <strong>Online Payment</strong>
+
+                                <span>
+                                    UPI, Cards & Net Banking
+                                </span>
+
+                            </div>
+
+                            <i class="bi bi-check-circle-fill check-icon"></i>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RIGHT SIDE ================= -->
+
+            <div class="col-lg-5">
+
+                <div class="order-summary">
+
+                    <div class="summary-header">
+
+                        <div>
+
+                            <h3>Order Summary</h3>
+
+                            <span>
+                                3 items
+                            </span>
+
+                        </div>
+
+                        <i class="bi bi-bag-check"></i>
+
+                    </div>
+
+
+                    <!-- Item -->
+
+                    <div class="summary-item">
+
+                        <div class="item-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=200&q=80"
+                                alt="Margherita Pizza"
+                            >
+
+                        </div>
+
+                        <div class="item-details">
+
+                            <h4>Margherita Pizza</h4>
+
+                            <span>Qty: 1</span>
+
+                        </div>
+
+                        <strong>₹299</strong>
+
+                    </div>
+
+
+                    <!-- Item -->
+
+                    <div class="summary-item">
+
+                        <div class="item-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=200&q=80"
+                                alt="Paneer Tikka"
+                            >
+
+                        </div>
+
+                        <div class="item-details">
+
+                            <h4>Paneer Tikka</h4>
+
+                            <span>Qty: 1</span>
+
+                        </div>
+
+                        <strong>₹220</strong>
+
+                    </div>
+
+
+                    <!-- Item -->
+
+                    <div class="summary-item">
+
+                        <div class="item-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=200&q=80"
+                                alt="Veg Fried Rice"
+                            >
+
+                        </div>
+
+                        <div class="item-details">
+
+                            <h4>Veg Fried Rice</h4>
+
+                            <span>Qty: 1</span>
+
+                        </div>
+
+                        <strong>₹199</strong>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <!-- Price -->
+
+                    <div class="price-row">
+
+                        <span>Subtotal</span>
+
+                        <strong>₹718</strong>
+
+                    </div>
+
+
+                    <div class="price-row">
+
+                        <span>Delivery Fee</span>
+
+                        <strong>₹40</strong>
+
+                    </div>
+
+
+                    <div class="price-row discount-row">
+
+                        <span>
+                            Discount
+                        </span>
+
+                        <strong>- ₹0</strong>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <div class="total-row">
+
+                        <span>Total</span>
+
+                        <strong>₹758</strong>
+
+                    </div>
+
+
+                    <!-- Place Order -->
+
+                    <button
+                        type="button"
+                        class="place-order-btn"
+                        id="placeOrderBtn">
+
+                        <span>
+                            Place Order
+                        </span>
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </button>
+
+
+                    <div class="secure-note">
+
+                        <i class="bi bi-shield-lock-fill"></i>
+
+                        <span>
+                            Your information is secure and protected.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Delivery Information -->
+
+                <div class="delivery-info">
+
+                    <div class="delivery-info-icon">
+                        <i class="bi bi-clock"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>Estimated Delivery</strong>
+
+                        <span>
+                            25–40 minutes
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Success Modal -->
+
+<div
+    class="order-success"
+    id="orderSuccess">
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            <i class="bi bi-check-lg"></i>
+        </div>
+
+        <h2>Order Placed! 🎉</h2>
+
+        <p>
+            Your order has been placed successfully.
+        </p>
+
+        <span>
+            Thank you for ordering with Foodie ❤️
+        </span>
+
+        <button
+            type="button"
+            onclick="closeSuccess()">
+
+            Continue
+
+        </button>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="{% static 'js/checkout.js' %}"></script>
+
+{% endblock %}

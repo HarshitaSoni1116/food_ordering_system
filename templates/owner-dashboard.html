@@ -1,0 +1,500 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Restaurant Owner Dashboard | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/owner-dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="owner-dashboard">
+
+    <!-- Sidebar -->
+    <aside class="owner-sidebar">
+
+        <div class="owner-brand">
+            <div class="owner-logo">
+                <i class="bi bi-shop"></i>
+            </div>
+            <div>
+                <h4>Foodie</h4>
+                <span>Restaurant Partner</span>
+            </div>
+        </div>
+
+        <nav class="owner-nav">
+
+            <a href="#" class="owner-nav-link active">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#" class="owner-nav-link">
+                <i class="bi bi-shop"></i>
+                <span>My Restaurant</span>
+            </a>
+
+            <a href="#" class="owner-nav-link">
+                <i class="bi bi-basket2"></i>
+                <span>Orders</span>
+                <span class="nav-badge">5</span>
+            </a>
+
+            <a href="#" class="owner-nav-link">
+                <i class="bi bi-menu-button-wide"></i>
+                <span>Menu</span>
+            </a>
+
+            <a href="#" class="owner-nav-link">
+                <i class="bi bi-bar-chart"></i>
+                <span>Analytics</span>
+            </a>
+
+            <a href="#" class="owner-nav-link">
+                <i class="bi bi-tag"></i>
+                <span>Offers</span>
+            </a>
+
+            <a href="#" class="owner-nav-link">
+                <i class="bi bi-star"></i>
+                <span>Reviews</span>
+            </a>
+
+        </nav>
+
+        <div class="owner-sidebar-bottom">
+
+            <a href="#" class="owner-nav-link">
+                <i class="bi bi-gear"></i>
+                <span>Settings</span>
+            </a>
+
+            <a href="{% url 'home' %}" class="owner-nav-link logout-link">
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Back to Foodie</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="owner-main">
+
+        <!-- Topbar -->
+        <header class="owner-topbar">
+
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div>
+                <h2>Good evening, Restaurant Owner 👋</h2>
+                <p>Here's what's happening with your restaurant today.</p>
+            </div>
+
+            <div class="owner-profile">
+
+                <button class="notification-btn">
+                    <i class="bi bi-bell"></i>
+                    <span></span>
+                </button>
+
+                <div class="owner-avatar">
+                    RO
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Restaurant Banner -->
+        <section class="restaurant-banner">
+
+            <div class="restaurant-banner-info">
+
+                <div class="restaurant-icon">
+                    <i class="bi bi-shop"></i>
+                </div>
+
+                <div>
+                    <span class="status-pill">
+                        <span></span> Open
+                    </span>
+
+                    <h3>Pizza Paradise</h3>
+
+                    <p>
+                        <i class="bi bi-geo-alt"></i>
+                        Jabalpur, Madhya Pradesh
+                    </p>
+                </div>
+
+            </div>
+
+            <button class="manage-btn">
+                <i class="bi bi-pencil"></i>
+                Manage Restaurant
+            </button>
+
+        </section>
+
+
+        <!-- Stats -->
+        <section class="owner-stats">
+
+            <div class="owner-stat-card">
+                <div class="stat-icon orange">
+                    <i class="bi bi-basket2-fill"></i>
+                </div>
+
+                <div>
+                    <span>Total Orders</span>
+                    <h3>1,248</h3>
+                    <small class="positive">
+                        <i class="bi bi-arrow-up"></i> 12.5%
+                    </small>
+                    <small> vs last month</small>
+                </div>
+            </div>
+
+
+            <div class="owner-stat-card">
+                <div class="stat-icon green">
+                    <i class="bi bi-currency-rupee"></i>
+                </div>
+
+                <div>
+                    <span>Total Revenue</span>
+                    <h3>₹84,520</h3>
+                    <small class="positive">
+                        <i class="bi bi-arrow-up"></i> 8.2%
+                    </small>
+                    <small> vs last month</small>
+                </div>
+            </div>
+
+
+            <div class="owner-stat-card">
+                <div class="stat-icon blue">
+                    <i class="bi bi-star-fill"></i>
+                </div>
+
+                <div>
+                    <span>Average Rating</span>
+                    <h3>4.8</h3>
+                    <small>from 356 reviews</small>
+                </div>
+            </div>
+
+
+            <div class="owner-stat-card">
+                <div class="stat-icon purple">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+
+                <div>
+                    <span>Customers</span>
+                    <h3>2,840</h3>
+                    <small class="positive">
+                        <i class="bi bi-arrow-up"></i> 15.4%
+                    </small>
+                    <small> growth</small>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Dashboard Grid -->
+        <section class="dashboard-grid">
+
+            <!-- Recent Orders -->
+            <div class="dashboard-card orders-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Recent Orders</h3>
+                        <p>Latest orders from your restaurant</p>
+                    </div>
+
+                    <a href="#" class="view-all">View All</a>
+                </div>
+
+
+                <div class="orders-table-wrapper">
+
+                    <table class="orders-table">
+
+                        <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><strong>#FD10248</strong></td>
+
+                                <td>
+                                    <div class="customer">
+                                        <div class="customer-avatar">AS</div>
+                                        <span>Ananya Sharma</span>
+                                    </div>
+                                </td>
+
+                                <td>2 items</td>
+
+                                <td><strong>₹519</strong></td>
+
+                                <td>
+                                    <span class="order-status preparing">
+                                        Preparing
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td><strong>#FD10247</strong></td>
+
+                                <td>
+                                    <div class="customer">
+                                        <div class="customer-avatar">RK</div>
+                                        <span>Rahul Kumar</span>
+                                    </div>
+                                </td>
+
+                                <td>3 items</td>
+
+                                <td><strong>₹748</strong></td>
+
+                                <td>
+                                    <span class="order-status ready">
+                                        Ready
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td><strong>#FD10246</strong></td>
+
+                                <td>
+                                    <div class="customer">
+                                        <div class="customer-avatar">PS</div>
+                                        <span>Priya Singh</span>
+                                    </div>
+                                </td>
+
+                                <td>1 item</td>
+
+                                <td><strong>₹299</strong></td>
+
+                                <td>
+                                    <span class="order-status delivered">
+                                        Delivered
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td><strong>#FD10245</strong></td>
+
+                                <td>
+                                    <div class="customer">
+                                        <div class="customer-avatar">AM</div>
+                                        <span>Aman Mishra</span>
+                                    </div>
+                                </td>
+
+                                <td>4 items</td>
+
+                                <td><strong>₹920</strong></td>
+
+                                <td>
+                                    <span class="order-status cancelled">
+                                        Cancelled
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quick Actions -->
+            <div class="dashboard-card quick-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Quick Actions</h3>
+                        <p>Manage your restaurant</p>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+
+                    <button>
+                        <i class="bi bi-plus-circle"></i>
+                        <span>Add Food Item</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                    <button>
+                        <i class="bi bi-pencil-square"></i>
+                        <span>Edit Menu</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                    <button>
+                        <i class="bi bi-tag-fill"></i>
+                        <span>Create Offer</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                    <button>
+                        <i class="bi bi-clock-history"></i>
+                        <span>Restaurant Hours</span>
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Popular Items -->
+            <div class="dashboard-card popular-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Popular Items</h3>
+                        <p>Best selling food items</p>
+                    </div>
+
+                    <a href="#" class="view-all">View Menu</a>
+                </div>
+
+                <div class="popular-list">
+
+                    <div class="popular-item">
+                        <div class="food-thumb">
+                            <i class="bi bi-pizza"></i>
+                        </div>
+
+                        <div class="food-info">
+                            <h4>Margherita Pizza</h4>
+                            <span>128 orders</span>
+                        </div>
+
+                        <strong>₹299</strong>
+                    </div>
+
+
+                    <div class="popular-item">
+                        <div class="food-thumb">
+                            <i class="bi bi-egg-fried"></i>
+                        </div>
+
+                        <div class="food-info">
+                            <h4>Paneer Tikka</h4>
+                            <span>96 orders</span>
+                        </div>
+
+                        <strong>₹220</strong>
+                    </div>
+
+
+                    <div class="popular-item">
+                        <div class="food-thumb">
+                            <i class="bi bi-cup-straw"></i>
+                        </div>
+
+                        <div class="food-info">
+                            <h4>Cold Coffee</h4>
+                            <span>74 orders</span>
+                        </div>
+
+                        <strong>₹129</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Performance -->
+            <div class="dashboard-card performance-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Today's Performance</h3>
+                        <p>Quick overview</p>
+                    </div>
+                </div>
+
+                <div class="performance-list">
+
+                    <div class="performance-row">
+                        <span>
+                            <i class="bi bi-bag-check"></i>
+                            Orders Today
+                        </span>
+                        <strong>42</strong>
+                    </div>
+
+                    <div class="performance-row">
+                        <span>
+                            <i class="bi bi-currency-rupee"></i>
+                            Revenue Today
+                        </span>
+                        <strong>₹6,840</strong>
+                    </div>
+
+                    <div class="performance-row">
+                        <span>
+                            <i class="bi bi-people"></i>
+                            New Customers
+                        </span>
+                        <strong>18</strong>
+                    </div>
+
+                    <div class="performance-row">
+                        <span>
+                            <i class="bi bi-star"></i>
+                            New Reviews
+                        </span>
+                        <strong>7</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/owner-dashboard.js' %}"></script>
+{% endblock %}

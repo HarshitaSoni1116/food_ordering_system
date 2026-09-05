@@ -1,0 +1,513 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Orders | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{% static 'css/my-orders.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="orders-page">
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <div class="orders-header">
+
+            <div>
+
+                <span class="orders-badge">
+                    <i class="bi bi-bag-check"></i>
+                    Your Orders
+                </span>
+
+                <h1>My Orders</h1>
+
+                <p>
+                    Track your orders and order your
+                    favorites again.
+                </p>
+
+            </div>
+
+            <a href="{% url 'restaurants' %}"
+               class="order-food-btn">
+
+                <i class="bi bi-plus-lg"></i>
+                Order Food
+
+            </a>
+
+        </div>
+
+
+        <!-- Stats -->
+
+        <div class="order-stats">
+
+            <div class="order-stat">
+
+                <div class="stat-icon">
+                    <i class="bi bi-bag-check"></i>
+                </div>
+
+                <div>
+                    <strong>12</strong>
+                    <span>Total Orders</span>
+                </div>
+
+            </div>
+
+
+            <div class="order-stat">
+
+                <div class="stat-icon">
+                    <i class="bi bi-clock-history"></i>
+                </div>
+
+                <div>
+                    <strong>1</strong>
+                    <span>Active Order</span>
+                </div>
+
+            </div>
+
+
+            <div class="order-stat">
+
+                <div class="stat-icon">
+                    <i class="bi bi-check-circle"></i>
+                </div>
+
+                <div>
+                    <strong>11</strong>
+                    <span>Delivered</span>
+                </div>
+
+            </div>
+
+
+            <div class="order-stat">
+
+                <div class="stat-icon">
+                    <i class="bi bi-currency-rupee"></i>
+                </div>
+
+                <div>
+                    <strong>₹4,850</strong>
+                    <span>Total Spent</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Filters -->
+
+        <div class="orders-toolbar">
+
+            <div class="order-tabs">
+
+                <button class="order-tab active"
+                        data-filter="all">
+                    All
+                </button>
+
+                <button class="order-tab"
+                        data-filter="active">
+                    Active
+                </button>
+
+                <button class="order-tab"
+                        data-filter="delivered">
+                    Delivered
+                </button>
+
+                <button class="order-tab"
+                        data-filter="cancelled">
+                    Cancelled
+                </button>
+
+            </div>
+
+
+            <div class="order-search">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="text"
+                    id="orderSearch"
+                    placeholder="Search orders..."
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= ACTIVE ORDER ================= -->
+
+        <div class="order-card"
+             data-status="active"
+             data-search="pizza paradise margherita pizza paneer tikka">
+
+            <div class="order-card-top">
+
+                <div>
+
+                    <span class="order-id">
+                        Order #FD20260905
+                    </span>
+
+                    <span class="order-date">
+                        Today, 8:15 PM
+                    </span>
+
+                </div>
+
+                <span class="status-badge preparing">
+                    <i class="bi bi-fire"></i>
+                    Preparing
+                </span>
+
+            </div>
+
+
+            <div class="order-restaurant">
+
+                <div class="restaurant-icon">
+                    <i class="bi bi-shop"></i>
+                </div>
+
+                <div>
+
+                    <strong>Pizza Paradise</strong>
+
+                    <span>
+                        Italian • 4.7 ⭐
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-items">
+
+                <div class="mini-food">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=150&q=80"
+                        alt="Pizza"
+                    >
+
+                    <div>
+                        <strong>Margherita Pizza</strong>
+                        <span>Qty: 1</span>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-food">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=150&q=80"
+                        alt="Paneer Tikka"
+                    >
+
+                    <div>
+                        <strong>Paneer Tikka</strong>
+                        <span>Qty: 1</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-bottom">
+
+                <div>
+
+                    <span>Total Amount</span>
+
+                    <strong>₹519</strong>
+
+                </div>
+
+                <div class="order-actions">
+
+                    <button class="track-btn">
+                        <i class="bi bi-geo-alt"></i>
+                        Track Order
+                    </button>
+
+                    <button class="details-btn">
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= DELIVERED ORDER ================= -->
+
+        <div class="order-card"
+             data-status="delivered"
+             data-search="food house biryani burger">
+
+            <div class="order-card-top">
+
+                <div>
+
+                    <span class="order-id">
+                        Order #FD20260828
+                    </span>
+
+                    <span class="order-date">
+                        28 Aug 2026, 7:30 PM
+                    </span>
+
+                </div>
+
+                <span class="status-badge delivered">
+                    <i class="bi bi-check-circle"></i>
+                    Delivered
+                </span>
+
+            </div>
+
+
+            <div class="order-restaurant">
+
+                <div class="restaurant-icon">
+                    <i class="bi bi-shop"></i>
+                </div>
+
+                <div>
+
+                    <strong>The Food House</strong>
+
+                    <span>
+                        North Indian • 4.8 ⭐
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-items">
+
+                <div class="mini-food">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=150&q=80"
+                        alt="Biryani"
+                    >
+
+                    <div>
+                        <strong>Chicken Biryani</strong>
+                        <span>Qty: 1</span>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-food">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=150&q=80"
+                        alt="Burger"
+                    >
+
+                    <div>
+                        <strong>Classic Burger</strong>
+                        <span>Qty: 2</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-bottom">
+
+                <div>
+
+                    <span>Total Amount</span>
+
+                    <strong>₹648</strong>
+
+                </div>
+
+                <div class="order-actions">
+
+                    <button class="reorder-btn">
+                        <i class="bi bi-arrow-repeat"></i>
+                        Reorder
+                    </button>
+
+                    <button class="details-btn">
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= DELIVERED ORDER 2 ================= -->
+
+        <div class="order-card"
+             data-status="delivered"
+             data-search="spice garden pasta fried rice">
+
+            <div class="order-card-top">
+
+                <div>
+
+                    <span class="order-id">
+                        Order #FD20260819
+                    </span>
+
+                    <span class="order-date">
+                        19 Aug 2026, 1:10 PM
+                    </span>
+
+                </div>
+
+                <span class="status-badge delivered">
+                    <i class="bi bi-check-circle"></i>
+                    Delivered
+                </span>
+
+            </div>
+
+
+            <div class="order-restaurant">
+
+                <div class="restaurant-icon">
+                    <i class="bi bi-shop"></i>
+                </div>
+
+                <div>
+
+                    <strong>Spice Garden</strong>
+
+                    <span>
+                        Indian • 4.6 ⭐
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-items">
+
+                <div class="mini-food">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=150&q=80"
+                        alt="Pasta"
+                    >
+
+                    <div>
+                        <strong>White Sauce Pasta</strong>
+                        <span>Qty: 1</span>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-food">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=150&q=80"
+                        alt="Fried Rice"
+                    >
+
+                    <div>
+                        <strong>Veg Fried Rice</strong>
+                        <span>Qty: 1</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-bottom">
+
+                <div>
+
+                    <span>Total Amount</span>
+
+                    <strong>₹428</strong>
+
+                </div>
+
+                <div class="order-actions">
+
+                    <button class="reorder-btn">
+                        <i class="bi bi-arrow-repeat"></i>
+                        Reorder
+                    </button>
+
+                    <button class="details-btn">
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= EMPTY STATE ================= -->
+
+        <div class="orders-empty"
+             id="ordersEmpty">
+
+            <div class="empty-icon">
+                <i class="bi bi-bag-x"></i>
+            </div>
+
+            <h3>No orders found</h3>
+
+            <p>
+                Try another filter or search for a different order.
+            </p>
+
+            <a href="{% url 'restaurants' %}">
+                Explore Restaurants
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="{% static 'js/my-orders.js' %}"></script>
+
+{% endblock %}

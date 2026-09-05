@@ -1,0 +1,402 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Order Confirmed | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{% static 'css/order-confirmation.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="confirmation-page">
+
+    <div class="container">
+
+        <!-- Success -->
+
+        <div class="confirmation-success">
+
+            <div class="success-circle">
+                <i class="bi bi-check-lg"></i>
+            </div>
+
+            <span class="success-label">
+                Order Confirmed
+            </span>
+
+            <h1>
+                Your food is on its way! 🎉
+            </h1>
+
+            <p>
+                Thank you for ordering with Foodie.
+                Your delicious meal is being prepared.
+            </p>
+
+            <div class="order-number">
+                <span>Order ID</span>
+                <strong>#FD20260905</strong>
+            </div>
+
+        </div>
+
+
+        <div class="row g-4 mt-2">
+
+            <!-- ================= LEFT ================= -->
+
+            <div class="col-lg-7">
+
+                <!-- Delivery Tracking -->
+
+                <div class="confirmation-card">
+
+                    <div class="card-title">
+
+                        <div>
+                            <h3>Order Status</h3>
+                            <p>
+                                We'll keep you updated.
+                            </p>
+                        </div>
+
+                        <i class="bi bi-truck"></i>
+
+                    </div>
+
+
+                    <div class="tracking">
+
+                        <div class="tracking-item completed">
+
+                            <div class="tracking-icon">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+
+                            <div>
+                                <strong>Order Confirmed</strong>
+                                <span>Just now</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="tracking-line"></div>
+
+
+                        <div class="tracking-item completed">
+
+                            <div class="tracking-icon">
+                                <i class="bi bi-fire"></i>
+                            </div>
+
+                            <div>
+                                <strong>Preparing Your Food</strong>
+                                <span>Restaurant received your order</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="tracking-line"></div>
+
+
+                        <div class="tracking-item">
+
+                            <div class="tracking-icon">
+                                <i class="bi bi-bicycle"></i>
+                            </div>
+
+                            <div>
+                                <strong>Out for Delivery</strong>
+                                <span>Coming soon</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="tracking-line"></div>
+
+
+                        <div class="tracking-item">
+
+                            <div class="tracking-icon">
+                                <i class="bi bi-house-heart"></i>
+                            </div>
+
+                            <div>
+                                <strong>Delivered</strong>
+                                <span>Enjoy your meal ❤️</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Delivery Address -->
+
+                <div class="confirmation-card">
+
+                    <div class="card-title">
+
+                        <div>
+                            <h3>Delivery Address</h3>
+                            <p>Your order will be delivered here.</p>
+                        </div>
+
+                        <i class="bi bi-geo-alt"></i>
+
+                    </div>
+
+
+                    <div class="address-box">
+
+                        <div class="address-icon">
+                            <i class="bi bi-house"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>Harshita Soni</strong>
+
+                            <p>
+                                123 Main Street, Near City Center,
+                                Jabalpur, Madhya Pradesh - 482001
+                            </p>
+
+                            <span>
+                                <i class="bi bi-telephone"></i>
+                                +91 98765 43210
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Need Help -->
+
+                <div class="help-card">
+
+                    <div class="help-icon">
+                        <i class="bi bi-headset"></i>
+                    </div>
+
+                    <div>
+                        <strong>Need help with your order?</strong>
+                        <span>
+                            Our support team is always happy to help.
+                        </span>
+                    </div>
+
+                    <button>
+                        Contact Support
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RIGHT ================= -->
+
+            <div class="col-lg-5">
+
+                <div class="order-card">
+
+                    <div class="order-card-header">
+
+                        <div>
+
+                            <h3>Order Summary</h3>
+
+                            <span>
+                                3 items
+                            </span>
+
+                        </div>
+
+                        <i class="bi bi-bag-check"></i>
+
+                    </div>
+
+
+                    <!-- Item -->
+
+                    <div class="order-item">
+
+                        <div class="food-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=200&q=80"
+                                alt="Margherita Pizza"
+                            >
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <strong>Margherita Pizza</strong>
+
+                            <span>Qty: 1</span>
+
+                        </div>
+
+                        <strong>₹299</strong>
+
+                    </div>
+
+
+                    <!-- Item -->
+
+                    <div class="order-item">
+
+                        <div class="food-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=200&q=80"
+                                alt="Paneer Tikka"
+                            >
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <strong>Paneer Tikka</strong>
+
+                            <span>Qty: 1</span>
+
+                        </div>
+
+                        <strong>₹220</strong>
+
+                    </div>
+
+
+                    <!-- Item -->
+
+                    <div class="order-item">
+
+                        <div class="food-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=200&q=80"
+                                alt="Veg Fried Rice"
+                            >
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <strong>Veg Fried Rice</strong>
+
+                            <span>Qty: 1</span>
+
+                        </div>
+
+                        <strong>₹199</strong>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <div class="summary-row">
+
+                        <span>Subtotal</span>
+                        <strong>₹718</strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>Delivery Fee</span>
+                        <strong>₹40</strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>Discount</span>
+                        <strong class="discount">₹0</strong>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <div class="total-row">
+
+                        <span>Total Paid</span>
+
+                        <strong>₹758</strong>
+
+                    </div>
+
+
+                    <div class="payment-method">
+
+                        <i class="bi bi-cash-stack"></i>
+
+                        <div>
+
+                            <strong>Cash on Delivery</strong>
+
+                            <span>Payment method</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Estimated Delivery -->
+
+                <div class="eta-card">
+
+                    <div class="eta-icon">
+                        <i class="bi bi-clock"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Estimated Delivery</span>
+
+                        <strong>25–40 minutes</strong>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="{% url 'home' %}"
+                    class="back-home-btn">
+
+                    <i class="bi bi-house"></i>
+
+                    Back to Home
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

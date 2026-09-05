@@ -1,0 +1,781 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================
+     CART HERO
+========================= -->
+
+<section class="cart-hero">
+
+    <div class="container">
+
+        <span class="cart-label">
+            YOUR ORDER
+        </span>
+
+        <h1>Your Cart</h1>
+
+        <p>
+            Review your items before placing your order.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CART SECTION
+========================= -->
+
+<section class="cart-section">
+
+    <div class="container">
+
+        <!-- CART WITH ITEMS -->
+
+        <div id="cartContent">
+
+            <div class="cart-layout">
+
+                <!-- =========================
+                     LEFT SIDE
+                ========================= -->
+
+                <div class="cart-left">
+
+                    <div class="cart-heading">
+
+                        <div>
+                            <h2>Your Items</h2>
+
+                            <span id="itemCount">
+                                3 items
+                            </span>
+                        </div>
+
+                        <button
+                            class="clear-cart-btn"
+                            id="clearCartBtn"
+                        >
+                            <i class="bi bi-trash3"></i>
+                            Clear Cart
+                        </button>
+
+                    </div>
+
+
+                    <!-- CART ITEM 1 -->
+
+                    <div
+                        class="cart-item"
+                        data-price="299"
+                    >
+
+                        <div class="cart-item-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=500&q=80"
+                                alt="Margherita Pizza"
+                            >
+
+                        </div>
+
+
+                        <div class="cart-item-details">
+
+                            <div>
+
+                                <span class="cart-restaurant">
+                                    The Food House
+                                </span>
+
+                                <h3>
+                                    Margherita Pizza
+                                </h3>
+
+                                <span class="food-type">
+                                    <i class="bi bi-circle-fill"></i>
+                                    Veg
+                                </span>
+
+                            </div>
+
+                            <div class="cart-item-bottom">
+
+                                <strong class="item-price">
+                                    ₹299
+                                </strong>
+
+                                <div class="quantity-control">
+
+                                    <button
+                                        class="quantity-minus"
+                                    >
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+
+                                    <span class="quantity">
+                                        1
+                                    </span>
+
+                                    <button
+                                        class="quantity-plus"
+                                    >
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="remove-item"
+                            title="Remove item"
+                        >
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+
+                    </div>
+
+
+                    <!-- CART ITEM 2 -->
+
+                    <div
+                        class="cart-item"
+                        data-price="220"
+                    >
+
+                        <div class="cart-item-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=500&q=80"
+                                alt="Paneer Tikka"
+                            >
+
+                        </div>
+
+
+                        <div class="cart-item-details">
+
+                            <div>
+
+                                <span class="cart-restaurant">
+                                    The Food House
+                                </span>
+
+                                <h3>
+                                    Paneer Tikka
+                                </h3>
+
+                                <span class="food-type">
+                                    <i class="bi bi-circle-fill"></i>
+                                    Veg
+                                </span>
+
+                            </div>
+
+                            <div class="cart-item-bottom">
+
+                                <strong class="item-price">
+                                    ₹220
+                                </strong>
+
+                                <div class="quantity-control">
+
+                                    <button
+                                        class="quantity-minus"
+                                    >
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+
+                                    <span class="quantity">
+                                        1
+                                    </span>
+
+                                    <button
+                                        class="quantity-plus"
+                                    >
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="remove-item"
+                            title="Remove item"
+                        >
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+
+                    </div>
+
+
+                    <!-- CART ITEM 3 -->
+
+                    <div
+                        class="cart-item"
+                        data-price="199"
+                    >
+
+                        <div class="cart-item-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=500&q=80"
+                                alt="Veg Fried Rice"
+                            >
+
+                        </div>
+
+
+                        <div class="cart-item-details">
+
+                            <div>
+
+                                <span class="cart-restaurant">
+                                    The Food House
+                                </span>
+
+                                <h3>
+                                    Veg Fried Rice
+                                </h3>
+
+                                <span class="food-type">
+                                    <i class="bi bi-circle-fill"></i>
+                                    Veg
+                                </span>
+
+                            </div>
+
+                            <div class="cart-item-bottom">
+
+                                <strong class="item-price">
+                                    ₹199
+                                </strong>
+
+                                <div class="quantity-control">
+
+                                    <button
+                                        class="quantity-minus"
+                                    >
+                                        <i class="bi bi-dash"></i>
+                                    </button>
+
+                                    <span class="quantity">
+                                        1
+                                    </span>
+
+                                    <button
+                                        class="quantity-plus"
+                                    >
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="remove-item"
+                            title="Remove item"
+                        >
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+
+                    </div>
+
+
+                    <!-- CONTINUE SHOPPING -->
+
+                    <a
+                        href="{% url 'restaurants' %}"
+                        class="continue-shopping"
+                    >
+                        <i class="bi bi-arrow-left"></i>
+                        Continue Shopping
+                    </a>
+
+                </div>
+
+
+                <!-- =========================
+                     RIGHT SIDE
+                ========================= -->
+
+                <div class="cart-right">
+
+                    <div class="summary-card">
+
+                        <h2>Order Summary</h2>
+
+
+                        <!-- COUPON -->
+
+                        <div class="coupon-section">
+
+                            <label>
+                                Have a coupon?
+                            </label>
+
+                            <div class="coupon-input">
+
+                                <input
+                                    type="text"
+                                    id="couponInput"
+                                    placeholder="Enter coupon code"
+                                >
+
+                                <button id="applyCoupon">
+                                    Apply
+                                </button>
+
+                            </div>
+
+                            <small id="couponMessage"></small>
+
+                        </div>
+
+
+                        <!-- PRICE -->
+
+                        <div class="price-details">
+
+                            <div>
+                                <span>Subtotal</span>
+
+                                <strong id="subtotal">
+                                    ₹718
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Delivery Fee</span>
+
+                                <strong id="deliveryFee">
+                                    ₹40
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Discount</span>
+
+                                <strong
+                                    id="discount"
+                                    class="discount"
+                                >
+                                    - ₹0
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="summary-divider"></div>
+
+
+                        <div class="total-row">
+
+                            <span>Total</span>
+
+                            <strong id="total">
+                                ₹758
+                            </strong>
+
+                        </div>
+
+
+                        <p class="tax-note">
+                            Inclusive of applicable taxes.
+                        </p>
+
+
+                        <a
+                            href="{% url 'checkout' %}"
+                            class="checkout-btn"
+                        >
+                            Proceed to Checkout
+
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+
+                        <div class="secure-checkout">
+
+                            <i class="bi bi-shield-check"></i>
+
+                            <span>
+                                Safe & Secure Checkout
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DELIVERY CARD -->
+
+                    <div class="delivery-card">
+
+                        <div class="delivery-icon">
+                            <i class="bi bi-bicycle"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Fast Delivery
+                            </strong>
+
+                            <span>
+                                Estimated delivery in 25–35 min
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             EMPTY CART
+        ========================= -->
+
+        <div
+            id="emptyCart"
+            class="empty-cart"
+            style="display: none;"
+        >
+
+            <div class="empty-cart-icon">
+                <i class="bi bi-cart-x"></i>
+            </div>
+
+            <h2>Your cart is empty</h2>
+
+            <p>
+                Looks like you haven't added anything to your cart yet.
+            </p>
+
+            <a
+                href="{% url 'restaurants' %}"
+                class="empty-cart-btn"
+            >
+                Explore Restaurants
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cartItems =
+        document.querySelectorAll(".cart-item");
+
+    const subtotalElement =
+        document.getElementById("subtotal");
+
+    const deliveryElement =
+        document.getElementById("deliveryFee");
+
+    const discountElement =
+        document.getElementById("discount");
+
+    const totalElement =
+        document.getElementById("total");
+
+    const itemCountElement =
+        document.getElementById("itemCount");
+
+    const cartContent =
+        document.getElementById("cartContent");
+
+    const emptyCart =
+        document.getElementById("emptyCart");
+
+    let discount = 0;
+
+
+    /* =========================
+       UPDATE CART
+    ========================= */
+
+    function updateCart() {
+
+        const currentItems =
+            document.querySelectorAll(".cart-item");
+
+        let subtotal = 0;
+        let totalItems = 0;
+
+
+        currentItems.forEach(item => {
+
+            const price =
+                Number(item.dataset.price);
+
+            const quantity =
+                Number(
+                    item.querySelector(".quantity")
+                        .textContent
+                );
+
+            subtotal += price * quantity;
+
+            totalItems += quantity;
+
+            const priceElement =
+                item.querySelector(".item-price");
+
+            priceElement.textContent =
+                "₹" + (price * quantity);
+
+        });
+
+
+        /* DELIVERY */
+
+        let deliveryFee = 0;
+
+        if (subtotal > 0 && subtotal < 499) {
+
+            deliveryFee = 40;
+
+        }
+
+
+        /* TOTAL */
+
+        const total =
+            subtotal + deliveryFee - discount;
+
+
+        subtotalElement.textContent =
+            "₹" + subtotal;
+
+        deliveryElement.textContent =
+            "₹" + deliveryFee;
+
+        discountElement.textContent =
+            "- ₹" + discount;
+
+        totalElement.textContent =
+            "₹" + Math.max(total, 0);
+
+
+        itemCountElement.textContent =
+            totalItems +
+            (totalItems === 1 ? " item" : " items");
+
+
+        /* EMPTY STATE */
+
+        if (currentItems.length === 0) {
+
+            cartContent.style.display = "none";
+
+            emptyCart.style.display = "block";
+
+        } else {
+
+            cartContent.style.display = "block";
+
+            emptyCart.style.display = "none";
+
+        }
+
+    }
+
+
+    /* =========================
+       PLUS
+    ========================= */
+
+    document.querySelectorAll(".quantity-plus")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const quantity =
+                    this.parentElement
+                        .querySelector(".quantity");
+
+                let value =
+                    Number(quantity.textContent);
+
+                value++;
+
+                quantity.textContent = value;
+
+                updateCart();
+
+            });
+
+        });
+
+
+    /* =========================
+       MINUS
+    ========================= */
+
+    document.querySelectorAll(".quantity-minus")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const quantity =
+                    this.parentElement
+                        .querySelector(".quantity");
+
+                let value =
+                    Number(quantity.textContent);
+
+                if (value > 1) {
+
+                    value--;
+
+                    quantity.textContent = value;
+
+                    updateCart();
+
+                }
+
+            });
+
+        });
+
+
+    /* =========================
+       REMOVE ITEM
+    ========================= */
+
+    document.querySelectorAll(".remove-item")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const item =
+                    this.closest(".cart-item");
+
+                item.remove();
+
+                updateCart();
+
+            });
+
+        });
+
+
+    /* =========================
+       CLEAR CART
+    ========================= */
+
+    document.getElementById("clearCartBtn")
+        .addEventListener("click", function () {
+
+            document
+                .querySelectorAll(".cart-item")
+                .forEach(item => item.remove());
+
+            discount = 0;
+
+            updateCart();
+
+        });
+
+
+    /* =========================
+       COUPON
+    ========================= */
+
+    document.getElementById("applyCoupon")
+        .addEventListener("click", function () {
+
+            const input =
+                document.getElementById("couponInput");
+
+            const message =
+                document.getElementById("couponMessage");
+
+            const code =
+                input.value.trim().toUpperCase();
+
+
+            if (code === "FOODIE20") {
+
+                discount = 100;
+
+                message.textContent =
+                    "Coupon applied! ₹100 discount added.";
+
+                message.className =
+                    "coupon-success";
+
+            } else if (code === "WEEKEND100") {
+
+                discount = 100;
+
+                message.textContent =
+                    "Coupon applied successfully!";
+
+                message.className =
+                    "coupon-success";
+
+            } else {
+
+                discount = 0;
+
+                message.textContent =
+                    "Invalid coupon code.";
+
+                message.className =
+                    "coupon-error";
+
+            }
+
+            updateCart();
+
+        });
+
+
+    /* INITIAL */
+
+    updateCart();
+
+});
+
+</script>
+
+{% endblock %}
