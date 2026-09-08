@@ -787,3 +787,166 @@
     }
 
 }
+.address-edit-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.address-edit-card {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.10);
+}
+
+.address-edit-header {
+    margin-bottom: 25px;
+}
+
+.address-edit-header h1 {
+    margin: 0 0 8px;
+}
+
+.address-edit-header p {
+    margin: 0;
+    color: #777;
+}
+
+.edit-address-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.cancel-address-btn {
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #f1f1f1;
+    color: #333;
+}
+
+.edit-address-actions .save-address-btn {
+    border: none;
+    cursor: pointer;
+}
+/* =========================================
+   EDIT ADDRESS FORM
+========================================= */
+
+.address-edit-card .form-group {
+    margin-bottom: 18px;
+}
+
+.address-edit-card label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.address-edit-card input,
+.address-edit-card select,
+.address-edit-card textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+}
+
+.address-edit-card input:focus,
+.address-edit-card select:focus,
+.address-edit-card textarea:focus {
+    border-color: #ff5a3c;
+    box-shadow: 0 0 0 3px rgba(255, 90, 60, 0.12);
+}
+
+.address-edit-card textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.address-edit-card .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.address-edit-card .default-address {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.address-edit-card .default-address input {
+    width: auto;
+    margin: 0;
+}
+
+.address-edit-card .default-address span {
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* Buttons */
+
+.edit-address-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.cancel-address-btn {
+    flex: 0 0 auto;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #f1f1f1;
+    color: #333;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-address-actions .save-address-btn {
+    flex: 1;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .address-edit-card .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .edit-address-actions {
+        flex-direction: column;
+    }
+
+    .cancel-address-btn,
+    .edit-address-actions .save-address-btn {
+        width: 100%;
+    }
+}

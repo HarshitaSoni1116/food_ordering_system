@@ -4,6 +4,8 @@ from .views import (
     login_view,
     logout_view,
     add_address,
+    edit_address,
+    delete_address,
 )
 
 
@@ -15,5 +17,16 @@ urlpatterns = [
     "add-address/",
     add_address,
     name="add_address"
+),
+path(
+    "address/<int:address_id>/edit/",
+    edit_address,
+    name="edit_address"
+),
+
+path(
+    "address/<int:address_id>/delete/",
+    delete_address,
+    name="delete_address"
 ),
 ]

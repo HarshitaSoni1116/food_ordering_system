@@ -231,3 +231,93 @@ def add_address(request):
     )
 
     return redirect("profile")
+
+@login_required(login_url="/login/")
+def edit_address(request, address_id):
+
+    address = Address.objects.filter(
+        id=address_id,
+        user=request.user
+    ).first()
+
+    if not address:
+        messages.error(request, "Address not found.")
+        return redirect("profile")
+
+    if request.method == "POST":
+
+        address.address_type = request.POST.get(
+            "address_type", "Home"
+        ).strip()
+
+        address.full_name = request.POST.get(
+            "full_name", ""
+        ).strip()
+
+        address.phone = request.POST.get(
+            "phone", ""
+        ).strip()
+
+        address.address = request.POST.get(
+            "address", ""
+        ).strip()
+
+        address.city = request.POST.get(
+            "city", ""
+        ).strip()
+
+        address.pincode = request.POST.get(
+            "pincode", ""
+        ).strip()
+
+        is_default = request.POST.get("is_default") == "on"
+
+        if is_default:
+            Address.objects.filter(
+                user=request.user
+            ).exclude(
+                id=address.id
+            ).update(
+                is_default=False
+            )
+
+        address.is_default = is_default
+        address.save()
+
+        messages.success(
+            request,
+            "Address updated successfully!"
+        )
+
+        return redirect("profile")
+
+    return render(
+        request,
+        "edit_address.html",
+        {
+            "address": address
+        }
+    )
+
+@login_required(login_url="/login/")
+def delete_address(request, address_id):
+
+    address = Address.objects.filter(
+        id=address_id,
+        user=request.user
+    ).first()
+
+    if not address:
+        messages.error(request, "Address not found.")
+        return redirect("profile")
+
+    if request.method == "POST":
+
+        address.delete()
+
+        messages.success(
+            request,
+            "Address deleted successfully!"
+        )
+
+    return redirect("profile")
