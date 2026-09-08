@@ -71,235 +71,7 @@
                     </div>
 
 
-                    <!-- CART ITEM 1 -->
-
-                    <div
-                        class="cart-item"
-                        data-price="299"
-                    >
-
-                        <div class="cart-item-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=500&q=80"
-                                alt="Margherita Pizza"
-                            >
-
-                        </div>
-
-
-                        <div class="cart-item-details">
-
-                            <div>
-
-                                <span class="cart-restaurant">
-                                    The Food House
-                                </span>
-
-                                <h3>
-                                    Margherita Pizza
-                                </h3>
-
-                                <span class="food-type">
-                                    <i class="bi bi-circle-fill"></i>
-                                    Veg
-                                </span>
-
-                            </div>
-
-                            <div class="cart-item-bottom">
-
-                                <strong class="item-price">
-                                    ₹299
-                                </strong>
-
-                                <div class="quantity-control">
-
-                                    <button
-                                        class="quantity-minus"
-                                    >
-                                        <i class="bi bi-dash"></i>
-                                    </button>
-
-                                    <span class="quantity">
-                                        1
-                                    </span>
-
-                                    <button
-                                        class="quantity-plus"
-                                    >
-                                        <i class="bi bi-plus"></i>
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <button
-                            class="remove-item"
-                            title="Remove item"
-                        >
-                            <i class="bi bi-x-lg"></i>
-                        </button>
-
-                    </div>
-
-
-                    <!-- CART ITEM 2 -->
-
-                    <div
-                        class="cart-item"
-                        data-price="220"
-                    >
-
-                        <div class="cart-item-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=500&q=80"
-                                alt="Paneer Tikka"
-                            >
-
-                        </div>
-
-
-                        <div class="cart-item-details">
-
-                            <div>
-
-                                <span class="cart-restaurant">
-                                    The Food House
-                                </span>
-
-                                <h3>
-                                    Paneer Tikka
-                                </h3>
-
-                                <span class="food-type">
-                                    <i class="bi bi-circle-fill"></i>
-                                    Veg
-                                </span>
-
-                            </div>
-
-                            <div class="cart-item-bottom">
-
-                                <strong class="item-price">
-                                    ₹220
-                                </strong>
-
-                                <div class="quantity-control">
-
-                                    <button
-                                        class="quantity-minus"
-                                    >
-                                        <i class="bi bi-dash"></i>
-                                    </button>
-
-                                    <span class="quantity">
-                                        1
-                                    </span>
-
-                                    <button
-                                        class="quantity-plus"
-                                    >
-                                        <i class="bi bi-plus"></i>
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <button
-                            class="remove-item"
-                            title="Remove item"
-                        >
-                            <i class="bi bi-x-lg"></i>
-                        </button>
-
-                    </div>
-
-
-                    <!-- CART ITEM 3 -->
-
-                    <div
-                        class="cart-item"
-                        data-price="199"
-                    >
-
-                        <div class="cart-item-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=500&q=80"
-                                alt="Veg Fried Rice"
-                            >
-
-                        </div>
-
-
-                        <div class="cart-item-details">
-
-                            <div>
-
-                                <span class="cart-restaurant">
-                                    The Food House
-                                </span>
-
-                                <h3>
-                                    Veg Fried Rice
-                                </h3>
-
-                                <span class="food-type">
-                                    <i class="bi bi-circle-fill"></i>
-                                    Veg
-                                </span>
-
-                            </div>
-
-                            <div class="cart-item-bottom">
-
-                                <strong class="item-price">
-                                    ₹199
-                                </strong>
-
-                                <div class="quantity-control">
-
-                                    <button
-                                        class="quantity-minus"
-                                    >
-                                        <i class="bi bi-dash"></i>
-                                    </button>
-
-                                    <span class="quantity">
-                                        1
-                                    </span>
-
-                                    <button
-                                        class="quantity-plus"
-                                    >
-                                        <i class="bi bi-plus"></i>
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <button
-                            class="remove-item"
-                            title="Remove item"
-                        >
-                            <i class="bi bi-x-lg"></i>
-                        </button>
-
-                    </div>
+                    <div id="cartItems"></div>
 
 
                     <!-- CONTINUE SHOPPING -->
@@ -501,8 +273,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const cartItems =
-        document.querySelectorAll(".cart-item");
+    const cartItemsContainer =
+        document.getElementById("cartItems");
 
     const subtotalElement =
         document.getElementById("subtotal");
@@ -525,47 +297,178 @@ document.addEventListener("DOMContentLoaded", function () {
     const emptyCart =
         document.getElementById("emptyCart");
 
+    const clearCartBtn =
+        document.getElementById("clearCartBtn");
+
     let discount = 0;
 
 
     /* =========================
-       UPDATE CART
+       GET CART FROM LOCAL STORAGE
     ========================= */
 
-    function updateCart() {
+    function getCart() {
 
-        const currentItems =
-            document.querySelectorAll(".cart-item");
+        return JSON.parse(
+            localStorage.getItem("foodieCart") || "[]"
+        );
+
+    }
+
+
+    /* =========================
+       SAVE CART
+    ========================= */
+
+    function saveCart(cart) {
+
+        localStorage.setItem(
+            "foodieCart",
+            JSON.stringify(cart)
+        );
+
+    }
+
+
+    /* =========================
+       DISPLAY CART
+    ========================= */
+
+    function renderCart() {
+
+        const cart = getCart();
+
+        cartItemsContainer.innerHTML = "";
 
         let subtotal = 0;
         let totalItems = 0;
 
 
-        currentItems.forEach(item => {
+        /* EMPTY CART */
 
-            const price =
-                Number(item.dataset.price);
+        if (cart.length === 0) {
 
-            const quantity =
-                Number(
-                    item.querySelector(".quantity")
-                        .textContent
-                );
+            cartContent.style.display = "none";
 
-            subtotal += price * quantity;
+            emptyCart.style.display = "block";
 
-            totalItems += quantity;
+            return;
 
-            const priceElement =
-                item.querySelector(".item-price");
+        }
 
-            priceElement.textContent =
-                "₹" + (price * quantity);
+
+        cartContent.style.display = "block";
+
+        emptyCart.style.display = "none";
+
+
+        /* CREATE CART ITEMS */
+
+        cart.forEach((item, index) => {
+
+            const itemTotal =
+                Number(item.price) * Number(item.quantity);
+
+            subtotal += itemTotal;
+
+            totalItems += Number(item.quantity);
+
+
+            const cartItem =
+                document.createElement("div");
+
+            cartItem.className = "cart-item";
+
+
+            cartItem.innerHTML = `
+
+                <div class="cart-item-image">
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
+
+                </div>
+
+
+                <div class="cart-item-details">
+
+                    <div>
+
+                        <span class="cart-restaurant">
+                            ${item.restaurant || "Foodie Restaurant"}
+                        </span>
+
+                        <h3>
+                            ${item.name}
+                        </h3>
+
+                        <span class="food-type">
+                            <i class="bi bi-circle-fill"></i>
+                            Food Item
+                        </span>
+
+                    </div>
+
+
+                    <div class="cart-item-bottom">
+
+                        <strong class="item-price">
+                            ₹${itemTotal}
+                        </strong>
+
+
+                        <div class="quantity-control">
+
+                            <button
+                                class="quantity-minus"
+                                data-index="${index}"
+                            >
+                                <i class="bi bi-dash"></i>
+                            </button>
+
+
+                            <span class="quantity">
+                                ${item.quantity}
+                            </span>
+
+
+                            <button
+                                class="quantity-plus"
+                                data-index="${index}"
+                            >
+                                <i class="bi bi-plus"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="remove-item"
+                    data-index="${index}"
+                    title="Remove item"
+                >
+
+                    <i class="bi bi-x-lg"></i>
+
+                </button>
+
+            `;
+
+
+            cartItemsContainer.appendChild(cartItem);
 
         });
 
 
-        /* DELIVERY */
+        /* =========================
+           DELIVERY FEE
+        ========================= */
 
         let deliveryFee = 0;
 
@@ -576,7 +479,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /* TOTAL */
+        /* =========================
+           TOTAL
+        ========================= */
 
         const total =
             subtotal + deliveryFee - discount;
@@ -595,132 +500,149 @@ document.addEventListener("DOMContentLoaded", function () {
             "₹" + Math.max(total, 0);
 
 
+        /* ITEM COUNT */
+
         itemCountElement.textContent =
             totalItems +
-            (totalItems === 1 ? " item" : " items");
+            (totalItems === 1
+                ? " item"
+                : " items");
 
 
-        /* EMPTY STATE */
-
-        if (currentItems.length === 0) {
-
-            cartContent.style.display = "none";
-
-            emptyCart.style.display = "block";
-
-        } else {
-
-            cartContent.style.display = "block";
-
-            emptyCart.style.display = "none";
-
-        }
+        attachCartEvents();
 
     }
 
 
     /* =========================
-       PLUS
+       CART EVENTS
     ========================= */
 
-    document.querySelectorAll(".quantity-plus")
-        .forEach(button => {
+    function attachCartEvents() {
 
-            button.addEventListener("click", function () {
+        /* PLUS */
 
-                const quantity =
-                    this.parentElement
-                        .querySelector(".quantity");
+        document
+            .querySelectorAll(".quantity-plus")
+            .forEach(button => {
 
-                let value =
-                    Number(quantity.textContent);
+                button.addEventListener(
+                    "click",
+                    function () {
 
-                value++;
+                        const index =
+                            Number(this.dataset.index);
 
-                quantity.textContent = value;
+                        const cart = getCart();
 
-                updateCart();
+                        cart[index].quantity++;
+
+                        saveCart(cart);
+
+                        renderCart();
+
+                        updateCartCount();
+
+                    }
+                );
 
             });
 
-        });
 
+        /* MINUS */
 
-    /* =========================
-       MINUS
-    ========================= */
+        document
+            .querySelectorAll(".quantity-minus")
+            .forEach(button => {
 
-    document.querySelectorAll(".quantity-minus")
-        .forEach(button => {
+                button.addEventListener(
+                    "click",
+                    function () {
 
-            button.addEventListener("click", function () {
+                        const index =
+                            Number(this.dataset.index);
 
-                const quantity =
-                    this.parentElement
-                        .querySelector(".quantity");
+                        const cart = getCart();
 
-                let value =
-                    Number(quantity.textContent);
+                        if (cart[index].quantity > 1) {
 
-                if (value > 1) {
+                            cart[index].quantity--;
 
-                    value--;
+                        } else {
 
-                    quantity.textContent = value;
+                            cart.splice(index, 1);
 
-                    updateCart();
+                        }
 
-                }
+                        saveCart(cart);
 
-            });
+                        renderCart();
 
-        });
+                        updateCartCount();
 
-
-    /* =========================
-       REMOVE ITEM
-    ========================= */
-
-    document.querySelectorAll(".remove-item")
-        .forEach(button => {
-
-            button.addEventListener("click", function () {
-
-                const item =
-                    this.closest(".cart-item");
-
-                item.remove();
-
-                updateCart();
+                    }
+                );
 
             });
 
-        });
+
+        /* REMOVE */
+
+        document
+            .querySelectorAll(".remove-item")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        const index =
+                            Number(this.dataset.index);
+
+                        const cart = getCart();
+
+                        cart.splice(index, 1);
+
+                        saveCart(cart);
+
+                        renderCart();
+
+                        updateCartCount();
+
+                    }
+                );
+
+            });
+
+    }
 
 
     /* =========================
        CLEAR CART
     ========================= */
 
-    document.getElementById("clearCartBtn")
-        .addEventListener("click", function () {
+    clearCartBtn.addEventListener(
+        "click",
+        function () {
 
-            document
-                .querySelectorAll(".cart-item")
-                .forEach(item => item.remove());
+            localStorage.removeItem("foodieCart");
 
             discount = 0;
 
-            updateCart();
+            renderCart();
 
-        });
+            updateCartCount();
+
+        }
+    );
 
 
     /* =========================
        COUPON
     ========================= */
 
-    document.getElementById("applyCoupon")
+    document
+        .getElementById("applyCoupon")
         .addEventListener("click", function () {
 
             const input =
@@ -743,7 +665,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 message.className =
                     "coupon-success";
 
-            } else if (code === "WEEKEND100") {
+            }
+
+            else if (code === "WEEKEND100") {
 
                 discount = 100;
 
@@ -753,7 +677,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 message.className =
                     "coupon-success";
 
-            } else {
+            }
+
+            else {
 
                 discount = 0;
 
@@ -765,14 +691,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
-            updateCart();
+
+            renderCart();
 
         });
 
 
-    /* INITIAL */
+    /* =========================
+       INITIAL LOAD
+    ========================= */
 
-    updateCart();
+    renderCart();
+
+    updateCartCount();
 
 });
 

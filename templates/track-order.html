@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Track Order #{{ order.id }} - Foodie
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/track-order.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="track-order-page">
+
+    <div class="container py-5">
+
+        <!-- Back -->
+        <a href="{% url 'order_details' order.id %}" class="back-link">
+            <i class="bi bi-arrow-left"></i>
+            Back to Order Details
+        </a>
+
+        <!-- Header -->
+        <div class="track-header">
+
+            <span class="section-label">
+                ORDER TRACKING
+            </span>
+
+            <h1>
+                Track Order #{{ order.id }}
+            </h1>
+
+            <p>
+                Placed on {{ order.created_at|date:"d M Y, h:i A" }}
+            </p>
+
+        </div>
+
+
+        <!-- Current Status -->
+        <div class="current-status-card">
+
+            <div class="status-icon">
+                {% if order.status == "Pending" %}
+                    <i class="bi bi-hourglass-split"></i>
+
+                {% elif order.status == "Confirmed" %}
+                    <i class="bi bi-check-circle"></i>
+
+                {% elif order.status == "Preparing" %}
+                    <i class="bi bi-fire"></i>
+
+                {% elif order.status == "Out for Delivery" %}
+                    <i class="bi bi-bicycle"></i>
+
+                {% elif order.status == "Delivered" %}
+                    <i class="bi bi-bag-check"></i>
+
+                {% else %}
+                    <i class="bi bi-x-circle"></i>
+                {% endif %}
+            </div>
+
+            <div>
+                <span>Current Status</span>
+
+                <h2>
+                    {{ order.status }}
+                </h2>
+
+                {% if order.status == "Pending" %}
+                    <p>Your order has been received.</p>
+
+                {% elif order.status == "Confirmed" %}
+                    <p>Your order has been confirmed by the restaurant.</p>
+
+                {% elif order.status == "Preparing" %}
+                    <p>Your delicious food is being prepared.</p>
+
+                {% elif order.status == "Out for Delivery" %}
+                    <p>Your order is on the way!</p>
+
+                {% elif order.status == "Delivered" %}
+                    <p>Your order has been delivered. Enjoy your meal! ❤️</p>
+
+                {% elif order.status == "Cancelled" %}
+                    <p>This order has been cancelled.</p>
+                {% endif %}
+            </div>
+
+        </div>
+
+
+        <!-- Tracking Timeline -->
+        {% if order.status != "Cancelled" %}
+
+        <div class="tracking-card">
+
+            <span class="section-label">
+                ORDER JOURNEY
+            </span>
+
+            <div class="tracking-timeline">
+
+
+                <!-- Placed -->
+                <div class="timeline-item completed">
+
+                    <div class="timeline-icon">
+                        <i class="bi bi-cart-check"></i>
+                    </div>
+
+                    <div class="timeline-content">
+                        <h3>Order Placed</h3>
+                        <p>Your order has been successfully placed.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Confirmed -->
+                <div class="timeline-item
+                    {% if order.status == 'Confirmed' or order.status == 'Preparing' or order.status == 'Out for Delivery' or order.status == 'Delivered' %}
+                        completed
+                    {% endif %}
+                ">
+
+                    <div class="timeline-icon">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+
+                    <div class="timeline-content">
+                        <h3>Order Confirmed</h3>
+                        <p>The restaurant has confirmed your order.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Preparing -->
+                <div class="timeline-item
+                    {% if order.status == 'Preparing' or order.status == 'Out for Delivery' or order.status == 'Delivered' %}
+                        completed
+                    {% endif %}
+                ">
+
+                    <div class="timeline-icon">
+                        <i class="bi bi-fire"></i>
+                    </div>
+
+                    <div class="timeline-content">
+                        <h3>Preparing</h3>
+                        <p>Your food is being freshly prepared.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Out for Delivery -->
+                <div class="timeline-item
+                    {% if order.status == 'Out for Delivery' or order.status == 'Delivered' %}
+                        completed
+                    {% endif %}
+                ">
+
+                    <div class="timeline-icon">
+                        <i class="bi bi-bicycle"></i>
+                    </div>
+
+                    <div class="timeline-content">
+                        <h3>Out for Delivery</h3>
+                        <p>Your order is on the way.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Delivered -->
+                <div class="timeline-item
+                    {% if order.status == 'Delivered' %}
+                        completed
+                    {% endif %}
+                ">
+
+                    <div class="timeline-icon">
+                        <i class="bi bi-house-check"></i>
+                    </div>
+
+                    <div class="timeline-content">
+                        <h3>Delivered</h3>
+                        <p>Your order has reached you successfully.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <!-- Cancelled -->
+        <div class="cancelled-card">
+
+            <i class="bi bi-x-circle"></i>
+
+            <div>
+                <h2>Order Cancelled</h2>
+                <p>
+                    Unfortunately, this order has been cancelled.
+                </p>
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- Order Summary -->
+        <div class="tracking-summary">
+
+            <div>
+                <span>Items</span>
+                <strong>
+                    {{ order.items.count }}
+                </strong>
+            </div>
+
+            <div>
+                <span>Payment</span>
+                <strong>
+                    {{ order.payment_method }}
+                </strong>
+            </div>
+
+            <div>
+                <span>Total</span>
+                <strong>
+                    ₹{{ order.total_amount|floatformat:2 }}
+                </strong>
+            </div>
+
+        </div>
+
+
+        <!-- Actions -->
+        <div class="track-actions">
+
+            <a
+                href="{% url 'order_details' order.id %}"
+                class="btn-secondary-action"
+            >
+                <i class="bi bi-receipt"></i>
+                Order Details
+            </a>
+
+            <a
+                href="{% url 'home' %}"
+                class="btn-primary-action"
+            >
+                <i class="bi bi-shop"></i>
+                Order More Food
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

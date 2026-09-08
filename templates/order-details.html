@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Order #{{ order.id }} - Foodie
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/order-details.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="order-details-page">
+
+    <div class="container py-5">
+
+        <!-- Back -->
+        <a href="{% url 'my_orders' %}" class="back-link">
+            <i class="bi bi-arrow-left"></i>
+            Back to My Orders
+        </a>
+
+        <!-- Header -->
+        <div class="order-details-header">
+
+            <div>
+                <span class="section-label">ORDER DETAILS</span>
+
+                <h1>
+                    Order #{{ order.id }}
+                </h1>
+
+                <p>
+                    Placed on {{ order.created_at|date:"d M Y, h:i A" }}
+                </p>
+            </div>
+
+            <div class="order-status-badge status-{{ order.status|lower|cut:' ' }}">
+                {{ order.status }}
+            </div>
+
+        </div>
+
+
+        <!-- Order Info -->
+        <div class="order-info-grid">
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    <i class="bi bi-person"></i>
+                </div>
+
+                <div>
+                    <span>Customer</span>
+                    <strong>{{ order.customer_name }}</strong>
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    <i class="bi bi-telephone"></i>
+                </div>
+
+                <div>
+                    <span>Phone</span>
+                    <strong>{{ order.phone }}</strong>
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    <i class="bi bi-geo-alt"></i>
+                </div>
+
+                <div>
+                    <span>Delivery Address</span>
+                    <strong>
+                        {{ order.address }}, {{ order.city }}
+                        {% if order.pincode %}
+                            - {{ order.pincode }}
+                        {% endif %}
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    <i class="bi bi-credit-card"></i>
+                </div>
+
+                <div>
+                    <span>Payment</span>
+                    <strong>{{ order.payment_method }}</strong>
+
+                    <small>
+                        {{ order.payment_status }}
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Items -->
+        <div class="details-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <span class="section-label">ITEMS</span>
+
+                    <h2>
+                        Your Order
+                    </h2>
+                </div>
+
+                <span>
+                    {{ items|length }} item{{ items|length|pluralize }}
+                </span>
+
+            </div>
+
+
+            <div class="order-items-list">
+
+                {% for item in items %}
+
+                <div class="order-detail-item">
+
+                    <div class="item-image">
+
+                        {% if item.food_item and item.food_item.image %}
+
+                            <img
+                                src="{{ item.food_item.image.url }}"
+                                alt="{{ item.food_name }}"
+                            >
+
+                        {% else %}
+
+                            <div class="item-placeholder">
+                                <i class="bi bi-image"></i>
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="item-info">
+
+                        <h3>
+                            {{ item.food_name }}
+                        </h3>
+
+                        <p>
+                            ₹{{ item.price|floatformat:2 }}
+                            × {{ item.quantity }}
+                        </p>
+
+                    </div>
+
+
+                    <strong class="item-total">
+                        ₹{{ item.subtotal|floatformat:2 }}
+                    </strong>
+
+                </div>
+
+                {% empty %}
+
+                <div class="empty-items">
+                    <i class="bi bi-cart-x"></i>
+                    <p>No items found for this order.</p>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+        <!-- Delivery Instructions -->
+        {% if order.delivery_instructions %}
+
+        <div class="details-card">
+
+            <span class="section-label">
+                DELIVERY INSTRUCTIONS
+            </span>
+
+            <p class="delivery-instructions">
+                {{ order.delivery_instructions }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- Price Summary -->
+        <div class="details-card price-card">
+
+            <span class="section-label">
+                PAYMENT SUMMARY
+            </span>
+
+            <div class="price-row">
+                <span>Delivery Fee</span>
+                <strong>
+                    ₹{{ order.delivery_fee|floatformat:2 }}
+                </strong>
+            </div>
+
+            <div class="price-row total-row">
+                <span>Total Amount</span>
+
+                <strong>
+                    ₹{{ order.total_amount|floatformat:2 }}
+                </strong>
+            </div>
+
+        </div>
+
+
+        <!-- Actions -->
+        <div class="order-actions">
+
+            <a
+                href="{% url 'my_orders' %}"
+                class="btn-secondary-action"
+            >
+                <i class="bi bi-arrow-left"></i>
+                My Orders
+            </a>
+
+            {% if order.status != "Delivered" and order.status != "Cancelled" %}
+
+<a
+    href="{% url 'track_order' order.id %}"
+    class="btn-primary-action"
+>
+    <i class="bi bi-geo-alt"></i>
+    Track Order
+</a>
+
+{% endif %}
+            {% if order.status != "Delivered" and order.status != "Cancelled" %}
+
+            <a
+                href="{% url 'home' %}"
+                class="btn-primary-action"
+            >
+                <i class="bi bi-shop"></i>
+                Order More Food
+            </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

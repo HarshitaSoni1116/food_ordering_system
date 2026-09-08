@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}
+Foodie | Create Account
+{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/auth.css' %}">
 {% endblock %}
@@ -14,85 +18,184 @@
         <div class="auth-card">
 
             <div class="auth-header">
+
                 <div class="auth-icon">
                     <i class="bi bi-person-plus-fill"></i>
                 </div>
 
                 <h1>Create Account</h1>
-                <p>Join Foodie and start ordering your favorite food.</p>
+
+                <p>
+                    Join Foodie and start ordering your favorite food.
+                </p>
+
             </div>
 
-            <form>
+
+            <!-- Error Message -->
+
+            {% if error %}
+            <div class="auth-error">
+                {{ error }}
+            </div>
+            {% endif %}
+
+
+            <!-- Signup Form -->
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                <!-- First + Last Name -->
 
                 <div class="row">
 
                     <div class="col-md-6 mb-3">
-                        <label>First Name</label>
+
+                        <label for="first_name">
+                            First Name
+                        </label>
+
                         <div class="input-wrapper">
+
                             <i class="bi bi-person"></i>
+
                             <input
                                 type="text"
+                                id="first_name"
+                                name="first_name"
                                 class="form-control"
                                 placeholder="First name"
                                 required
                             >
+
                         </div>
+
                     </div>
 
+
                     <div class="col-md-6 mb-3">
-                        <label>Last Name</label>
+
+                        <label for="last_name">
+                            Last Name
+                        </label>
+
                         <div class="input-wrapper">
+
                             <i class="bi bi-person"></i>
+
                             <input
                                 type="text"
+                                id="last_name"
+                                name="last_name"
                                 class="form-control"
                                 placeholder="Last name"
                                 required
                             >
+
                         </div>
+
                     </div>
 
                 </div>
 
+
+                <!-- Email -->
+
                 <div class="mb-3">
-                    <label>Email Address</label>
+
+                    <label for="email">
+                        Email Address
+                    </label>
 
                     <div class="input-wrapper">
+
                         <i class="bi bi-envelope"></i>
 
                         <input
                             type="email"
+                            id="email"
+                            name="email"
                             class="form-control"
                             placeholder="Enter your email"
                             required
                         >
+
                     </div>
+
                 </div>
 
+
+                <!-- Phone -->
+
                 <div class="mb-3">
-                    <label>Phone Number</label>
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
 
                     <div class="input-wrapper">
+
                         <i class="bi bi-phone"></i>
 
                         <input
                             type="tel"
+                            id="phone"
+                            name="phone"
                             class="form-control"
                             placeholder="Enter your phone number"
                             required
                         >
+
                     </div>
+
                 </div>
 
+
+                <!-- Username -->
+
                 <div class="mb-3">
-                    <label>Password</label>
+
+                    <label for="username">
+                        Username
+                    </label>
 
                     <div class="input-wrapper">
+
+                        <i class="bi bi-person-badge"></i>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            class="form-control"
+                            placeholder="Choose a username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="mb-3">
+
+                    <label for="signupPassword">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
                         <i class="bi bi-lock"></i>
 
                         <input
                             type="password"
                             id="signupPassword"
+                            name="password"
                             class="form-control"
                             placeholder="Create a password"
                             required
@@ -107,17 +210,26 @@
                         </button>
 
                     </div>
+
                 </div>
 
+
+                <!-- Confirm Password -->
+
                 <div class="mb-3">
-                    <label>Confirm Password</label>
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
 
                     <div class="input-wrapper">
+
                         <i class="bi bi-lock-fill"></i>
 
                         <input
                             type="password"
                             id="confirmPassword"
+                            name="confirm_password"
                             class="form-control"
                             placeholder="Confirm your password"
                             required
@@ -132,7 +244,11 @@
                         </button>
 
                     </div>
+
                 </div>
+
+
+                <!-- Terms -->
 
                 <div class="form-check mb-4">
 
@@ -143,27 +259,49 @@
                         required
                     >
 
-                    <label class="form-check-label" for="terms">
+                    <label
+                        class="form-check-label"
+                        for="terms"
+                    >
                         I agree to the
-                        <a href="#">Terms & Conditions</a>
+                        <a href="#">
+                            Terms & Conditions
+                        </a>
                     </label>
 
                 </div>
 
-                <button type="submit" class="auth-btn">
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="auth-btn"
+                >
+
                     Create Account
+
                     <i class="bi bi-arrow-right"></i>
+
                 </button>
 
             </form>
+
+
+            <!-- Login -->
 
             <div class="auth-divider">
                 <span>OR</span>
             </div>
 
             <p class="auth-switch">
+
                 Already have an account?
-                <a href="{% url 'login' %}">Login</a>
+
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+
             </p>
 
         </div>
@@ -173,6 +311,7 @@
 </section>
 
 {% endblock %}
+
 
 {% block extra_js %}
 

@@ -53,6 +53,11 @@ Foodie | Login
                 <form method="POST">
 
                     {% csrf_token %}
+                    {% if error %}
+                         <div class="auth-error">
+                           {{ error }}
+                         </div>
+                    {% endif %}
 
 
                     <!-- Email -->

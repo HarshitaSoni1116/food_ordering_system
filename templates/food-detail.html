@@ -11,6 +11,10 @@
      FOOD DETAILS
 ========================= -->
 
+<!-- =========================
+     FOOD DETAILS
+========================= -->
+
 <section class="food-detail-section">
 
     <div class="container">
@@ -26,15 +30,33 @@
 
             <div class="food-detail-image">
 
-                <img
-                    src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1000&q=85"
-                    alt="Margherita Pizza"
-                >
+                {% if food.image %}
+                    <img
+                        src="{{ food.image.url }}"
+                        alt="{{ food.name }}"
+                    >
+                {% else %}
+                    <img
+                        src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1000&q=85"
+                        alt="{{ food.name }}"
+                    >
+                {% endif %}
 
-                <span class="food-type-badge">
-                    <i class="bi bi-circle-fill"></i>
-                    Veg
-                </span>
+                <!-- FOOD TYPE -->
+
+                {% if food.is_vegetarian %}
+                    <span class="food-type-badge">
+                        <i class="bi bi-circle-fill"></i>
+                        Veg
+                    </span>
+                {% else %}
+                    <span class="food-type-badge nonveg">
+                        <i class="bi bi-circle-fill"></i>
+                        Non-Veg
+                    </span>
+                {% endif %}
+
+                <!-- FAVORITE -->
 
                 <button class="detail-favorite" id="favoriteBtn">
                     <i class="bi bi-heart"></i>
@@ -47,33 +69,54 @@
 
             <div class="food-detail-content">
 
+                <!-- RESTAURANT -->
+
                 <div class="food-restaurant">
+
                     <i class="bi bi-shop"></i>
-                    The Food House
+
+                    {{ food.restaurant.name }}
+
                 </div>
 
-                <h1>Margherita Pizza</h1>
+
+                <!-- FOOD NAME -->
+
+                <h1>{{ food.name }}</h1>
+
+
+                <!-- RATING -->
 
                 <div class="food-rating">
 
                     <span class="rating-box">
+
                         <i class="bi bi-star-fill"></i>
-                        4.8
+
+                        {{ food.rating }}
+
                     </span>
 
-                    <span>320+ ratings</span>
+                    <span>Customer ratings</span>
 
                 </div>
+
+
+                <!-- PRICE -->
 
                 <div class="food-price">
-                    ₹299
+
+                    ₹{{ food.price }}
+
                 </div>
 
+
+                <!-- DESCRIPTION -->
+
                 <p class="food-description">
-                    Classic Margherita Pizza prepared with a crispy
-                    golden crust, fresh mozzarella, delicious tomato
-                    sauce and aromatic basil. Simple, fresh and
-                    incredibly tasty.
+
+                    {{ food.description }}
+
                 </p>
 
 
@@ -86,19 +129,34 @@
                         <i class="bi bi-clock-fill"></i>
 
                         <div>
-                            <strong>25–35 min</strong>
-                            <span>Estimated delivery</span>
+
+                            <strong>
+                                {{ food.preparation_time }} min
+                            </strong>
+
+                            <span>
+                                Preparation time
+                            </span>
+
                         </div>
 
                     </div>
+
 
                     <div class="delivery-item">
 
                         <i class="bi bi-bicycle"></i>
 
                         <div>
-                            <strong>Free Delivery</strong>
-                            <span>On orders above ₹199</span>
+
+                            <strong>
+                                Fresh & Fast
+                            </strong>
+
+                            <span>
+                                Prepared specially for you
+                            </span>
+
                         </div>
 
                     </div>
@@ -115,13 +173,17 @@
                     <div class="quantity-control">
 
                         <button id="decreaseBtn">
+
                             <i class="bi bi-dash"></i>
+
                         </button>
 
                         <span id="quantity">1</span>
 
                         <button id="increaseBtn">
+
                             <i class="bi bi-plus"></i>
+
                         </button>
 
                     </div>
@@ -129,18 +191,23 @@
                 </div>
 
 
-                <!-- ADD CART -->
+                <!-- ADD TO CART -->
 
                 <div class="food-actions">
 
-                    <button class="add-cart-btn" id="addCartBtn">
+                    <button
+                        class="add-cart-btn"
+                        id="addCartBtn"
+                    >
 
                         <i class="bi bi-cart-plus"></i>
 
                         Add to Cart
 
                         <span id="totalPrice">
-                            ₹299
+
+                            ₹{{ food.price }}
+
                         </span>
 
                     </button>
@@ -379,130 +446,76 @@
 {% block extra_js %}
 
 <script>
+console.log("FOOD DETAIL JS STARTED");
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* =========================
-       QUANTITY
-    ========================= */
+    console.log("DOM LOADED");
 
-    let quantity = 1;
+    const btn = document.getElementById("addCartBtn");
 
-    const quantityDisplay =
-        document.getElementById("quantity");
+    console.log("BUTTON:", btn);
 
-    const decreaseBtn =
-        document.getElementById("decreaseBtn");
+    if (!btn) {
+        console.error("❌ Add to Cart button not found!");
+        return;
+    }
 
-    const increaseBtn =
-        document.getElementById("increaseBtn");
+    btn.addEventListener("click", function () {
 
-    const totalPrice =
-        document.getElementById("totalPrice");
+        console.log("🔥 ADD TO CART CLICKED");
 
-    const basePrice = 299;
+        let cart = JSON.parse(
+            localStorage.getItem("foodieCart") || "[]"
+        );
 
+        console.log("OLD CART:", cart);
 
-    increaseBtn.addEventListener("click", function () {
+        const food = {
+            id: Number("{{ food.id }}"),
+            name: "{{ food.name|escapejs }}",
+            price: Number("{{ food.price }}"),
+            quantity: 1,
+            image: "{% if food.image %}{{ food.image.url }}{% endif %}",
+            restaurant: "{{ food.restaurant.name|escapejs }}"
+        };
 
-        quantity++;
+        console.log("FOOD:", food);
 
-        quantityDisplay.textContent = quantity;
+        const existingItem = cart.find(
+            item => Number(item.id) === food.id
+        );
 
-        totalPrice.textContent =
-            "₹" + (basePrice * quantity);
-
-    });
-
-
-    decreaseBtn.addEventListener("click", function () {
-
-        if (quantity > 1) {
-
-            quantity--;
-
-            quantityDisplay.textContent = quantity;
-
-            totalPrice.textContent =
-                "₹" + (basePrice * quantity);
-
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push(food);
         }
 
-    });
+        localStorage.setItem(
+            "foodieCart",
+            JSON.stringify(cart)
+        );
 
+        console.log(
+            "✅ SAVED CART:",
+            localStorage.getItem("foodieCart")
+        );
 
-    /* =========================
-       FAVORITE
-    ========================= */
+        const originalText = btn.innerHTML;
 
-    const favoriteBtn =
-        document.getElementById("favoriteBtn");
+        btn.innerHTML = `
+            <i class="bi bi-check-circle"></i>
+            Added to Cart
+        `;
 
-    favoriteBtn.addEventListener("click", function () {
-
-        const icon =
-            this.querySelector("i");
-
-        icon.classList.toggle("bi-heart");
-        icon.classList.toggle("bi-heart-fill");
-
-    });
-
-
-    /* =========================
-       ADD TO CART
-    ========================= */
-
-    const addCartBtn =
-        document.getElementById("addCartBtn");
-
-    addCartBtn.addEventListener("click", function () {
-
-        const originalText = this.innerHTML;
-
-        this.innerHTML =
-            '<i class="bi bi-check-lg"></i> Added to Cart';
-
-        this.classList.add("added");
-
-        setTimeout(() => {
-
-            this.innerHTML = originalText;
-
-            this.classList.remove("added");
-
-        }, 1800);
+        setTimeout(function () {
+            btn.innerHTML = originalText;
+        }, 1500);
 
     });
-
-
-    /* =========================
-       RELATED ADD BUTTONS
-    ========================= */
-
-    document.querySelectorAll(".related-add")
-        .forEach(button => {
-
-            button.addEventListener("click", function () {
-
-                const original =
-                    this.innerHTML;
-
-                this.innerHTML =
-                    '<i class="bi bi-check-lg"></i> Added';
-
-                setTimeout(() => {
-
-                    this.innerHTML = original;
-
-                }, 1200);
-
-            });
-
-        });
 
 });
-
 </script>
 
 {% endblock %}

@@ -68,356 +68,107 @@ Foodie | Restaurants
             <select class="restaurant-filter">
 
                 <option>All Cuisines</option>
-                <option>Indian</option>
+                <option>North Indian</option>
+                <option>South Indian</option>
                 <option>Chinese</option>
                 <option>Italian</option>
                 <option>Fast Food</option>
-                <option>Desserts</option>
+                <option>Multi Cuisine</option>
 
             </select>
 
         </div>
 
-
         <div class="row g-4">
 
+    {% for restaurant in restaurants %}
 
-            <!-- Restaurant 1 -->
+    <div class="col-md-6 col-lg-4">
 
-            <div class="col-md-6 col-lg-4">
+        <div class="restaurant-page-card">
 
-                <div class="restaurant-page-card">
+            <div class="restaurant-page-image">
 
-                    <div class="restaurant-page-image">
+                {% if restaurant.image %}
+                    <img
+                        src="{{ restaurant.image.url }}"
+                        alt="{{ restaurant.name }}"
+                    >
+                {% else %}
+                    <img
+                        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                        alt="{{ restaurant.name }}"
+                    >
+                {% endif %}
 
-                        <img
-                            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
-                            alt="The Food House"
-                        >
-
-                        <span>
-                            Popular
-                        </span>
-
-                    </div>
-
-                    <div class="restaurant-page-content">
-
-                        <h3>The Food House</h3>
-
-                        <p>
-                            Indian • North Indian • Chinese
-                        </p>
-
-                        <div class="restaurant-meta">
-
-                            <strong>
-                                <i class="bi bi-star-fill"></i>
-                                4.8
-                            </strong>
-
-                            <span>
-                                25-35 min
-                            </span>
-
-                            <span>
-                                ₹₹
-                            </span>
-
-                        </div>
-
-                        <a href="{% url 'restaurant_detail' 1 %}" class="restaurant-menu-btn">
-                            View Menu
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-                </div>
+                {% if restaurant.rating >= 4.8 %}
+                    <span>Top Rated</span>
+                {% elif restaurant.rating >= 4.5 %}
+                    <span>Popular</span>
+                {% else %}
+                    <span>Recommended</span>
+                {% endif %}
 
             </div>
 
 
-            <!-- Restaurant 2 -->
+            <div class="restaurant-page-content">
 
-            <div class="col-md-6 col-lg-4">
+                <h3>{{ restaurant.name }}</h3>
 
-                <div class="restaurant-page-card">
+                <p>
+                    {{ restaurant.cuisine_type }}
+                </p>
 
-                    <div class="restaurant-page-image">
 
-                        <img
-                            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
-                            alt="Spice Garden"
-                        >
+                <div class="restaurant-meta">
 
-                        <span>
-                            Top Rated
-                        </span>
+                    <strong>
+                        <i class="bi bi-star-fill"></i>
+                        {{ restaurant.rating }}
+                    </strong>
 
-                    </div>
+                    <span>
+                        {{ restaurant.delivery_time }} min
+                    </span>
 
-                    <div class="restaurant-page-content">
-
-                        <h3>Spice Garden</h3>
-
-                        <p>
-                            Indian • Biryani • Mughlai
-                        </p>
-
-                        <div class="restaurant-meta">
-
-                            <strong>
-                                <i class="bi bi-star-fill"></i>
-                                4.9
-                            </strong>
-
-                            <span>
-                                20-30 min
-                            </span>
-
-                            <span>
-                                ₹₹
-                            </span>
-
-                        </div>
-
-                        <a href="{% url 'restaurant_detail' 2 %}" class="restaurant-menu-btn">
-                            View Menu
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                    </div>
+                    <span>
+                        ₹₹
+                    </span>
 
                 </div>
 
-            </div>
 
-
-            <!-- Restaurant 3 -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="restaurant-page-card">
-
-                    <div class="restaurant-page-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1579684947550-22e945225d9a?auto=format&fit=crop&w=800&q=80"
-                            alt="Pizza Paradise"
-                        >
-
-                        <span>
-                            Bestseller
-                        </span>
-
-                    </div>
-
-                    <div class="restaurant-page-content">
-
-                        <h3>Pizza Paradise</h3>
-
-                        <p>
-                            Pizza • Italian • Fast Food
-                        </p>
-
-                        <div class="restaurant-meta">
-
-                            <strong>
-                                <i class="bi bi-star-fill"></i>
-                                4.7
-                            </strong>
-
-                            <span>
-                                25-40 min
-                            </span>
-
-                            <span>
-                                ₹₹
-                            </span>
-
-                        </div>
-
-                        <a href="{% url 'restaurant_detail' 3 %}" class="restaurant-menu-btn">
-                            View Menu
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Restaurant 4 -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="restaurant-page-card">
-
-                    <div class="restaurant-page-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80"
-                            alt="Urban Tadka"
-                        >
-
-                        <span>
-                            Trending
-                        </span>
-
-                    </div>
-
-                    <div class="restaurant-page-content">
-
-                        <h3>Urban Tadka</h3>
-
-                        <p>
-                            Punjabi • North Indian • Thali
-                        </p>
-
-                        <div class="restaurant-meta">
-
-                            <strong>
-                                <i class="bi bi-star-fill"></i>
-                                4.6
-                            </strong>
-
-                            <span>
-                                30-40 min
-                            </span>
-
-                            <span>
-                                ₹₹
-                            </span>
-
-                        </div>
-
-                        <a href="{% url 'restaurant_detail' 4 %}" class="restaurant-menu-btn">
-                            View Menu
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Restaurant 5 -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="restaurant-page-card">
-
-                    <div class="restaurant-page-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80"
-                            alt="The Cafe Corner"
-                        >
-
-                        <span>
-                            New
-                        </span>
-
-                    </div>
-
-                    <div class="restaurant-page-content">
-
-                        <h3>The Cafe Corner</h3>
-
-                        <p>
-                            Cafe • Snacks • Beverages
-                        </p>
-
-                        <div class="restaurant-meta">
-
-                            <strong>
-                                <i class="bi bi-star-fill"></i>
-                                4.5
-                            </strong>
-
-                            <span>
-                                15-25 min
-                            </span>
-
-                            <span>
-                                ₹
-                            </span>
-
-                        </div>
-
-                        <a href="{% url 'restaurant_detail' 5 %}" class="restaurant-menu-btn">
-                            View Menu
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Restaurant 6 -->
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="restaurant-page-card">
-
-                    <div class="restaurant-page-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
-                            alt="Grill Nation"
-                        >
-
-                        <span>
-                            Recommended
-                        </span>
-
-                    </div>
-
-                    <div class="restaurant-page-content">
-
-                        <h3>Grill Nation</h3>
-
-                        <p>
-                            Grill • BBQ • Fast Food
-                        </p>
-
-                        <div class="restaurant-meta">
-
-                            <strong>
-                                <i class="bi bi-star-fill"></i>
-                                4.8
-                            </strong>
-
-                            <span>
-                                25-35 min
-                            </span>
-
-                            <span>
-                                ₹₹
-                            </span>
-
-                        </div>
-
-                        <a href="{% url 'restaurant_detail' 6 %}" class="restaurant-menu-btn">
-                            View Menu
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-                </div>
+                <a
+                    href="{% url 'restaurant_detail' restaurant.id %}"
+                    class="restaurant-menu-btn"
+                >
+                    View Menu
+                    <i class="bi bi-arrow-right"></i>
+                </a>
 
             </div>
 
         </div>
+
+    </div>
+
+    {% empty %}
+
+        <div class="col-12 text-center py-5">
+
+            <h4>No restaurants available</h4>
+
+            <p class="text-muted">
+                Please check back later.
+            </p>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+        
 
     </div>
 

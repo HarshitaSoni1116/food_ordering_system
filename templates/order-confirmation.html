@@ -37,7 +37,7 @@
 
             <div class="order-number">
                 <span>Order ID</span>
-                <strong>#FD20260905</strong>
+                <strong>{{ order.id}}</strong>
             </div>
 
         </div>
@@ -162,16 +162,17 @@
 
                         <div>
 
-                            <strong>Harshita Soni</strong>
+                            <strong>{{ order.customer_name }}</strong>
 
                             <p>
-                                123 Main Street, Near City Center,
-                                Jabalpur, Madhya Pradesh - 482001
+                                {{ order.address }},
+                                {{ order.city }} -
+                                {{ order.pincode }}
                             </p>
 
                             <span>
                                 <i class="bi bi-telephone"></i>
-                                +91 98765 43210
+                                {{ order.phone }}
                             </span>
 
                         </div>
@@ -218,7 +219,7 @@
                             <h3>Order Summary</h3>
 
                             <span>
-                                3 items
+                                {{ items|length }} items
                             </span>
 
                         </div>
@@ -228,99 +229,51 @@
                     </div>
 
 
-                    <!-- Item -->
+                    {% for item in items %}
 
-                    <div class="order-item">
+<div class="order-item">
 
-                        <div class="food-image">
+    <div class="food-image">
 
-                            <img
-                                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=200&q=80"
-                                alt="Margherita Pizza"
-                            >
+        {% if item.food_item and item.food_item.image %}
+            <img
+                src="{{ item.food_item.image.url }}"
+                alt="{{ item.food_name }}"
+            >
+        {% else %}
+            <div class="food-image-placeholder">
+                <i class="bi bi-image"></i>
+            </div>
+        {% endif %}
 
-                        </div>
+    </div>
 
-                        <div class="food-info">
+    <div class="food-info">
 
-                            <strong>Margherita Pizza</strong>
+        <strong>{{ item.food_name }}</strong>
 
-                            <span>Qty: 1</span>
+        <span>
+            Qty: {{ item.quantity }}
+        </span>
 
-                        </div>
+    </div>
 
-                        <strong>₹299</strong>
+    <strong>
+        ₹{{ item.subtotal }}
+    </strong>
 
-                    </div>
+</div>
 
-
-                    <!-- Item -->
-
-                    <div class="order-item">
-
-                        <div class="food-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=200&q=80"
-                                alt="Paneer Tikka"
-                            >
-
-                        </div>
-
-                        <div class="food-info">
-
-                            <strong>Paneer Tikka</strong>
-
-                            <span>Qty: 1</span>
-
-                        </div>
-
-                        <strong>₹220</strong>
-
-                    </div>
+{% endfor %}
 
 
-                    <!-- Item -->
-
-                    <div class="order-item">
-
-                        <div class="food-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=200&q=80"
-                                alt="Veg Fried Rice"
-                            >
-
-                        </div>
-
-                        <div class="food-info">
-
-                            <strong>Veg Fried Rice</strong>
-
-                            <span>Qty: 1</span>
-
-                        </div>
-
-                        <strong>₹199</strong>
-
-                    </div>
-
-
-                    <hr>
-
-
-                    <div class="summary-row">
-
-                        <span>Subtotal</span>
-                        <strong>₹718</strong>
-
-                    </div>
+                    
 
 
                     <div class="summary-row">
 
                         <span>Delivery Fee</span>
-                        <strong>₹40</strong>
+                        <strong>₹{{ order.delivery_fee }}</strong>
 
                     </div>
 
@@ -340,7 +293,7 @@
 
                         <span>Total Paid</span>
 
-                        <strong>₹758</strong>
+                        <strong>₹{{ order.total_amount }}</strong>
 
                     </div>
 
@@ -351,7 +304,7 @@
 
                         <div>
 
-                            <strong>Cash on Delivery</strong>
+                            <strong>{{ order.payment_method }}</strong>
 
                             <span>Payment method</span>
 
@@ -398,5 +351,19 @@
     </div>
 
 </section>
+
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Clear cart after successful order
+    localStorage.removeItem("foodieCart");
+
+    console.log("✅ Order successful — cart cleared");
+
+});
+</script>
+{% endblock %}
 
 {% endblock %}

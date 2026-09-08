@@ -13,87 +13,78 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn =
         document.getElementById("modalClose");
 
-    const saveBtn =
-        document.getElementById("saveProfileBtn");
-
     const logoutBtn =
         document.getElementById("logoutBtn");
 
 
-    /* Open Modal */
+    /* =========================
+       OPEN MODAL
+    ========================= */
 
-    editBtn.addEventListener("click", function () {
+    if (editBtn && modal) {
 
-        modal.classList.add("show");
+        editBtn.addEventListener("click", function () {
 
-    });
+            modal.classList.add("show");
 
+        });
 
-    /* Close Modal */
-
-    closeBtn.addEventListener("click", function () {
-
-        modal.classList.remove("show");
-
-    });
+    }
 
 
-    /* Click Outside */
+    /* =========================
+       CLOSE MODAL
+    ========================= */
 
-    modal.addEventListener("click", function (event) {
+    if (closeBtn && modal) {
 
-        if (event.target === modal) {
+        closeBtn.addEventListener("click", function () {
 
             modal.classList.remove("show");
 
-        }
+        });
 
-    });
-
-
-    /* Save Profile */
-
-    saveBtn.addEventListener("click", function () {
-
-        const name =
-            document.getElementById("editName").value.trim();
-
-        if (!name) {
-
-            alert("Please enter your name.");
-
-            return;
-
-        }
-
-        document.querySelector(
-            ".profile-main-info h1"
-        ).textContent = name;
-
-        document.querySelector(
-            ".info-item strong"
-        ).textContent = name;
-
-        modal.classList.remove("show");
-
-        alert("Profile updated successfully!");
-
-    });
+    }
 
 
-    /* Logout */
+    /* =========================
+       CLICK OUTSIDE MODAL
+    ========================= */
 
-    logoutBtn.addEventListener("click", function () {
+    if (modal) {
 
-        const confirmLogout =
-            confirm("Are you sure you want to logout?");
+        modal.addEventListener("click", function (event) {
 
-        if (confirmLogout) {
+            if (event.target === modal) {
 
-            window.location.href = "/login/";
+                modal.classList.remove("show");
 
-        }
+            }
 
-    });
+        });
+
+    }
+
+
+    /* =========================
+       LOGOUT
+    ========================= */
+
+    if (logoutBtn) {
+
+        logoutBtn.addEventListener("click", function () {
+
+            const confirmLogout =
+                confirm("Are you sure you want to logout?");
+
+            if (confirmLogout) {
+
+                window.location.href = "/logout/";
+
+            }
+
+        });
+
+    }
 
 });
