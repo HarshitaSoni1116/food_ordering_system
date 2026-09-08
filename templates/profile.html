@@ -132,33 +132,44 @@
 
                         <div>
 
-                            <h3>Saved Addresses</h3>
+                           
 
                             <p>
                                 Manage your delivery addresses.
                             </p>
+                            <div class="section-header">
+
+                            <div>
+                             <span class="section-label">DELIVERY</span>
+                             <h2>Saved Addresses</h2>
+                            </div>
+
+                            <button
+                             type="button"
+                              id="addAddressBtn"
+                              class="add-address-btn"
+                             >
+                          <i class="bi bi-plus-lg"></i>
+                             Add Address
+                                </button>
+
+                            </div>
 
                         </div>
 
-                        <button class="add-address-btn">
-
-                            <i class="bi bi-plus-lg"></i>
-                            Add Address
-
-                        </button>
-
+    
                     </div>
 
 
                    <div class="address-list">
 
-    {% for address in addresses %}
+                {% for address in addresses %}
 
-        <div class="saved-address">
+                  <div class="saved-address">
 
-            <div class="address-top">
+                        <div class="address-top">
 
-                <div class="address-label">
+                            <div class="address-label">
 
                     {% if address.address_type == "Home" %}
                         <i class="bi bi-house-fill"></i>
@@ -318,7 +329,7 @@
 
             <div class="col-lg-4">
 
-                <!-- Profile Stats -->
+                <!-- Profile Status -->
 
                 <div class="profile-stats">
 
@@ -441,16 +452,16 @@
 
 <!-- Edit Profile Modal -->
 
-<div class="profile-modal"
-     id="profileModal">
+<div class="profile-modal" id="profileModal">
 
     <div class="modal-box">
 
-        <button class="modal-close"
-                id="modalClose">
-
+        <button
+            type="button"
+            class="modal-close"
+            id="modalClose"
+        >
             <i class="bi bi-x-lg"></i>
-
         </button>
 
         <h3>Edit Profile</h3>
@@ -459,60 +470,229 @@
             Update your personal information.
         </p>
 
-
         <form
-    method="POST"
-    action="{% url 'profile' %}"
-    class="modal-form"
->
+            method="POST"
+            action="{% url 'profile' %}"
+            class="modal-form"
+        >
 
-    {% csrf_token %}
+            {% csrf_token %}
 
-    <label>Full Name</label>
+            <label>Full Name</label>
 
-    <input
-        type="text"
-        name="full_name"
-        value="{{ user.get_full_name }}"
-        id="editName"
-        required
-    >
+            <input
+                type="text"
+                name="full_name"
+                value="{{ user.get_full_name }}"
+                id="editName"
+                required
+            >
 
+            <label>Phone Number</label>
 
-    <label>Phone Number</label>
+            <input
+                type="tel"
+                name="phone"
+                value="{{ profile.phone }}"
+                id="editPhone"
+                required
+            >
 
-    <input
-        type="tel"
-        name="phone"
-        value="{{ profile.phone }}"
-        id="editPhone"
-        required
-    >
+            <label>Email Address</label>
 
+            <input
+                type="email"
+                name="email"
+                value="{{ user.email }}"
+                id="editEmail"
+                required
+            >
 
-    <label>Email Address</label>
+            <button
+                type="submit"
+                id="saveProfileBtn"
+            >
+                Save Changes
+            </button>
 
-    <input
-        type="email"
-        name="email"
-        value="{{ user.email }}"
-        id="editEmail"
-        required
-    >
-
-
-    <button
-        type="submit"
-        id="saveProfileBtn"
-    >
-        Save Changes
-    </button>
-
-</form>
+        </form>
 
     </div>
 
 </div>
+
+
+<!-- =========================
+     ADD ADDRESS MODAL
+========================= -->
+
+<div
+    class="address-modal"
+    id="addressModal"
+>
+
+    <div class="address-modal-content">
+
+        <div class="address-modal-header">
+
+            <h2>
+                <i class="bi bi-geo-alt-fill"></i>
+                Add New Address
+            </h2>
+
+            <button
+                type="button"
+                id="closeAddressModal"
+                class="modal-close"
+            >
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+        </div>
+
+
+        <form
+            method="POST"
+            action="{% url 'add_address' %}"
+            id="addressForm"
+        >
+
+            {% csrf_token %}
+
+
+            <div class="form-group">
+
+                <label>Address Type</label>
+
+                <select
+                    name="address_type"
+                    required
+                >
+                    <option value="Home">
+                        Home
+                    </option>
+
+                    <option value="Work">
+                        Work
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        name="full_name"
+                        value="{{ user.get_full_name }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone Number</label>
+
+                    <input
+                        type="tel"
+                        name="phone"
+                        value="{{ profile.phone }}"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Complete Address</label>
+
+                <textarea
+                    name="address"
+                    rows="3"
+                    placeholder="House No., Street, Area..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>City</label>
+
+                    <input
+                        type="text"
+                        name="city"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Pincode</label>
+
+                    <input
+                        type="text"
+                        name="pincode"
+                        maxlength="10"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <label class="default-address">
+
+                <input
+                    type="checkbox"
+                    name="is_default"
+                >
+
+                <span>
+                    Make this my default address
+                </span>
+
+            </label>
+
+
+            <button
+                type="submit"
+                class="save-address-btn"
+            >
+
+                <i class="bi bi-check-lg"></i>
+
+                Save Address
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
 
 {% endblock %}
 

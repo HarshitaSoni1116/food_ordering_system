@@ -166,3 +166,68 @@ def profile_view(request):
             "addresses": addresses,
         }
     )
+
+@login_required(login_url="/login/")
+def add_address(request):
+
+    if request.method != "POST":
+        return redirect("profile")
+
+    address_type = request.POST.get("address_type", "Home").strip()
+    full_name = request.POST.get("full_name", "").strip()
+    phone = request.POST.get("phone", "").strip()
+    address = request.POST.get("address", "").strip()
+    city = request.POST.get("city", "").strip()
+    pincode = request.POST.get("pincode", "").strip()
+
+    is_default = request.POST.get("is_default") == "on"
+
+    # Validation
+    if not full_name or not phone or not address or not city or not pincode:
+
+        messages.error(
+            request,
+            "Please fill all address fields."
+        )
+
+        return redirect("profile")
+
+
+    # If new address is default,
+    # remove default from old addresses
+    if is_default:
+
+        Address.objects.filter(
+            user=request.user
+        ).update(
+            is_default=False
+        )
+
+
+    # Create address
+    Address.objects.create(
+
+        user=request.user,
+
+        address_type=address_type,
+
+        full_name=full_name,
+
+        phone=phone,
+
+        address=address,
+
+        city=city,
+
+        pincode=pincode,
+
+        is_default=is_default,
+    )
+
+
+    messages.success(
+        request,
+        "Address saved successfully!"
+    )
+
+    return redirect("profile")

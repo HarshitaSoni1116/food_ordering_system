@@ -4,28 +4,51 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* =========================
+       EDIT PROFILE MODAL
+    ========================= */
+
     const editBtn =
         document.getElementById("editProfileBtn");
 
-    const modal =
+    const profileModal =
         document.getElementById("profileModal");
 
-    const closeBtn =
+    const closeProfileModal =
         document.getElementById("modalClose");
 
-    const logoutBtn =
-        document.getElementById("logoutBtn");
 
-
-    /* =========================
-       OPEN MODAL
-    ========================= */
-
-    if (editBtn && modal) {
+    if (editBtn && profileModal) {
 
         editBtn.addEventListener("click", function () {
 
-            modal.classList.add("show");
+            profileModal.classList.add("show");
+
+        });
+
+    }
+
+
+    if (closeProfileModal && profileModal) {
+
+        closeProfileModal.addEventListener("click", function () {
+
+            profileModal.classList.remove("show");
+
+        });
+
+    }
+
+
+    if (profileModal) {
+
+        profileModal.addEventListener("click", function (event) {
+
+            if (event.target === profileModal) {
+
+                profileModal.classList.remove("show");
+
+            }
 
         });
 
@@ -33,31 +56,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================
-       CLOSE MODAL
+       ADD ADDRESS MODAL
     ========================= */
 
-    if (closeBtn && modal) {
+    const addAddressBtns =
+        document.querySelectorAll("#addAddressBtn");
 
-        closeBtn.addEventListener("click", function () {
+    const addressModal =
+        document.getElementById("addressModal");
 
-            modal.classList.remove("show");
+    const closeAddressModal =
+        document.getElementById("closeAddressModal");
+
+
+    /* Open Add Address Modal */
+
+    addAddressBtns.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            addressModal.classList.add("show");
+
+        });
+
+    });
+
+
+    /* Close Add Address Modal */
+
+    if (closeAddressModal && addressModal) {
+
+        closeAddressModal.addEventListener("click", function () {
+
+            addressModal.classList.remove("show");
 
         });
 
     }
 
 
-    /* =========================
-       CLICK OUTSIDE MODAL
-    ========================= */
+    /* Click Outside Address Modal */
 
-    if (modal) {
+    if (addressModal) {
 
-        modal.addEventListener("click", function (event) {
+        addressModal.addEventListener("click", function (event) {
 
-            if (event.target === modal) {
+            if (event.target === addressModal) {
 
-                modal.classList.remove("show");
+                addressModal.classList.remove("show");
 
             }
 
@@ -69,6 +115,10 @@ document.addEventListener("DOMContentLoaded", function () {
     /* =========================
        LOGOUT
     ========================= */
+
+    const logoutBtn =
+        document.getElementById("logoutBtn");
+
 
     if (logoutBtn) {
 
