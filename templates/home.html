@@ -777,4 +777,116 @@ Foodie | Delicious Food Delivered
     </div>
 
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const addButtons = document.querySelectorAll(".add-cart-btn");
+
+    function getCart() {
+        return JSON.parse(
+            localStorage.getItem("foodieCart") || "[]"
+        );
+    }
+
+    function saveCart(cart) {
+        localStorage.setItem(
+            "foodieCart",
+            JSON.stringify(cart)
+        );
+    }
+
+    function updateCartCount() {
+
+        const cart = getCart();
+
+        const totalItems = cart.reduce(
+            (total, item) => total + Number(item.quantity),
+            0
+        );
+
+        document.querySelectorAll(".cart-count").forEach(element => {
+            element.textContent = totalItems;
+        });
+    }
+
+    addButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const foodId = this.dataset.foodId;
+            const foodName = this.dataset.foodName;
+            const foodPrice = this.dataset.foodPrice;
+
+            const foodCard = this.closest(".food-card");
+
+            const imageElement =
+                foodCard ? foodCard.querySelector("img") : null;
+
+            const image =
+                imageElement
+                    ? imageElement.src
+                    : "";
+
+            const restaurantElement =
+                foodCard
+                    ? foodCard.querySelector(".food-restaurant")
+                    : null;
+
+            const restaurant =
+                restaurantElement
+                    ? restaurantElement.textContent.trim()
+                    : "Foodie Restaurant";
+
+            const cart = getCart();
+
+            const existingItem = cart.find(
+                item => String(item.id) === String(foodId)
+            );
+
+            if (existingItem) {
+
+                existingItem.quantity += 1;
+
+            } else {
+
+                cart.push({
+                    id: foodId,
+                    name: foodName,
+                    price: Number(foodPrice),
+                    quantity: 1,
+                    image: image,
+                    restaurant: restaurant
+                });
+
+            }
+
+            saveCart(cart);
+
+            updateCartCount();
+
+            /* Button feedback */
+
+            const originalText = this.innerHTML;
+
+            this.innerHTML =
+                '<i class="bi bi-check-lg"></i> Added';
+
+            this.disabled = true;
+
+            setTimeout(() => {
+
+                this.innerHTML = originalText;
+                this.disabled = false;
+
+            }, 1000);
+
+        });
+
+    });
+
+    updateCartCount();
+
+});
+</script>
 {% endblock %}

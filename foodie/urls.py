@@ -85,7 +85,21 @@ def food_detail(request, food_id):
 # =========================
 
 def menu(request):
-    return render(request, "menu.html")
+
+    food_items = FoodItem.objects.filter(
+        is_available=True,
+        restaurant__is_active=True
+    ).select_related(
+        "restaurant"
+    ).order_by("-rating")
+
+    return render(
+        request,
+        "menu.html",
+        {
+            "food_items": food_items
+        }
+    )
 
 
 def offers(request):
