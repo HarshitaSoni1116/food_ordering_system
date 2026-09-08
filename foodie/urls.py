@@ -5,13 +5,32 @@ from django.contrib.auth.decorators import login_required
 from restaurants.models import Restaurant, FoodItem
 from orders.models import Order
 from accounts.views import profile_view
+from restaurants.models import Restaurant, FoodItem
 
 # =========================
 # HOME
 # =========================
 
 def home(request):
-    return render(request, "home.html")
+
+    restaurants = Restaurant.objects.filter(
+        is_active=True
+    ).order_by("-rating")[:6]
+
+    food_items = FoodItem.objects.filter(
+        is_available=True,
+        restaurant__is_active=True
+    ).order_by("-rating")[:8]
+
+    return render(
+        request,
+        "home.html",
+        {
+            "restaurants": restaurants,
+            "food_items": food_items,
+        }
+    )
+    
 
 
 # =========================
