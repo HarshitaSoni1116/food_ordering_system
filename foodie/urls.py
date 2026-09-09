@@ -13,6 +13,7 @@ from restaurants.models import Restaurant, FoodItem
 from orders.models import Order
 from accounts.views import profile_view
 from accounts.models import Profile
+from django.conf.urls.static import static
 # =========================
 # HOME
 # =========================
@@ -530,3 +531,4 @@ urlpatterns += static(
     settings.MEDIA_URL,
     document_root=settings.MEDIA_ROOT
 )
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
