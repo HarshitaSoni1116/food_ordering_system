@@ -1,0 +1,794 @@
+[
+{
+  "model": "restaurants.restaurant",
+  "pk": 2,
+  "fields": {
+    "name": "Bella Italia",
+    "description": "Authentic Italian cuisine with freshly prepared pizzas and pasta.",
+    "phone": "9876543211",
+    "email": "bellaitalia@gmail.com",
+    "address": "Napier Town, Jabalpur",
+    "city": "jabalpur",
+    "cuisine_type": "Italian",
+    "image": "restaurants/Bella_Italia_aFyk4Qv.jpg",
+    "rating": "4.8",
+    "delivery_time": 30,
+    "delivery_fee": "50.00",
+    "is_open": true,
+    "is_active": true,
+    "created_at": "2026-09-08T19:06:03.133Z",
+    "updated_at": "2026-09-09T14:12:48.463Z"
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 3,
+  "fields": {
+    "name": "The Spice Garden",
+    "description": "A warm and inviting destination for authentic North Indian flavours and aromatic curries.",
+    "phone": "9876543212",
+    "email": "spicegarden@gmail.com",
+    "address": "Wright Town, Jabaplur",
+    "city": "Jabalpur",
+    "cuisine_type": "North Indian",
+    "image": "restaurants/The_spice_Garden.jpg",
+    "rating": "4.6",
+    "delivery_time": 30,
+    "delivery_fee": "40.00",
+    "is_open": true,
+    "is_active": true,
+    "created_at": "2026-09-09T10:58:51.039Z",
+    "updated_at": "2026-09-09T14:13:16.718Z"
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 4,
+  "fields": {
+    "name": "Dragon Bowl",
+    "description": "Delicious Indo-Chinese favourites prepared with bold flavours, fresh vegetables and aromatic sauces.",
+    "phone": "9878766554",
+    "email": "dragonbowl@gmail.com",
+    "address": "Vijay Nagar,Jabalpur",
+    "city": "Jabalpur",
+    "cuisine_type": "Chinese",
+    "image": "restaurants/Dragon_bowl.jpg",
+    "rating": "4.5",
+    "delivery_time": 28,
+    "delivery_fee": "35.00",
+    "is_open": true,
+    "is_active": true,
+    "created_at": "2026-09-09T11:28:11.301Z",
+    "updated_at": "2026-09-09T11:28:11.301Z"
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 5,
+  "fields": {
+    "name": "The Burger House",
+    "description": "Juicy burgers, crispy fries and delicious shakes made for the ultimate fast-food experience.",
+    "phone": "9876543210",
+    "email": "burgerhouse@gmail.com",
+    "address": "Russel chowk ,Jabalpur",
+    "city": "Jabalpur",
+    "cuisine_type": "Fast Food",
+    "image": "restaurants/The_burger_house.jpg",
+    "rating": "4.6",
+    "delivery_time": 20,
+    "delivery_fee": "20.00",
+    "is_open": true,
+    "is_active": true,
+    "created_at": "2026-09-09T11:29:57.371Z",
+    "updated_at": "2026-09-09T11:29:57.371Z"
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 6,
+  "fields": {
+    "name": "Café Mocha",
+    "description": "A cosy café serving handcrafted coffee, refreshing shakes, sandwiches and indulgent desserts.",
+    "phone": "9876434983",
+    "email": "cafemocha@gmail.com",
+    "address": "Napier Town ,Jabalpur",
+    "city": "Jabalpur",
+    "cuisine_type": "Multi Cuisine",
+    "image": "restaurants/Cafe_Mocha_AfyimBU.jpg",
+    "rating": "4.8",
+    "delivery_time": 22,
+    "delivery_fee": "30.00",
+    "is_open": true,
+    "is_active": true,
+    "created_at": "2026-09-09T11:31:36.159Z",
+    "updated_at": "2026-09-09T14:12:15.101Z"
+  }
+},
+{
+  "model": "restaurants.restaurant",
+  "pk": 7,
+  "fields": {
+    "name": "Royal Rasoi",
+    "description": "Rich Indian flavours, traditional recipes and hearty meals inspired by royal Indian kitchens.",
+    "phone": "9876543210",
+    "email": "royalrasoi@gmiail.com",
+    "address": "Civil Lines, Jabalpur",
+    "city": "jabalpur",
+    "cuisine_type": "North Indian",
+    "image": "restaurants/Royal_Rasoi_o8hlpM4.jpg",
+    "rating": "4.7",
+    "delivery_time": 32,
+    "delivery_fee": "40.00",
+    "is_open": true,
+    "is_active": true,
+    "created_at": "2026-09-09T11:33:15.306Z",
+    "updated_at": "2026-09-09T14:11:17.087Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 3,
+  "fields": {
+    "restaurant": 2,
+    "name": "Four Cheese Pizza",
+    "description": "Creamy four cheese pizza with a crispy golden crust",
+    "category": "Pizza",
+    "price": "398.78",
+    "image": "food/four_cheese_pizza.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "4.8",
+    "created_at": "2026-09-08T19:12:21.997Z",
+    "updated_at": "2026-09-08T19:12:21.997Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 4,
+  "fields": {
+    "restaurant": 2,
+    "name": "Farmhouse Pizza",
+    "description": "Loaded with fresh vegetables, mozzarella and Italian herbs.",
+    "category": "Pizza",
+    "price": "349.00",
+    "image": "food/farmhouse_pizza.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "4.3",
+    "created_at": "2026-09-08T19:46:06.823Z",
+    "updated_at": "2026-09-08T19:46:06.823Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 5,
+  "fields": {
+    "restaurant": 2,
+    "name": "Margherita Pizza",
+    "description": "Classic tomato sauce, mozzarella cheese and fresh basil.",
+    "category": "Pizza",
+    "price": "399.00",
+    "image": "food/Margherita_pizza.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "4.7",
+    "created_at": "2026-09-09T10:54:39.543Z",
+    "updated_at": "2026-09-09T10:54:39.543Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 6,
+  "fields": {
+    "restaurant": 2,
+    "name": "Creamy Alfredo Pasta",
+    "description": "Penne pasta tossed in a creamy Alfredo sauce.",
+    "category": "Pasta",
+    "price": "329.00",
+    "image": "food/creamy_alfredo_pasta.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "3.5",
+    "created_at": "2026-09-09T10:55:41.882Z",
+    "updated_at": "2026-09-09T10:55:41.882Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 7,
+  "fields": {
+    "restaurant": 2,
+    "name": "Garlic bread with Cheese",
+    "description": "Crispy garlic bread topped with melted cheese.",
+    "category": "Starters",
+    "price": "179.00",
+    "image": "",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 15,
+    "rating": "4.6",
+    "created_at": "2026-09-09T10:56:50.664Z",
+    "updated_at": "2026-09-09T10:56:50.664Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 8,
+  "fields": {
+    "restaurant": 3,
+    "name": "Paneer Tikka",
+    "description": "Soft paneer with aromatic Indian spices.",
+    "category": "Main Course",
+    "price": "220.00",
+    "image": "food/Paneer_Tikka_x2Ne51A.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "4.7",
+    "created_at": "2026-09-09T11:10:30.827Z",
+    "updated_at": "2026-09-09T14:41:09.561Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 9,
+  "fields": {
+    "restaurant": 2,
+    "name": "Butter Paneer Masala",
+    "description": "Soft paneer cubes cooked in a rich, creamy tomato and butter gravy with aromatic spices.",
+    "category": "Main Course",
+    "price": "280.00",
+    "image": "food/Butter_panner_masala.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 25,
+    "rating": "4.8",
+    "created_at": "2026-09-09T11:11:50.653Z",
+    "updated_at": "2026-09-09T11:11:50.653Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 10,
+  "fields": {
+    "restaurant": 3,
+    "name": "Dal Makhani",
+    "description": "Slow-cooked black lentils and kidney beans simmered with butter, cream and aromatic Indian spices for a rich, creamy and comforting flavour.",
+    "category": "Main Course",
+    "price": "240.00",
+    "image": "",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "4.6",
+    "created_at": "2026-09-09T11:14:02.485Z",
+    "updated_at": "2026-09-09T11:14:02.485Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 11,
+  "fields": {
+    "restaurant": 3,
+    "name": "Dal Makhani",
+    "description": "Slow-cooked black lentils and kidney beans simmered with butter, cream and aromatic Indian spices for a rich, creamy and comforting flavour.",
+    "category": "Main Course",
+    "price": "240.00",
+    "image": "food/Dal_makhani.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "4.6",
+    "created_at": "2026-09-09T11:14:22.070Z",
+    "updated_at": "2026-09-09T11:14:22.070Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 12,
+  "fields": {
+    "restaurant": 3,
+    "name": "Kadhai Paneer",
+    "description": "paneer, crunchy bell peppers, and onions simmered in a spiced, smoky tomato gravy.",
+    "category": "Main Course",
+    "price": "260.00",
+    "image": "food/Kadhai_Paneer_d5k2qG3.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 25,
+    "rating": "4.7",
+    "created_at": "2026-09-09T11:21:59.073Z",
+    "updated_at": "2026-09-09T14:39:52.275Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 13,
+  "fields": {
+    "restaurant": 3,
+    "name": "Garlic Naan",
+    "description": "soft, oven-baked flatbread brushed with rich garlic butter and topped with fresh coriander.",
+    "category": "Main Course",
+    "price": "79.00",
+    "image": "food/Garlic_naan.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 10,
+    "rating": "4.6",
+    "created_at": "2026-09-09T11:23:21.432Z",
+    "updated_at": "2026-09-09T11:23:21.432Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 14,
+  "fields": {
+    "restaurant": 3,
+    "name": "Veg Biryani",
+    "description": "fragrant, slow-cooked rice dish layered with garden-fresh vegetables, aromatic spices, and fresh herbs.",
+    "category": "Rice",
+    "price": "170.00",
+    "image": "food/veg_biryani.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 25,
+    "rating": "4.5",
+    "created_at": "2026-09-09T11:26:06.994Z",
+    "updated_at": "2026-09-09T11:26:06.994Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 15,
+  "fields": {
+    "restaurant": 4,
+    "name": "Veg Hakka Noodles",
+    "description": "wok-tossed stir-fried noodles packed with crunchy vegetables, savory soy sauce, and aromatic Chinese spices.",
+    "category": "Pasta",
+    "price": "189.00",
+    "image": "food/Veg_Hakka_Noodles_XuX95OX.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 15,
+    "rating": "4.5",
+    "created_at": "2026-09-09T11:36:09.192Z",
+    "updated_at": "2026-09-09T14:37:57.326Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 16,
+  "fields": {
+    "restaurant": 4,
+    "name": "Schezwan Fried Rice",
+    "description": "a fiery, wok-tossed rice dish loaded with crunchy veggies and packed with a punch of spicy, garlic-infused Schezwan sauce.",
+    "category": "Rice",
+    "price": "209.00",
+    "image": "food/schezwan_fried_rice.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "4.6",
+    "created_at": "2026-09-09T11:38:03.826Z",
+    "updated_at": "2026-09-09T11:38:03.826Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 17,
+  "fields": {
+    "restaurant": 4,
+    "name": "Chilli Paneer",
+    "description": "crispy paneer cubes tossed with crunchy bell peppers and onions in a tangy, spicy, and savory soy-chilli sauce.",
+    "category": "Starters",
+    "price": "229.00",
+    "image": "food/Chilli_Paneer_t96zllW.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 25,
+    "rating": "4.7",
+    "created_at": "2026-09-09T11:39:05.016Z",
+    "updated_at": "2026-09-09T14:41:38.658Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 18,
+  "fields": {
+    "restaurant": 4,
+    "name": "Veg Manchurian",
+    "description": "crispy, deep-fried vegetable dumplings tossed in a savory, tangy, and slightly sweet garlic-soy sauce.",
+    "category": "Starters",
+    "price": "199.00",
+    "image": "food/veg_manchurian.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "4.6",
+    "created_at": "2026-09-09T11:40:20.487Z",
+    "updated_at": "2026-09-09T11:40:20.487Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 19,
+  "fields": {
+    "restaurant": 4,
+    "name": "Honey Chilli Potato",
+    "description": "Honey Chilli Potato features crispy fried potato fingers tossed in a sweet, spicy, and tangy sauce, topped with toasted sesame seeds.Would you like to label this as a \"Chef's Best Sel",
+    "category": "Starters",
+    "price": "189.00",
+    "image": "",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "4.7",
+    "created_at": "2026-09-09T11:41:04.586Z",
+    "updated_at": "2026-09-09T11:41:04.586Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 20,
+  "fields": {
+    "restaurant": 4,
+    "name": "Spring Rolls",
+    "description": "golden, crispy pastry wrappers packed with a seasoned mix of stir-fried crunchy vegetables, served with a sweet chilli dipping sauce.",
+    "category": "Starters",
+    "price": "159.00",
+    "image": "food/Spring_rolls.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 15,
+    "rating": "4.4",
+    "created_at": "2026-09-09T11:42:08.533Z",
+    "updated_at": "2026-09-09T11:42:08.533Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 21,
+  "fields": {
+    "restaurant": 5,
+    "name": "Classic Cheeseburger",
+    "description": "a juicy grilled patty topped with melted cheddar cheese, fresh lettuce, tomato, pickles, and our signature burger sauce on a toasted brioche bun.",
+    "category": "Burger",
+    "price": "199.00",
+    "image": "food/Classic_Cheeseburger_gsFWRVK.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 15,
+    "rating": "4.9",
+    "created_at": "2026-09-09T11:44:20.443Z",
+    "updated_at": "2026-09-09T17:59:28.318Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 22,
+  "fields": {
+    "restaurant": 5,
+    "name": "Crispy Paneer Burger",
+    "description": "a golden, panko-crusted paneer patty topped with melted cheese, crunchy lettuce, and a spicy, tangy sauce on a toasted bun.",
+    "category": "Burger",
+    "price": "179.00",
+    "image": "food/Crispy_Paneer_Burger_PFdemob.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 15,
+    "rating": "4.6",
+    "created_at": "2026-09-09T11:45:43.227Z",
+    "updated_at": "2026-09-09T14:38:35.218Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 23,
+  "fields": {
+    "restaurant": 5,
+    "name": "Smoky BBQ Burger",
+    "description": "a juicy grilled patty glazed with rich BBQ sauce, topped with melted cheese, crispy onion rings, and fresh lettuce on a toasted bun.",
+    "category": "Burger",
+    "price": "229.00",
+    "image": "",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 18,
+    "rating": "4.5",
+    "created_at": "2026-09-09T11:46:51.574Z",
+    "updated_at": "2026-09-09T11:46:51.574Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 24,
+  "fields": {
+    "restaurant": 5,
+    "name": "Smoky BBQ Burger",
+    "description": "a juicy grilled patty glazed with rich BBQ sauce, topped with melted cheese, crispy onion rings, and fresh lettuce on a toasted bun.",
+    "category": "Burger",
+    "price": "229.00",
+    "image": "food/smokey_bbq_burger.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 18,
+    "rating": "4.5",
+    "created_at": "2026-09-09T11:47:18.223Z",
+    "updated_at": "2026-09-09T11:47:18.223Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 25,
+  "fields": {
+    "restaurant": 5,
+    "name": "Spicy Mexican Burger",
+    "description": "a juicy grilled patty topped with melted cheese, spicy jalapeños, fresh salsa, creamy guacamole, and a zesty chipotle sauce.",
+    "category": "Burger",
+    "price": "219.00",
+    "image": "food/spicy_mexican_burger.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 12,
+    "rating": "4.9",
+    "created_at": "2026-09-09T11:48:43.368Z",
+    "updated_at": "2026-09-09T11:48:43.368Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 26,
+  "fields": {
+    "restaurant": 5,
+    "name": "Loaded Cheese Fries",
+    "description": "golden, crispy French fries smothered in a rich, warm cheese sauce and loaded with seasoned toppings.",
+    "category": "Starters",
+    "price": "159.00",
+    "image": "food/Loaded_cheese_fries.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 12,
+    "rating": "4.6",
+    "created_at": "2026-09-09T11:49:42.528Z",
+    "updated_at": "2026-09-09T11:49:42.528Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 27,
+  "fields": {
+    "restaurant": 4,
+    "name": "Oreo Shake",
+    "description": "a rich, creamy milkshake blended with vanilla ice cream, milk, and crunchy Oreo cookies, topped with whipped cream and chocolate drizzle.",
+    "category": "Beverages",
+    "price": "168.97",
+    "image": "food/Oreo_shake.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 6,
+    "rating": "4.7",
+    "created_at": "2026-09-09T11:50:55.748Z",
+    "updated_at": "2026-09-09T11:50:55.748Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 28,
+  "fields": {
+    "restaurant": 6,
+    "name": "Classic Cold Coffee",
+    "description": "a creamy, chilled blend of rich espresso, fresh milk, and vanilla ice cream, topped with a dusting of cocoa powder.",
+    "category": "Beverages",
+    "price": "129.00",
+    "image": "food/Classic__Cold_Coffee_GVydRfU.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 8,
+    "rating": "4.8",
+    "created_at": "2026-09-09T12:11:25.444Z",
+    "updated_at": "2026-09-09T14:42:21.490Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 29,
+  "fields": {
+    "restaurant": 6,
+    "name": "Café Latte",
+    "description": "a smooth, balanced blend of rich espresso shots and velvety steamed milk, topped with a light layer of creamy foam.",
+    "category": "Beverages",
+    "price": "149.00",
+    "image": "food/Latte.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 12,
+    "rating": "4.5",
+    "created_at": "2026-09-09T12:12:55.439Z",
+    "updated_at": "2026-09-09T12:12:55.439Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 30,
+  "fields": {
+    "restaurant": 6,
+    "name": "Mocha Frappe",
+    "description": "a rich, icy-blend of bold espresso, creamy milk, and decadent chocolate syrup, topped with whipped cream and chocolate drizzle.",
+    "category": "Beverages",
+    "price": "179.00",
+    "image": "food/mocha.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 13,
+    "rating": "4.8",
+    "created_at": "2026-09-09T12:14:33.851Z",
+    "updated_at": "2026-09-09T12:14:33.851Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 31,
+  "fields": {
+    "restaurant": 6,
+    "name": "Club sandwich",
+    "description": "a classic triple-decker sandwich layered with toasted bread, fresh lettuce, juicy tomatoes, melted cheese, and a creamy spread.",
+    "category": "Starters",
+    "price": "199.00",
+    "image": "food/club_sandwich.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 12,
+    "rating": "4.6",
+    "created_at": "2026-09-09T12:15:43.661Z",
+    "updated_at": "2026-09-09T12:15:43.661Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 32,
+  "fields": {
+    "restaurant": 6,
+    "name": "Chocolate Brownie",
+    "description": "a rich, fudgy chocolate brownie with a crinkle top, served warm and packed with decadent chocolate flavor.",
+    "category": "Desserts",
+    "price": "149.00",
+    "image": "food/Chocolate_Chip_Brownies_601n2IT.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 12,
+    "rating": "4.8",
+    "created_at": "2026-09-09T12:16:51.302Z",
+    "updated_at": "2026-09-09T14:46:52.515Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 33,
+  "fields": {
+    "restaurant": 6,
+    "name": "Chocolate Lava Cake",
+    "description": "a decadent, warm chocolate cake with a rich, molten chocolate center that flows out beautifully with the first bite.",
+    "category": "Desserts",
+    "price": "179.00",
+    "image": "food/chocolate_lava_cake.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 15,
+    "rating": "4.9",
+    "created_at": "2026-09-09T12:17:55.987Z",
+    "updated_at": "2026-09-09T12:17:55.987Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 34,
+  "fields": {
+    "restaurant": 7,
+    "name": "Shahi Paneer",
+    "description": "royal North Indian delicacy featuring tender paneer cubes simmered in a rich, creamy, and mildly sweet gravy made from tomatoes, cashews, and aromatic",
+    "category": "Main Course",
+    "price": "270.00",
+    "image": "food/Shahi_Paneer_Jv9BW9R.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 25,
+    "rating": "4.7",
+    "created_at": "2026-09-09T12:19:23.822Z",
+    "updated_at": "2026-09-09T14:39:18.763Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 35,
+  "fields": {
+    "restaurant": 7,
+    "name": "Paneer Lababdar",
+    "description": "tender cottage cheese cubes cooked in a rich, creamy tomato-onion gravy infused with cashews and a hint of sweetness.",
+    "category": "Main Course",
+    "price": "289.00",
+    "image": "food/Paneer_Lababdar_rakJSad.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 25,
+    "rating": "4.4",
+    "created_at": "2026-09-09T12:20:19.241Z",
+    "updated_at": "2026-09-09T14:37:21.016Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 36,
+  "fields": {
+    "restaurant": 7,
+    "name": "Malai Kofta",
+    "description": "melt-in-your-mouth cottage cheese and potato dumplings simmered in a rich, velvety, and mildly sweet cashew-tomato gravy.",
+    "category": "Main Course",
+    "price": "279.00",
+    "image": "food/malai_kofta.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 20,
+    "rating": "4.8",
+    "created_at": "2026-09-09T12:21:18.615Z",
+    "updated_at": "2026-09-09T12:21:18.615Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 37,
+  "fields": {
+    "restaurant": 7,
+    "name": "Dal Tadka",
+    "description": "Dal Tadka features smoky, yellow lentils tempered with a fragrant blend of ghee, cumin seeds, garlic, and dried red chillies.",
+    "category": "Main Course",
+    "price": "199.00",
+    "image": "food/dal_tadka.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 25,
+    "rating": "4.9",
+    "created_at": "2026-09-09T12:22:44.658Z",
+    "updated_at": "2026-09-09T12:22:44.658Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 38,
+  "fields": {
+    "restaurant": 7,
+    "name": "Jeera Rice",
+    "description": "a fragrant, fluffy basmati rice dish tempered with ghee, aromatic cumin seeds, and fresh coriander.",
+    "category": "Rice",
+    "price": "99.00",
+    "image": "food/Jeera_Rice_U4b9gu8.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 15,
+    "rating": "4.8",
+    "created_at": "2026-09-09T12:25:02.090Z",
+    "updated_at": "2026-09-09T14:40:31.146Z"
+  }
+},
+{
+  "model": "restaurants.fooditem",
+  "pk": 39,
+  "fields": {
+    "restaurant": 7,
+    "name": "Rasmalai",
+    "description": "soft, spongy cottage cheese patties soaked in a rich, chilled, saffron-infused milk syrup and garnished with pistachios and almonds.",
+    "category": "Desserts",
+    "price": "129.00",
+    "image": "food/Rasmalai_3WJ0G9S.jpg",
+    "is_vegetarian": true,
+    "is_available": true,
+    "preparation_time": 10,
+    "rating": "4.8",
+    "created_at": "2026-09-09T12:26:05.697Z",
+    "updated_at": "2026-09-09T14:36:06.890Z"
+  }
+}
+]
