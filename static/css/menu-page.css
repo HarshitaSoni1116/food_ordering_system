@@ -124,3 +124,124 @@
     font-size: 12px;
     font-weight: 700;
 }
+
+/* =========================================
+   MENU CATEGORY FILTERS
+========================================= */
+
+.menu-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    width: 100%;
+    margin: 25px auto 35px;
+    padding: 0 15px;
+}
+
+/* Filter Button */
+.menu-filters .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 42px;
+    padding: 9px 20px;
+
+    border: 1px solid #e3e3e3;
+    border-radius: 999px;
+
+    background: #ffffff;
+    color: #222;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Hover */
+.menu-filters .filter-btn:hover {
+    background: #fff4f1;
+    border-color: #ff6347;
+    color: #ff6347;
+
+    transform: translateY(-1px);
+}
+
+/* Active */
+.menu-filters .filter-btn.active {
+    background: #ff6347;
+    border-color: #ff6347;
+    color: #ffffff;
+
+    box-shadow: 0 5px 14px rgba(255, 99, 71, 0.20);
+}
+
+/* Active Hover */
+.menu-filters .filter-btn.active:hover {
+    background: #ff6347;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .menu-filters {
+        justify-content: flex-start;
+        gap: 9px;
+
+        padding: 0 10px;
+
+        overflow-x: auto;
+        flex-wrap: nowrap;
+
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .menu-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-filters .filter-btn {
+        flex: 0 0 auto;
+
+        min-height: 40px;
+        padding: 8px 16px;
+
+        font-size: 13px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+    .menu-filters {
+        margin-top: 18px;
+        margin-bottom: 25px;
+    }
+
+    .menu-filters .filter-btn {
+        min-height: 38px;
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+}

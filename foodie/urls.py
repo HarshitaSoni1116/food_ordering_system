@@ -6,13 +6,16 @@ from restaurants.models import Restaurant, FoodItem
 from orders.models import Order
 from accounts.views import profile_view
 from restaurants.models import Restaurant, FoodItem
-
+from django.db.models import Q
+from django.conf import settings
+from django.conf.urls.static import static
+from django.core.mail import send_mail
+from django.contrib import messages
 # =========================
 # HOME
 # =========================
 
 def home(request):
-
     restaurants = Restaurant.objects.filter(
         is_active=True
     ).order_by("-rating")[:6]
@@ -22,12 +25,40 @@ def home(request):
         restaurant__is_active=True
     ).order_by("-rating")[:8]
 
+    category_icons = {
+        "Starters": "🥗",
+        "Main Course": "🍛",
+        "Pizza": "🍕",
+        "Burger": "🍔",
+        "Rice": "🍚",
+        "Pasta": "🍝",
+        "Desserts": "🍰",
+        "Beverages": "🥤",
+    }
+
+    categories = []
+
+    for value, label in FoodItem.CATEGORY_CHOICES:
+        count = FoodItem.objects.filter(
+            category=value,
+            is_available=True,
+            restaurant__is_active=True
+        ).count()
+
+        categories.append({
+            "name": label,
+            "value": value,
+            "count": count,
+            "icon": category_icons.get(value, "🍴"),
+        })
+
     return render(
         request,
         "home.html",
         {
             "restaurants": restaurants,
             "food_items": food_items,
+            "categories": categories,
         }
     )
     
@@ -85,19 +116,45 @@ def food_detail(request, food_id):
 # =========================
 
 def menu(request):
+    category = request.GET.get("category", "").strip()
 
     food_items = FoodItem.objects.filter(
         is_available=True,
         restaurant__is_active=True
-    ).select_related(
-        "restaurant"
-    ).order_by("-rating")
+    ).select_related("restaurant")
+
+    if category:
+        food_items = food_items.filter(category=category)
+
+    food_items = food_items.order_by("-rating")
+
+    category_icons = {
+        "Starters": "🥗",
+        "Main Course": "🍛",
+        "Pizza": "🍕",
+        "Burger": "🍔",
+        "Rice": "🍚",
+        "Pasta": "🍝",
+        "Desserts": "🍰",
+        "Beverages": "🥤",
+    }
+
+    categories = [
+        {
+            "value": value,
+            "label": label,
+            "icon": category_icons.get(value, "🍴"),
+        }
+        for value, label in FoodItem.CATEGORY_CHOICES
+    ]
 
     return render(
         request,
         "menu.html",
         {
-            "food_items": food_items
+            "food_items": food_items,
+            "selected_category": category,
+            "categories": categories,
         }
     )
 
@@ -238,7 +295,134 @@ def owner_dashboard(request):
 def admin_dashboard(request):
     return render(request, "admin-dashboard.html")
 
+def search(request):
+    query = request.GET.get("q", "").strip()
 
+    restaurants = Restaurant.objects.none()
+    food_items = FoodItem.objects.none()
+
+    if query:
+        restaurants = Restaurant.objects.filter(
+            Q(name__icontains=query) |
+            Q(city__icontains=query) |
+            Q(cuisine_type__icontains=query),
+            is_active=True
+        ).order_by("-rating")
+
+        food_items = FoodItem.objects.filter(
+            Q(name__icontains=query) |
+            Q(category__icontains=query) |
+            Q(description__icontains=query) |
+            Q(restaurant__name__icontains=query),
+            is_available=True,
+            restaurant__is_active=True
+        ).select_related("restaurant").order_by("-rating")
+
+    return render(
+        request,
+        "search-results.html",
+        {
+            "query": query,
+            "restaurants": restaurants,
+            "food_items": food_items,
+        }
+    )
+
+def contact(request):
+    return render(request, "contact.html")
+
+
+def faqs(request):
+    return render(request, "faqs.html")
+
+
+def privacy(request):
+    return render(request, "privacy.html")
+
+
+def terms(request):
+    return render(request, "terms.html")
+
+
+def careers(request):
+    return render(request, "careers.html")
+
+
+def blog(request):
+    return render(request, "blog.html")
+
+
+def help_center(request):
+    return render(request, "help-center.html")
+
+def partner(request):
+
+    if request.method == "POST":
+
+        restaurant_name = request.POST.get("restaurant_name", "").strip()
+        owner_name = request.POST.get("owner_name", "").strip()
+        email = request.POST.get("email", "").strip()
+        phone = request.POST.get("phone", "").strip()
+        address = request.POST.get("address", "").strip()
+
+        if not restaurant_name or not owner_name or not email or not phone or not address:
+
+            messages.error(
+                request,
+                "Please fill all partnership details."
+            )
+
+            return redirect("partner")
+
+        subject = f"New Foodie Partnership Request - {restaurant_name}"
+
+        message = f"""
+New Partnership Request
+
+Restaurant Name:
+{restaurant_name}
+
+Owner Name:
+{owner_name}
+
+Email:
+{email}
+
+Phone:
+{phone}
+
+Restaurant Address:
+{address}
+
+--------------------------------
+Foodie Partnership System
+"""
+
+        try:
+
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                [settings.ADMIN_EMAIL],
+                fail_silently=False,
+            )
+
+            messages.success(
+                request,
+                "Partnership request submitted successfully!"
+            )
+
+        except Exception as e:
+                print("EMAIL ERROR:", e)
+                messages.error(
+                request,
+                f"Email error: {e}"
+    )
+
+        return redirect("partner")
+
+    return render(request, "partner.html")
 # =========================
 # URL PATTERNS
 # =========================
@@ -323,5 +507,20 @@ urlpatterns = [
     "order/<int:order_id>/track/",
     track_order,
     name="track_order"
+
 ),
+path("search/", search, name="search"),
+path("contact/", contact, name="contact"),
+path("careers/", careers, name="careers"),
+path("blog/", blog, name="blog"),
+path("faqs/", faqs, name="faqs"),
+path("privacy/", privacy, name="privacy"),
+path("terms/", terms, name="terms"),
+path("help-center/", help_center, name="help_center"),
+path("partner/", partner, name="partner"),
+
 ]
+urlpatterns += static(
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT
+)

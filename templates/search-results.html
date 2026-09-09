@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Search Results | Foodie
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+    .search-results-section {
+        padding: 60px 0;
+        min-height: 70vh;
+    }
+
+    .search-heading {
+        margin-bottom: 35px;
+    }
+
+    .search-heading h1 {
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .search-heading p {
+        color: #777;
+    }
+
+    .search-query {
+        color: #ff6b35;
+    }
+
+    .search-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        height: 100%;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        transition: 0.3s;
+    }
+
+    .search-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .search-image {
+        height: 190px;
+        overflow: hidden;
+    }
+
+    .search-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .search-content {
+        padding: 20px;
+    }
+
+    .search-content h4 {
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .search-content p {
+        color: #777;
+        margin-bottom: 10px;
+    }
+
+    .search-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .rating {
+        font-weight: 600;
+    }
+
+    .price {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .search-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 9px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        background: #ff6b35;
+        color: white;
+        font-weight: 600;
+    }
+
+    .search-btn:hover {
+        color: white;
+    }
+
+    .section-title {
+        margin: 45px 0 25px;
+        font-weight: 700;
+    }
+
+    .no-results {
+        text-align: center;
+        padding: 70px 20px;
+    }
+
+    .no-results i {
+        font-size: 60px;
+        color: #aaa;
+    }
+
+    .no-results h3 {
+        margin-top: 20px;
+        font-weight: 700;
+    }
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="search-results-section">
+
+    <div class="container">
+
+        <div class="search-heading">
+
+            {% if query %}
+
+                <h1>
+                    Search Results for
+                    <span class="search-query">
+                        "{{ query }}"
+                    </span>
+                </h1>
+
+                <p>
+                    Find restaurants and food items matching your search.
+                </p>
+
+            {% else %}
+
+                <h1>Search Food & Restaurants</h1>
+
+                <p>
+                    Search for your favorite food or restaurant.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+
+        {% if restaurants %}
+
+            <h2 class="section-title">
+                <i class="bi bi-shop"></i>
+                Restaurants
+            </h2>
+
+            <div class="row g-4">
+
+                {% for restaurant in restaurants %}
+
+                    <div class="col-md-6 col-lg-4">
+
+                        <div class="search-card">
+
+                            <div class="search-image">
+
+                                {% if restaurant.image %}
+
+                                    <img
+                                        src="{{ restaurant.image.url }}"
+                                        alt="{{ restaurant.name }}"
+                                    >
+
+                                {% else %}
+
+                                    <img
+                                        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                                        alt="{{ restaurant.name }}"
+                                    >
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <div class="search-content">
+
+                                <h4>
+                                    {{ restaurant.name }}
+                                </h4>
+
+                                <p>
+                                    {{ restaurant.cuisine_type }}
+                                    •
+                                    {{ restaurant.city }}
+                                </p>
+
+                                <div class="search-info">
+
+                                    <span class="rating">
+                                        ⭐ {{ restaurant.rating }}
+                                    </span>
+
+                                    <span>
+                                        {{ restaurant.delivery_time }} min
+                                    </span>
+
+                                </div>
+
+                                <a
+                                    href="{% url 'restaurant_detail' restaurant.id %}"
+                                    class="search-btn"
+                                >
+                                    View Menu
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+
+
+        {% if food_items %}
+
+            <h2 class="section-title">
+                <i class="bi bi-egg-fried"></i>
+                Food Items
+            </h2>
+
+            <div class="row g-4">
+
+                {% for food in food_items %}
+
+                    <div class="col-sm-6 col-lg-3">
+
+                        <div class="search-card">
+
+                            <div class="search-image">
+
+                                {% if food.image %}
+
+                                    <img
+                                        src="{{ food.image.url }}"
+                                        alt="{{ food.name }}"
+                                    >
+
+                                {% else %}
+
+                                    <img
+                                        src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=700&q=80"
+                                        alt="{{ food.name }}"
+                                    >
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <div class="search-content">
+
+                                <h4>
+                                    {{ food.name }}
+                                </h4>
+
+                                <p>
+                                    {{ food.category }}
+                                    •
+                                    {{ food.restaurant.name }}
+                                </p>
+
+                                <div class="search-info">
+
+                                    <span class="rating">
+                                        ⭐ {{ food.rating }}
+                                    </span>
+
+                                    <span class="price">
+                                        ₹{{ food.price }}
+                                    </span>
+
+                                </div>
+
+                                <a
+                                    href="{% url 'food_detail' food.id %}"
+                                    class="search-btn"
+                                >
+                                    View Food
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+
+
+        {% if query and not restaurants and not food_items %}
+
+            <div class="no-results">
+
+                <i class="bi bi-search"></i>
+
+                <h3>
+                    No results found
+                </h3>
+
+                <p>
+                    We couldn't find anything matching
+                    <strong>"{{ query }}"</strong>.
+                </p>
+
+                <a href="{% url 'home' %}" class="search-btn">
+                    Back to Home
+                </a>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -93,11 +93,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                         <a class="nav-link" href="{% url 'offers' %}">
-                                  Offers
-                            </a>
-                    </li>
+                    
 
                         <li class="nav-item">
                                  <a class="nav-link" href="{% url 'about' %}">
@@ -154,99 +150,56 @@
 
     </main>
 
-
     <!-- ================= FOOTER ================= -->
 
-    <footer class="foodie-footer">
+<footer class="foodie-footer">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="row g-4">
+        <div class="row g-4">
 
-                <!-- Brand -->
-                <div class="col-lg-4">
+            <!-- Brand -->
+            <div class="col-lg-4">
 
-                    <a href="{% url 'home' %}"
-                       class="footer-logo">
+                <a href="{% url 'home' %}" class="footer-logo">
+                    <i class="bi bi-egg-fried"></i>
+                    Foodie
+                </a>
 
-                        <i class="bi bi-egg-fried"></i>
-                        Foodie
+                <p class="footer-description">
+                    Delicious food from your favorite
+                    restaurants, delivered straight to
+                    your doorstep.
+                </p>
 
+                <div class="social-links">
+
+                    <a href="https://www.facebook.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
                     </a>
 
-                    <p class="footer-description">
+                    <a href="https://www.instagram.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
 
-                        Delicious food from your favorite
-                        restaurants, delivered straight to
-                        your doorstep.
+                    <a href="https://x.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Twitter">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
 
-                    </p>
-
-                    <div class="social-links">
-
-                        <a href="#">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-
-                        <a href="#">
-                            <i class="bi bi-instagram"></i>
-                        </a>
-
-                        <a href="#">
-                            <i class="bi bi-twitter-x"></i>
-                        </a>
-
-                        <a href="#">
-                            <i class="bi bi-youtube"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Company -->
-                <div class="col-6 col-lg-2">
-
-                    <h5>Company</h5>
-
-                    <a href="#">About Us</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Blog</a>
-
-                </div>
-
-
-                <!-- Support -->
-                <div class="col-6 col-lg-2">
-
-                    <h5>Support</h5>
-
-                    <a href="#">Help Center</a>
-                    <a href="#">FAQs</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
-
-                </div>
-
-
-                <!-- Partner -->
-                <div class="col-lg-4">
-
-                    <h5>Partner With Us</h5>
-
-                    <p>
-                        Own a restaurant?
-                        Grow your business with Foodie.
-                    </p>
-
-                    <a href="#"
-                       class="btn partner-btn">
-
-                        Become a Partner
-                        <i class="bi bi-arrow-right ms-2"></i>
-
+                    <a href="https://www.youtube.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="YouTube">
+                        <i class="bi bi-youtube"></i>
                     </a>
 
                 </div>
@@ -254,24 +207,97 @@
             </div>
 
 
-            <hr>
+            <!-- Company -->
+            <div class="col-6 col-lg-2">
+
+                <h5>Company</h5>
+
+                <a href="{% url 'about' %}">
+                    About Us
+                </a>
+
+                <a href="{% url 'careers' %}">
+                    Careers
+                </a>
+
+                <a href="{% url 'contact' %}">
+                    Contact
+                </a>
+
+                <a href="{% url 'blog' %}">
+                    Blog
+                </a>
+
+            </div>
 
 
-            <div class="footer-bottom">
+            <!-- Support -->
+            <div class="col-6 col-lg-2">
 
-                <span>
-                    © 2026 Foodie. All rights reserved.
-                </span>
+                <h5>Support</h5>
 
-                <span>
-                    Made with ❤️ for food lovers.
-                </span>
+                <a href="{% url 'help_center' %}">
+                    Help Center
+                </a>
+
+                <a href="{% url 'faqs' %}">
+                    FAQs
+                </a>
+
+                <a href="{% url 'privacy' %}">
+                    Privacy
+                </a>
+
+                <a href="{% url 'terms' %}">
+                    Terms
+                </a>
+
+            </div>
+
+
+            <!-- Partner -->
+            <div class="col-lg-4">
+
+                <h5>Partner With Us</h5>
+
+                <p>
+                    Own a restaurant?
+                    Grow your business with Foodie.
+                </p>
+
+                <a href="{% url 'partner' %}"
+                   class="btn partner-btn">
+
+                    Become a Partner
+
+                    <i class="bi bi-arrow-right ms-2"></i>
+
+                </a>
 
             </div>
 
         </div>
 
-    </footer>
+
+        <hr>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © {% now "Y" %} Foodie. All rights reserved.
+            </span>
+
+            <span>
+                Made with ❤️ for food lovers.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+    
 
 
     <!-- Bootstrap JS -->

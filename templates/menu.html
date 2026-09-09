@@ -43,39 +43,28 @@ Foodie | Menu
 
     <div class="container">
 
-        <!-- Categories -->
+       <div class="menu-filters">
 
-        <div class="menu-categories">
+    <a
+        href="{% url 'menu' %}"
+        class="filter-btn {% if not selected_category %}active{% endif %}"
+    >
+        All
+    </a>
 
-            <button class="active">
-                All
-            </button>
+    {% for category in categories %}
 
-            <button>
-                🍕 Pizza
-            </button>
+        <a
+            href="{% url 'menu' %}?category={{ category.value|urlencode }}"
+            class="filter-btn {% if selected_category == category.value %}active{% endif %}"
+        >
+            {{ category.icon }}
+            {{ category.label }}
+        </a>
 
-            <button>
-                🍔 Burgers
-            </button>
+    {% endfor %}
 
-            <button>
-                🍛 Indian
-            </button>
-
-            <button>
-                🍜 Chinese
-            </button>
-
-            <button>
-                🍰 Desserts
-            </button>
-
-            <button>
-                🥤 Drinks
-            </button>
-
-        </div>
+</div>
 
 
         <div class="row g-4">

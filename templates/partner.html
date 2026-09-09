@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Become a Partner | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/footer-pages.css' %}">
+{% endblock %}
+
+{% if messages %}
+
+    {% for message in messages %}
+
+        <div class="alert alert-success text-center mb-4">
+            {{ message }}
+        </div>
+
+    {% endfor %}
+
+{% endif %}
+
+{% block content %}
+
+<section class="footer-page">
+
+<div class="container">
+
+    <div class="footer-page-hero">
+
+        <span class="page-badge">
+            <i class="bi bi-shop"></i>
+            Foodie Partners
+        </span>
+
+        <h1>Grow Your Restaurant With Foodie</h1>
+
+        <p>
+            Reach more customers, showcase your menu and
+            grow your food business with Foodie.
+        </p>
+
+    </div>
+
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-4">
+
+            <div class="partner-feature">
+
+                <i class="bi bi-people"></i>
+
+                <h3>Reach More Customers</h3>
+
+                <p>
+                    Get your restaurant discovered by
+                    hungry customers in your city.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="partner-feature">
+
+                <i class="bi bi-bar-chart"></i>
+
+                <h3>Grow Your Business</h3>
+
+                <p>
+                    Use Foodie to increase your visibility
+                    and attract new customers.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="partner-feature">
+
+                <i class="bi bi-phone"></i>
+
+                <h3>Manage Your Menu</h3>
+
+                <p>
+                    Keep food items, prices and availability
+                    updated through your restaurant dashboard.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <form method="POST" class="foodie-form">
+
+    {% csrf_token %}
+
+                <h2 class="mb-4">
+                    Become a Foodie Partner
+                </h2>
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <label>Restaurant Name</label>
+
+                        <input type="text"
+                                name="restaurant_name"
+                               class="form-control"
+                               placeholder="Restaurant name"
+                               required>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label>Owner Name</label>
+
+                        <input type="text"
+                               name="owner_name"
+                               class="form-control"
+                               placeholder="Owner name"
+                               required>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label>Email</label>
+
+                        <input type="email"
+                               name="email"
+                               class="form-control"
+                               placeholder="Restaurant email"
+                               required>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label>Phone</label>
+
+                        <input type="tel"
+                               name="phone"
+                               class="form-control"
+                               placeholder="Contact number"
+                               required>
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <label>Restaurant Address</label>
+
+                        <textarea class="form-control"
+                                  name="address"
+                                  placeholder="Enter restaurant address"
+                                  required></textarea>
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <button type="submit"
+                                class="foodie-submit-btn" onclick="alert('Request Submitted Successfully')">
+
+                            Submit Partnership Request
+
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}

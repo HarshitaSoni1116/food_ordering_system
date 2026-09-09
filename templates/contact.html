@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact Us | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/footer-pages.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="footer-page">
+
+    <div class="container">
+
+        <div class="footer-page-hero">
+
+            <span class="page-badge">
+                <i class="bi bi-chat-dots"></i>
+                We're Here to Help
+            </span>
+
+            <h1>Contact Foodie</h1>
+
+            <p>
+                Have a question, suggestion or need help with
+                your order? Our team would love to hear from you.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-md-4">
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+
+                    <h3>Email Us</h3>
+                    <p>support@foodie.com</p>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-telephone"></i>
+                    </div>
+
+                    <h3>Call Us</h3>
+                    <p>+91 98765 43210</p>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+
+                    <h3>Visit Us</h3>
+                    <p>Jabalpur, Madhya Pradesh, India</p>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <form class="foodie-form">
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <label>Your Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="Enter your name">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Email Address</label>
+                            <input type="email"
+                                   class="form-control"
+                                   placeholder="Enter your email">
+                        </div>
+
+                        <div class="col-12">
+                            <label>Subject</label>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="How can we help?">
+                        </div>
+
+                        <div class="col-12">
+                            <label>Message</label>
+                            <textarea class="form-control"
+                                      placeholder="Write your message..."></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="button"
+                                    class="foodie-submit-btn">
+                                Send Message
+                                <i class="bi bi-send ms-2"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

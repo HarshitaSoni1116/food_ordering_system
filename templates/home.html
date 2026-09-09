@@ -18,8 +18,7 @@ Foodie | Delicious Food Delivered
 <link rel="stylesheet"
       href="{% static 'css/food.css' %}">
 
-<link rel="stylesheet"
-      href="{% static 'css/offers.css' %}">
+
 {% endblock %}
 
 {% block content %}
@@ -61,22 +60,23 @@ Foodie | Delicious Food Delivered
 
                     <!-- SEARCH -->
 
-                    <form class="hero-search">
+                    <form class="hero-search" method="GET" action="{% url 'search' %}">
+    
+    <i class="bi bi-search hero-search-icon"></i>
 
-                        <i class="bi bi-search hero-search-icon"></i>
+    <input
+        type="text"
+        name="q"
+        placeholder="Search for food or restaurants..."
+        autocomplete="off"
+        required
+    >
 
-                        <input
-                            type="text"
-                            placeholder="Search for food or restaurants..."
-                        >
+    <button type="submit">
+        Search
+    </button>
 
-                        <button type="submit">
-
-                            Search
-
-                        </button>
-
-                    </form>
+</form>
 
 
                     <!-- STATS -->
@@ -190,161 +190,48 @@ Foodie | Delicious Food Delivered
 ===================================== -->
 
 <section class="categories-section">
-
     <div class="container">
 
-
         <!-- Heading -->
-
         <div class="section-heading">
-
-            <h2>
-                Explore Food Categories
-            </h2>
-
-            <p>
-                Choose from your favorite food categories
-            </p>
-
+            <h2>Explore Food Categories</h2>
+            <p>Choose from your favorite food categories</p>
         </div>
 
-
-        <!-- Categories -->
-
+        <!-- Dynamic Categories -->
         <div class="row g-4">
 
+            {% for category in categories %}
 
-            <!-- Pizza -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
 
-            <div class="col-6 col-md-4 col-lg-2">
-
-                <a href="#" class="category-card">
+                <a
+                    href="{% url 'menu' %}?category={{ category.value|urlencode }}"
+                    class="category-card"
+                >
 
                     <div class="category-icon">
-                        🍕
+                        {{ category.icon }}
                     </div>
 
-                    <h5>Pizza</h5>
+                    <h5>
+                        {{ category.name }}
+                    </h5>
 
                     <span>
-                        120+ items
+                        {{ category.count }} item{{ category.count|pluralize }}
                     </span>
 
                 </a>
 
             </div>
 
-
-            <!-- Burger -->
-
-            <div class="col-6 col-md-4 col-lg-2">
-
-                <a href="#" class="category-card">
-
-                    <div class="category-icon">
-                        🍔
-                    </div>
-
-                    <h5>Burgers</h5>
-
-                    <span>
-                        90+ items
-                    </span>
-
-                </a>
-
-            </div>
-
-
-            <!-- Indian -->
-
-            <div class="col-6 col-md-4 col-lg-2">
-
-                <a href="#" class="category-card">
-
-                    <div class="category-icon">
-                        🍛
-                    </div>
-
-                    <h5>Indian</h5>
-
-                    <span>
-                        150+ items
-                    </span>
-
-                </a>
-
-            </div>
-
-
-            <!-- Chinese -->
-
-            <div class="col-6 col-md-4 col-lg-2">
-
-                <a href="#" class="category-card">
-
-                    <div class="category-icon">
-                        🍜
-                    </div>
-
-                    <h5>Chinese</h5>
-
-                    <span>
-                        80+ items
-                    </span>
-
-                </a>
-
-            </div>
-
-
-            <!-- Desserts -->
-
-            <div class="col-6 col-md-4 col-lg-2">
-
-                <a href="#" class="category-card">
-
-                    <div class="category-icon">
-                        🍰
-                    </div>
-
-                    <h5>Desserts</h5>
-
-                    <span>
-                        70+ items
-                    </span>
-
-                </a>
-
-            </div>
-
-
-            <!-- Drinks -->
-
-            <div class="col-6 col-md-4 col-lg-2">
-
-                <a href="#" class="category-card">
-
-                    <div class="category-icon">
-                        🥤
-                    </div>
-
-                    <h5>Drinks</h5>
-
-                    <span>
-                        60+ items
-                    </span>
-
-                </a>
-
-            </div>
+            {% endfor %}
 
         </div>
 
     </div>
-
 </section>
-
 <!-- =====================================
      POPULAR RESTAURANTS
 ===================================== -->
@@ -388,13 +275,7 @@ Foodie | Delicious Food Delivered
                             Popular
                         </span>
 
-                        <button
-                            class="restaurant-favorite"
-                            type="button"
-                            aria-label="Add to favorites"
-                        >
-                            <i class="bi bi-heart"></i>
-                        </button>
+                        
 
                     </div>
 
@@ -537,13 +418,7 @@ Foodie | Delicious Food Delivered
                         {% endif %}
 
 
-                        <button
-                            class="food-wishlist"
-                            type="button"
-                            aria-label="Add to wishlist"
-                        >
-                            <i class="bi bi-heart"></i>
-                        </button>
+                        
 
                     </div>
 
@@ -629,154 +504,7 @@ Foodie | Delicious Food Delivered
 
 </section>
 
-<!-- =====================================
-     SPECIAL OFFERS
-===================================== -->
 
-<section class="offers-section">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <h2>
-                Special Offers
-            </h2>
-
-            <p>
-                Delicious deals made just for you
-            </p>
-
-        </div>
-
-
-        <div class="row g-4">
-
-
-            <!-- Offer 1 -->
-
-            <div class="col-lg-4">
-
-                <div class="offer-card">
-
-                    <div class="offer-content">
-
-                        <span class="offer-label">
-                            Limited Time
-                        </span>
-
-                        <h3>
-                            20% OFF
-                        </h3>
-
-                        <p>
-                            Get 20% off on your first food order.
-                        </p>
-
-                        <div class="offer-code">
-                            FOODIE20
-                        </div>
-
-                        <br>
-
-                        <a href="#" class="offer-btn">
-                            Grab Offer
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-                    <i class="bi bi-percent offer-icon"></i>
-
-                </div>
-
-            </div>
-
-
-            <!-- Offer 2 -->
-
-            <div class="col-lg-4">
-
-                <div class="offer-card dark">
-
-                    <div class="offer-content">
-
-                        <span class="offer-label">
-                            Free Delivery
-                        </span>
-
-                        <h3>
-                            ₹0 Delivery
-                        </h3>
-
-                        <p>
-                            Enjoy free delivery on orders above ₹299.
-                        </p>
-
-                        <div class="offer-code">
-                            FREEDELIVERY
-                        </div>
-
-                        <br>
-
-                        <a href="#" class="offer-btn">
-                            Use Now
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-                    <i class="bi bi-bicycle offer-icon"></i>
-
-                </div>
-
-            </div>
-
-
-            <!-- Offer 3 -->
-
-            <div class="col-lg-4">
-
-                <div class="offer-card green">
-
-                    <div class="offer-content">
-
-                        <span class="offer-label">
-                            Weekend Special
-                        </span>
-
-                        <h3>
-                            ₹100 OFF
-                        </h3>
-
-                        <p>
-                            Save ₹100 on orders above ₹599 this weekend.
-                        </p>
-
-                        <div class="offer-code">
-                            WEEKEND100
-                        </div>
-
-                        <br>
-
-                        <a href="#" class="offer-btn">
-                            Get Deal
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-                    <i class="bi bi-gift offer-icon"></i>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {

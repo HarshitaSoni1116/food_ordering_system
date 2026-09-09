@@ -1,0 +1,380 @@
+/* =========================================================
+   FOODIE FOOTER PAGES
+========================================================= */
+
+.footer-page {
+    padding: 80px 0;
+    background: #fffaf7;
+    min-height: 70vh;
+}
+
+.footer-page-hero {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 55px;
+}
+
+.footer-page-hero .page-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: #fff0eb;
+    color: #ff5a36;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.footer-page-hero h1 {
+    font-size: 46px;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.footer-page-hero p {
+    color: #777;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONTENT CARD
+========================================================= */
+
+.footer-content-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 18px;
+    padding: 35px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.footer-content-card h2 {
+    font-size: 25px;
+    font-weight: 750;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.footer-content-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #222;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.footer-content-card p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.footer-content-card ul {
+    padding-left: 20px;
+}
+
+.footer-content-card li {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-card {
+    height: 100%;
+    text-align: center;
+    padding: 30px 20px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 18px;
+    transition: .25s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.contact-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff0eb;
+    color: #ff5a36;
+    font-size: 27px;
+}
+
+.contact-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.contact-card p {
+    color: #777;
+    margin: 0;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.foodie-form {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 35px;
+}
+
+.foodie-form label {
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #333;
+}
+
+.foodie-form .form-control,
+.foodie-form .form-select {
+    min-height: 48px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.foodie-form textarea.form-control {
+    min-height: 130px;
+}
+
+.foodie-form .form-control:focus,
+.foodie-form .form-select:focus {
+    border-color: #ff5a36;
+    box-shadow: 0 0 0 3px rgba(255,90,54,.12);
+}
+
+.foodie-submit-btn {
+    background: #ff5a36;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-weight: 700;
+    transition: .2s ease;
+}
+
+.foodie-submit-btn:hover {
+    background: #e64320;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.foodie-accordion .accordion-item {
+    border: 1px solid #eee;
+    border-radius: 12px !important;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.foodie-accordion .accordion-button {
+    font-weight: 650;
+    color: #222;
+    background: #fff;
+    padding: 18px 20px;
+}
+
+.foodie-accordion .accordion-button:not(.collapsed) {
+    color: #ff5a36;
+    background: #fff8f5;
+    box-shadow: none;
+}
+
+.foodie-accordion .accordion-button:focus {
+    box-shadow: none;
+}
+
+.foodie-accordion .accordion-body {
+    color: #666;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BLOG
+========================================================= */
+
+.blog-card {
+    height: 100%;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: .25s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.blog-image {
+    height: 210px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 25px;
+}
+
+.blog-category {
+    color: #ff5a36;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.blog-content h3 {
+    font-size: 21px;
+    font-weight: 750;
+    margin: 10px 0;
+}
+
+.blog-content p {
+    color: #777;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CAREERS
+========================================================= */
+
+.job-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 18px;
+    padding: 25px;
+    height: 100%;
+    transition: .25s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.07);
+}
+
+.job-card h3 {
+    font-size: 20px;
+    font-weight: 750;
+}
+
+.job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.job-meta span {
+    background: #fff2ed;
+    color: #ff5a36;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.job-card p {
+    color: #777;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   PARTNER
+========================================================= */
+
+.partner-feature {
+    height: 100%;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 18px;
+}
+
+.partner-feature i {
+    font-size: 32px;
+    color: #ff5a36;
+}
+
+.partner-feature h3 {
+    font-size: 20px;
+    font-weight: 750;
+    margin: 15px 0 10px;
+}
+
+.partner-feature p {
+    color: #777;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .footer-page {
+        padding: 55px 0;
+    }
+
+    .footer-page-hero {
+        margin-bottom: 35px;
+    }
+
+    .footer-page-hero h1 {
+        font-size: 34px;
+    }
+
+    .footer-page-hero p {
+        font-size: 15px;
+    }
+
+    .footer-content-card,
+    .foodie-form {
+        padding: 25px 20px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .footer-page-hero h1 {
+        font-size: 29px;
+    }
+
+    .footer-page-hero p {
+        font-size: 14px;
+    }
+
+}

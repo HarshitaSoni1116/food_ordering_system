@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}FAQs | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/footer-pages.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="footer-page">
+
+<div class="container">
+
+    <div class="footer-page-hero">
+
+        <span class="page-badge">
+            <i class="bi bi-question-circle"></i>
+            Frequently Asked Questions
+        </span>
+
+        <h1>How Can We Help?</h1>
+
+        <p>
+            Find answers to the most common questions
+            about ordering food with Foodie.
+        </p>
+
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-9">
+
+            <div class="accordion foodie-accordion"
+                 id="faqAccordion">
+
+                <div class="accordion-item">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq1">
+
+                            How do I place an order?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq1"
+                         class="accordion-collapse collapse show"
+                         data-bs-parent="#faqAccordion">
+
+                        <div class="accordion-body">
+
+                            Browse restaurants or food items,
+                            add your favorites to the cart,
+                            enter your delivery details and
+                            complete checkout.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="accordion-item">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button collapsed"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq2">
+
+                            Can I track my order?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq2"
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+
+                        <div class="accordion-body">
+
+                            Yes. Once your order is placed,
+                            you can open My Orders and track
+                            its current status.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="accordion-item">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button collapsed"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq3">
+
+                            Can I cancel my order?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq3"
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+
+                        <div class="accordion-body">
+
+                            Cancellation availability depends
+                            on the current status of your order.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="accordion-item">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button collapsed"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq4">
+
+                            What payment methods are available?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq4"
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+
+                        <div class="accordion-body">
+
+                            Foodie currently supports Cash on
+                            Delivery. Additional payment methods
+                            can be integrated later.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="accordion-item">
+
+                    <h2 class="accordion-header">
+
+                        <button class="accordion-button collapsed"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq5">
+
+                            Can I save multiple addresses?
+
+                        </button>
+
+                    </h2>
+
+                    <div id="faq5"
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#faqAccordion">
+
+                        <div class="accordion-body">
+
+                            Yes. You can save Home, Work and
+                            Other addresses from your profile.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}

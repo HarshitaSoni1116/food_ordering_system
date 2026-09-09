@@ -16,9 +16,10 @@ Foodie | About Us
 
 {% block content %}
 
-<!-- =====================================
+
+<!-- =========================================
      ABOUT HERO
-===================================== -->
+========================================= -->
 
 <section class="about-hero">
 
@@ -26,6 +27,7 @@ Foodie | About Us
 
         <div class="row align-items-center g-5">
 
+            <!-- LEFT -->
             <div class="col-lg-6">
 
                 <span class="page-badge">
@@ -34,34 +36,98 @@ Foodie | About Us
                 </span>
 
                 <h1>
-                    Making Food
-                    <span>Moments</span>
-                    Better.
+                    Good Food.
+                    <span>Good Mood.</span>
+                    Great Moments.
                 </h1>
 
-                <p>
-                    Foodie is built to make ordering delicious food
-                    simple, convenient and enjoyable. We connect
-                    hungry customers with amazing local restaurants.
+                <p class="hero-description">
+                    Foodie is your simple and convenient way to discover
+                    delicious food from local restaurants and get your
+                    favorite meals delivered to your doorstep.
                 </p>
 
-                <a href="{% url 'restaurants' %}"
-                   class="about-btn">
-                    Explore Restaurants
-                    <i class="bi bi-arrow-right"></i>
-                </a>
+                <div class="hero-actions">
+
+                    <a href="{% url 'restaurants' %}"
+                       class="about-btn">
+                        Explore Restaurants
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                    <a href="{% url 'menu' %}"
+                       class="about-btn-outline">
+                        Explore Menu
+                        <i class="bi bi-grid"></i>
+                    </a>
+
+                </div>
+
+                <!-- Small Trust Points -->
+                <div class="hero-trust">
+
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Fresh Food
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Trusted Restaurants
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Easy Ordering
+                    </div>
+
+                </div>
 
             </div>
 
 
+            <!-- RIGHT -->
             <div class="col-lg-6">
 
-                <div class="about-image">
+                <div class="about-hero-visual">
 
-                    <img
-                        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
-                        alt="Delicious food"
-                    >
+                    <div class="about-image-main">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=85"
+                            alt="Delicious food"
+                        >
+
+                    </div>
+
+
+                    <!-- Floating Card -->
+                    <div class="about-floating-card rating-card">
+
+                        <div class="floating-icon">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+
+                        <div>
+                            <strong>4.9/5</strong>
+                            <span>Customer Rating</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-floating-card delivery-card">
+
+                        <div class="floating-icon">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+
+                        <div>
+                            <strong>Fast Delivery</strong>
+                            <span>Fresh at your doorstep</span>
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -74,9 +140,117 @@ Foodie | About Us
 </section>
 
 
-<!-- =====================================
-     OUR MISSION
-===================================== -->
+
+<!-- =========================================
+     OUR STORY
+========================================= -->
+
+<section class="story-section">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <!-- IMAGE -->
+            <div class="col-lg-5">
+
+                <div class="story-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85"
+                        alt="Restaurant dining"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTENT -->
+            <div class="col-lg-7">
+
+                <span class="section-label">
+                    Our Story
+                </span>
+
+                <h2>
+                    More Than Just
+                    <span>Food Delivery</span>
+                </h2>
+
+                <p>
+                    Foodie was created with a simple idea —
+                    make great food easier to discover, order
+                    and enjoy.
+                </p>
+
+                <p>
+                    We bring together customers and local restaurants
+                    on one convenient platform. Whether you're craving
+                    a cheesy pizza, a delicious Indian meal, a juicy
+                    burger or a refreshing drink, Foodie helps you
+                    find something you'll love.
+                </p>
+
+
+                <div class="story-points">
+
+                    <div class="story-point">
+
+                        <i class="bi bi-shop"></i>
+
+                        <div>
+                            <strong>Local Restaurants</strong>
+                            <span>
+                                Discover amazing restaurants around you.
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="story-point">
+
+                        <i class="bi bi-heart"></i>
+
+                        <div>
+                            <strong>Made With Care</strong>
+                            <span>
+                                We focus on a smooth ordering experience.
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="story-point">
+
+                        <i class="bi bi-truck"></i>
+
+                        <div>
+                            <strong>Fresh Delivery</strong>
+                            <span>
+                                Your favorite food, delivered conveniently.
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     MISSION & VISION
+========================================= -->
 
 <section class="mission-section">
 
@@ -84,12 +258,16 @@ Foodie | About Us
 
         <div class="section-heading">
 
+            <span class="section-label">
+                What Drives Us
+            </span>
+
             <h2>
-                Our Mission
+                Our Mission & Vision
             </h2>
 
             <p>
-                Bringing people and great food together.
+                Building a better way to discover and enjoy food.
             </p>
 
         </div>
@@ -97,21 +275,23 @@ Foodie | About Us
 
         <div class="row g-4">
 
-            <div class="col-md-4">
+            <!-- Mission -->
+            <div class="col-md-6">
 
                 <div class="mission-card">
 
                     <div class="mission-icon">
-                        <i class="bi bi-shop"></i>
+                        <i class="bi bi-bullseye"></i>
                     </div>
 
                     <h3>
-                        Support Local Restaurants
+                        Our Mission
                     </h3>
 
                     <p>
-                        We help restaurants reach more customers
-                        and grow their business.
+                        To make food ordering simple, reliable and
+                        enjoyable while helping local restaurants
+                        connect with more customers.
                     </p>
 
                 </div>
@@ -119,43 +299,23 @@ Foodie | About Us
             </div>
 
 
-            <div class="col-md-4">
+            <!-- Vision -->
+            <div class="col-md-6">
 
                 <div class="mission-card">
 
                     <div class="mission-icon">
-                        <i class="bi bi-emoji-smile"></i>
+                        <i class="bi bi-eye"></i>
                     </div>
 
                     <h3>
-                        Happy Customers
+                        Our Vision
                     </h3>
 
                     <p>
-                        We focus on creating a smooth and enjoyable
-                        food ordering experience.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-md-4">
-
-                <div class="mission-card">
-
-                    <div class="mission-icon">
-                        <i class="bi bi-lightning-charge"></i>
-                    </div>
-
-                    <h3>
-                        Fast Delivery
-                    </h3>
-
-                    <p>
-                        Great food should reach you fresh,
-                        quickly and reliably.
+                        To create a trusted food platform where
+                        customers can easily discover great food
+                        and restaurants can grow their business.
                     </p>
 
                 </div>
@@ -169,9 +329,132 @@ Foodie | About Us
 </section>
 
 
-<!-- =====================================
+
+<!-- =========================================
+     WHY FOODIE
+========================================= -->
+
+<section class="why-foodie-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                Why Choose Us
+            </span>
+
+            <h2>
+                Why People Choose Foodie
+            </h2>
+
+            <p>
+                Everything you need for a better food ordering experience.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="why-card">
+
+                    <div class="why-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+
+                    <h3>
+                        Easy Discovery
+                    </h3>
+
+                    <p>
+                        Quickly find restaurants and food
+                        that match your cravings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="why-card">
+
+                    <div class="why-icon">
+                        <i class="bi bi-phone"></i>
+                    </div>
+
+                    <h3>
+                        Simple Ordering
+                    </h3>
+
+                    <p>
+                        Browse menus, add items to your cart
+                        and place your order with ease.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="why-card">
+
+                    <div class="why-icon">
+                        <i class="bi bi-clock"></i>
+                    </div>
+
+                    <h3>
+                        Fast Service
+                    </h3>
+
+                    <p>
+                        Get your favorite meals delivered
+                        conveniently to your doorstep.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="why-card">
+
+                    <div class="why-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+
+                    <h3>
+                        Trusted Experience
+                    </h3>
+
+                    <p>
+                        We aim to provide a reliable and
+                        enjoyable experience every time.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
      STATS
-===================================== -->
+========================================= -->
 
 <section class="about-stats">
 
@@ -182,7 +465,7 @@ Foodie | About Us
             <div class="col-6 col-md-3">
 
                 <strong>
-                    500+
+                    6+
                 </strong>
 
                 <span>
@@ -191,38 +474,41 @@ Foodie | About Us
 
             </div>
 
+
             <div class="col-6 col-md-3">
 
                 <strong>
-                    10K+
+                    30+
                 </strong>
 
                 <span>
-                    Happy Customers
+                    Food Items
                 </span>
 
             </div>
 
+
             <div class="col-6 col-md-3">
 
                 <strong>
-                    50K+
+                    4.8+
                 </strong>
 
                 <span>
-                    Orders Delivered
+                    Average Rating
                 </span>
 
             </div>
 
+
             <div class="col-6 col-md-3">
 
                 <strong>
-                    4.9/5
+                    100%
                 </strong>
 
                 <span>
-                    Customer Rating
+                    Foodie Experience
                 </span>
 
             </div>
@@ -232,5 +518,47 @@ Foodie | About Us
     </div>
 
 </section>
+
+
+
+<!-- =========================================
+     FINAL CTA
+========================================= -->
+
+<section class="about-cta">
+
+    <div class="container">
+
+        <div class="cta-content">
+
+            <span class="section-label">
+                Ready to Eat?
+            </span>
+
+            <h2>
+                Your Next Favorite Meal
+                Is Just a Click Away.
+            </h2>
+
+            <p>
+                Explore restaurants, discover delicious food
+                and order something you'll love today.
+            </p>
+
+            <a href="{% url 'menu' %}"
+               class="about-btn">
+
+                Explore Menu
+
+                <i class="bi bi-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 {% endblock %}

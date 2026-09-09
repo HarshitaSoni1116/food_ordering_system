@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Foodie Blog | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/footer-pages.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="footer-page">
+
+<div class="container">
+
+    <div class="footer-page-hero">
+
+        <span class="page-badge">
+            <i class="bi bi-journal-text"></i>
+            Foodie Blog
+        </span>
+
+        <h1>Stories, Food & Inspiration</h1>
+
+        <p>
+            Discover food ideas, restaurant stories and
+            tips to make every meal special.
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+
+            <article class="blog-card">
+
+                <div class="blog-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80"
+                        alt="Pizza">
+                </div>
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        Food Guide
+                    </span>
+
+                    <h3>
+                        How to Choose the Perfect Pizza
+                    </h3>
+
+                    <p>
+                        From classic Margherita to loaded
+                        veggie pizzas, discover your perfect slice.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="col-md-6 col-lg-4">
+
+            <article class="blog-card">
+
+                <div class="blog-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+                        alt="Indian food">
+                </div>
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        Indian Food
+                    </span>
+
+                    <h3>
+                        Exploring the Flavours of India
+                    </h3>
+
+                    <p>
+                        Discover some of India's most loved
+                        dishes and regional flavours.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="col-md-6 col-lg-4">
+
+            <article class="blog-card">
+
+                <div class="blog-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80"
+                        alt="Dessert">
+                </div>
+
+                <div class="blog-content">
+
+                    <span class="blog-category">
+                        Desserts
+                    </span>
+
+                    <h3>
+                        Sweet Treats Worth Trying
+                    </h3>
+
+                    <p>
+                        End your meal on a delicious note with
+                        these irresistible dessert choices.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}

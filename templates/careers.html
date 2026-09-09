@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Careers | Foodie{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/footer-pages.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="footer-page">
+
+<div class="container">
+
+    <div class="footer-page-hero">
+
+        <span class="page-badge">
+            <i class="bi bi-briefcase"></i>
+            Join Foodie
+        </span>
+
+        <h1>Build the Future of Food</h1>
+
+        <p>
+            We're looking for passionate people who want
+            to build technology that makes food ordering better.
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+        <div class="col-md-6">
+
+            <div class="job-card">
+
+                <h3>Frontend Developer</h3>
+
+                <div class="job-meta">
+                    <span>Full Time</span>
+                    <span>Remote</span>
+                    <span>React</span>
+                </div>
+
+                <p>
+                    Build beautiful, responsive and user-friendly
+                    experiences for Foodie customers.
+                </p>
+
+                <a href="{% url 'contact' %}"
+                   class="btn foodie-submit-btn">
+                    Apply Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6">
+
+            <div class="job-card">
+
+                <h3>Backend Developer</h3>
+
+                <div class="job-meta">
+                    <span>Full Time</span>
+                    <span>Remote</span>
+                    <span>Django</span>
+                </div>
+
+                <p>
+                    Develop reliable APIs, databases and
+                    backend systems powering Foodie.
+                </p>
+
+                <a href="{% url 'contact' %}"
+                   class="btn foodie-submit-btn">
+                    Apply Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6">
+
+            <div class="job-card">
+
+                <h3>UI/UX Designer</h3>
+
+                <div class="job-meta">
+                    <span>Full Time</span>
+                    <span>Remote</span>
+                    <span>Design</span>
+                </div>
+
+                <p>
+                    Create simple, attractive and delightful
+                    experiences for our customers.
+                </p>
+
+                <a href="{% url 'contact' %}"
+                   class="btn foodie-submit-btn">
+                    Apply Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6">
+
+            <div class="job-card">
+
+                <h3>Restaurant Success Manager</h3>
+
+                <div class="job-meta">
+                    <span>Full Time</span>
+                    <span>Jabalpur</span>
+                    <span>Operations</span>
+                </div>
+
+                <p>
+                    Help restaurant partners grow their
+                    business through Foodie.
+                </p>
+
+                <a href="{% url 'contact' %}"
+                   class="btn foodie-submit-btn">
+                    Apply Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}
