@@ -1,16 +1,18 @@
 from django.contrib import admin
 from django.urls import path, include
-from django.shortcuts import render,redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from restaurants.models import Restaurant, FoodItem
-from orders.models import Order
-from accounts.views import profile_view
-from restaurants.models import Restaurant, FoodItem
+
 from django.db.models import Q
 from django.conf import settings
 from django.conf.urls.static import static
 from django.core.mail import send_mail
 from django.contrib import messages
+
+from restaurants.models import Restaurant, FoodItem
+from orders.models import Order
+from accounts.views import profile_view
+from accounts.models import Profile
 # =========================
 # HOME
 # =========================
@@ -183,11 +185,15 @@ def cart(request):
     return render(request, "cart.html")
 
 
-@login_required(login_url="/login/")
+@login_required
 def checkout(request):
+    profile, created = Profile.objects.get_or_create(user=request.user)
+
+    addresses = request.user.addresses.all()
+
     return render(request, "checkout.html", {
-        "user": request.user,
-        "profile": request.user.profile,
+        "profile": profile,
+        "addresses": addresses,
     })
 
 

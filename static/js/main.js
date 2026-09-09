@@ -141,3 +141,83 @@ function updateCartCount() {
 
     cartCount.textContent = totalItems;
 }
+function toggleUserMenu() {
+    const dropdown = document.getElementById("userDropdown");
+
+    if (dropdown) {
+        dropdown.classList.toggle("show");
+    }
+}
+
+
+// Close dropdown when clicking outside
+document.addEventListener("click", function (event) {
+
+    const userMenu = document.querySelector(".user-menu");
+    const dropdown = document.getElementById("userDropdown");
+
+    if (
+        dropdown &&
+        userMenu &&
+        !userMenu.contains(event.target)
+    ) {
+        dropdown.classList.remove("show");
+    }
+
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const addButtons = document.querySelectorAll(".add-food-btn");
+
+    addButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const foodId = this.dataset.foodId;
+            const foodName = this.dataset.foodName;
+            const foodPrice = parseFloat(this.dataset.foodPrice);
+            const foodImage = this.dataset.foodImage;
+            const restaurant = this.dataset.restaurant;
+
+            let cart = JSON.parse(localStorage.getItem("foodieCart")) || [];
+
+            const existingItem = cart.find(
+                item => String(item.id) === String(foodId)
+            );
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: foodId,
+                    name: foodName,
+                    price: foodPrice,
+                    image: foodImage,
+                    restaurant: restaurant,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem("foodieCart", JSON.stringify(cart));
+
+            // Update navbar cart count
+            if (typeof updateCartCount === "function") {
+                updateCartCount();
+            }
+
+            // Button feedback
+            const originalHTML = this.innerHTML;
+
+            this.innerHTML = '<i class="bi bi-check-lg"></i> Added';
+            this.classList.add("added");
+
+            setTimeout(() => {
+                this.innerHTML = originalHTML;
+                this.classList.remove("added");
+            }, 1200);
+        });
+
+    });
+
+});

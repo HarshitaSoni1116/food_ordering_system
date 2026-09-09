@@ -6,7 +6,10 @@ from .views import (
     add_address,
     edit_address,
     delete_address,
+    forgot_password,
+    profile_view,
 )
+from .views import reset_password
 
 
 urlpatterns = [
@@ -29,4 +32,7 @@ path(
     delete_address,
     name="delete_address"
 ),
+path("reset-password/", reset_password, name="reset_password"),
+
+path("forgot-password/", forgot_password, name="forgot_password"),
 ]

@@ -569,3 +569,92 @@
     }
 
 }
+/* =========================================
+   FOOD MENU GRID
+========================================= */
+
+.food-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+    width: 100%;
+}
+
+
+/* Food Card */
+
+.food-card {
+    width: 100%;
+    min-width: 0;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+
+/* Food Image */
+
+.food-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Food Content */
+
+.food-content {
+    padding: 16px;
+}
+
+.food-content h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.food-content h3 a {
+    color: #222;
+    text-decoration: none;
+}
+
+.food-content p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+
+    .food-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 576px) {
+
+    .food-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .food-image {
+        height: 210px;
+    }
+
+}

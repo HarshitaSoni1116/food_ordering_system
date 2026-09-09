@@ -178,58 +178,12 @@
                 </p>
             </div>
 
-            <div class="food-search">
-
-                <i class="bi bi-search"></i>
-
-                <input
-                    type="text"
-                    placeholder="Search food..."
-                    id="foodSearch"
-                >
-
-            </div>
+        
 
         </div>
 
 
-        <!-- FOOD CATEGORIES -->
-
-        <div class="food-categories">
-
-            <button class="category-btn active">
-                All
-            </button>
-
-            <button class="category-btn">
-                Starters
-            </button>
-
-            <button class="category-btn">
-                Main Course
-            </button>
-
-            <button class="category-btn">
-                Pizza
-            </button>
-
-            <button class="category-btn">
-                Burgers
-            </button>
-
-            <button class="category-btn">
-                Chinese
-            </button>
-
-            <button class="category-btn">
-                Desserts
-            </button>
-
-            <button class="category-btn">
-                Drinks
-            </button>
-
-        </div>
+        
 
 
         <!-- FOOD GRID -->
@@ -276,16 +230,18 @@
 
         <div class="food-content">
 
-            <h3>
-    <a href="{% url 'food_detail' food.id %}">
-    {% if food.image %}
-        <img src="{{ food.image.url }}" alt="{{ food.name }}">
-    {% else %}
-        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80"
-             alt="{{ food.name }}">
-    {% endif %}
-</a>
-</h3>
+            
+
+    <h3>
+        <a href="{% url 'food_detail' food.id %}">
+            {{ food.name }}
+        </a>
+    </h3>
+
+    <p>
+        {{ food.description }}
+    </p>
+
 
             <p>
                 {{ food.description }}
@@ -297,12 +253,17 @@
                 <strong>₹{{ food.price }}</strong>
 
                 <button
-                    class="add-food-btn"
-                    data-food-id="{{ food.id }}"
-                >
-                    <i class="bi bi-plus-lg"></i>
-                    Add
-                </button>
+    class="add-food-btn"
+    type="button"
+    data-food-id="{{ food.id }}"
+    data-food-name="{{ food.name }}"
+    data-food-price="{{ food.price }}"
+    data-food-image="{% if food.image %}{{ food.image.url }}{% endif %}"
+    data-restaurant="{{ restaurant.name }}"
+>
+    <i class="bi bi-plus-lg"></i>
+    Add
+</button>
 
             </div>
 
@@ -432,25 +393,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* =========================
-       FAVORITE BUTTON
-    ========================= */
-
-    const favoriteButtons =
-        document.querySelectorAll(".food-favorite");
-
-    favoriteButtons.forEach(button => {
-
-        button.addEventListener("click", function () {
-
-            const icon = this.querySelector("i");
-
-            icon.classList.toggle("bi-heart");
-            icon.classList.toggle("bi-heart-fill");
-
-        });
-
-    });
 
 
     /* =========================
