@@ -13,7 +13,7 @@ from restaurants.models import Restaurant, FoodItem
 from orders.models import Order
 from accounts.views import profile_view
 from accounts.models import Profile
-from django.conf.urls.static import static
+from django.views.static import serve
 # =========================
 # HOME
 # =========================
@@ -527,7 +527,11 @@ path("help-center/", help_center, name="help_center"),
 path("partner/", partner, name="partner"),
 
 ]
-urlpatterns += static(
-    settings.MEDIA_URL,
-    document_root=settings.MEDIA_ROOT
-)
+urlpatterns += [
+    path(
+        "media/<path:path>",
+        serve,
+        {"document_root": settings.MEDIA_ROOT},
+    ),
+]
+
