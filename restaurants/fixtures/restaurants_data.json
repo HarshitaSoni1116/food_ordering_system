@@ -52,7 +52,7 @@
     "address": "Vijay Nagar,Jabalpur",
     "city": "Jabalpur",
     "cuisine_type": "Chinese",
-    "image": "restaurants/Dragon_bowl.jpg",
+    "image": "restaurants/Dragon_Bowl.jpg",
     "rating": "4.5",
     "delivery_time": 28,
     "delivery_fee": "35.00",
@@ -87,8 +87,8 @@
   "model": "restaurants.restaurant",
   "pk": 6,
   "fields": {
-    "name": "Café Mocha",
-    "description": "A cosy café serving handcrafted coffee, refreshing shakes, sandwiches and indulgent desserts.",
+    "name": "CafÃ© Mocha",
+    "description": "A cosy cafÃ© serving handcrafted coffee, refreshing shakes, sandwiches and indulgent desserts.",
     "phone": "9876434983",
     "email": "cafemocha@gmail.com",
     "address": "Napier Town ,Jabalpur",
@@ -527,7 +527,7 @@
   "fields": {
     "restaurant": 5,
     "name": "Spicy Mexican Burger",
-    "description": "a juicy grilled patty topped with melted cheese, spicy jalapeños, fresh salsa, creamy guacamole, and a zesty chipotle sauce.",
+    "description": "a juicy grilled patty topped with melted cheese, spicy jalapeÃ±os, fresh salsa, creamy guacamole, and a zesty chipotle sauce.",
     "category": "Burger",
     "price": "219.00",
     "image": "food/Spicy_Mexican_Burger.jpg",
@@ -598,7 +598,7 @@
   "pk": 29,
   "fields": {
     "restaurant": 6,
-    "name": "Café Latte",
+    "name": "CafÃ© Latte",
     "description": "a smooth, balanced blend of rich espresso shots and velvety steamed milk, topped with a light layer of creamy foam.",
     "category": "Beverages",
     "price": "149.00",
